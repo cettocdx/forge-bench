@@ -54,6 +54,7 @@ Official runs only, pooled from `runs/` and computed by `harness/summarize.py` o
 | `harness/polyglot_tasks.py` | Builds the polyglot Python tasks from Aider's benchmark at a pinned commit, and checks each one |
 | `harness/swe_tasks.py` | SWE-bench: the seeded samples (Lite; Verified's hard instances), repositories at their base commits, and grading with the official harness |
 | `harness/summarize.py` | Turns `runs/` into `results/summary.json` (what the benchmark page shows) |
+| `harness/check_runs.py` | Checks that no counted run of either agent has an infrastructure error (`results/integrity.txt`) |
 | `harness/report.py` | A quick table from any result files |
 | `runs/<id>/` | One folder per run: `results.jsonl` (verbatim), `meta.json` (setup), `run.json` (label, kind) and, for Forge, `traces/` (each run's conversation) |
 | `results/summary.json` | Every run aggregated, plus the official comparison |
@@ -63,7 +64,8 @@ Official runs only, pooled from `runs/` and computed by `harness/summarize.py` o
 Forge's runner, `rift-bench`, is on the [releases page](../../releases): a build of Forge's Rust core that runs tasks
 with no interface, the exact build every official Forge run used (its version names the source commit). It uses your
 own OpenRouter key, held in memory only. It is not notarized: check its SHA-256 against the release, then remove the
-quarantine flag macOS puts on downloads.
+quarantine flag macOS puts on downloads. If you stop this build mid-run it can leave its `rift-egress-proxy-*`
+container running in Docker; later builds remove their sandbox when stopped.
 
 ## Run it yourself
 
@@ -71,8 +73,9 @@ You need Docker, [Claude Code](https://docs.claude.com/en/docs/claude-code) sign
 [OpenRouter](https://openrouter.ai) key. A full run of both agents (62 tasks, two repeats each) costs a few dollars.
 
 ```bash
-# 1. check that every recorded file is unchanged
+# 1. check that every recorded file is unchanged, and that no counted run has an infrastructure error
 shasum -a 256 -c MANIFEST.sha256
+python3 harness/check_runs.py
 
 # 2. build the polyglot tasks and check you have the same set
 git clone https://github.com/Aider-AI/polyglot-benchmark /tmp/pb && git -C /tmp/pb checkout 7e0611e

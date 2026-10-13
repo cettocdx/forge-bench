@@ -38,6 +38,11 @@ Three samples of [SWE-bench](https://www.swebench.com): real GitHub issues in re
 the benchmark Aider reported its SWE-bench results on; SWE-bench Verified's issues carry an estimate, by
 SWE-bench's annotators, of how long an engineer needs to fix them.
 
+This uses Aider's SWE-bench in the sense of its dataset and its grading: SWE-bench Lite, judged by the official
+SWE-bench harness, one attempt per instance. The agents compared are Forge and Claude Code; Aider itself is not
+run. Aider's published score covers all 300 Lite instances; here 40 of them are used (two seeded samples of 20),
+plus 10 hard Verified instances, so the resolution rates have wide intervals.
+
 | Sample | Task file | How it was drawn | Role |
 |---|---|---|---|
 | Fresh | `tasks/swe-lite-test.json` | 20 of Lite's 300, seed 20261014, none from the development sample | Measurement |
@@ -151,6 +156,20 @@ SHA-256 of the task file) and `results.jsonl` (one line per task run, exactly as
 it). Forge's later runs also have `traces/`: the whole conversation of each run (`rift-bench --traces`), so every
 token can be traced to what the model read and wrote. For runs made before the runners wrote meta files, `meta.json` is marked
 `"reconstructed": true` and was written from the runner's source.
+
+## Errors, results and the agents' own verdicts
+
+- **An infrastructure error is never counted.** `harness/check_runs.py` checks every official and ablation run of
+  both agents: no runner error, complete token usage, an official SWE-bench verdict and a valid gold patch for
+  every instance with the harness's report kept, and the same tasks run the same number of times by both agents.
+  Its output is `results/integrity.txt`; it exits with an error if anything fails.
+- **A task an agent does not solve is a result, not an error.** It is counted against that agent.
+- **An agent's end state is its own claim.** Forge ends a run SUCCEEDED, UNVERIFIED (its checks could not run or
+  prove the change, as with hidden tests or a suite that does not load in its sandbox) or FAILED (its own checks
+  still failed); Claude Code reports success. Neither decides acceptance: the hidden tests and the SWE-bench
+  harness do. Three fresh-sample runs that Forge ended FAILED were resolved by the harness.
+- Runs stopped by us, and one grading pass that hit a harness error (a run id that was not a valid Docker name),
+  were made again; the stopped runs are in `runs/` as `aborted` or `exploratory` and never counted.
 
 ## Integrity
 
