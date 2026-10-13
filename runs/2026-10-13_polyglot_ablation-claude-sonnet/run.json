@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code on Claude Sonnet 5.5",
+  "agent": "claude-code",
+  "kind": "ablation",
+  "date": "2026-10-13",
+  "notes": "Ablation: Claude Code on Claude Sonnet 5.5 instead of Opus 5.5, one repeat."
+}

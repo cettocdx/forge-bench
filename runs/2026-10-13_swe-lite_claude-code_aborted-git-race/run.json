@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code on SWE-bench (harness crash, re-run)",
+  "agent": "claude-code",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Stopped by a crash in our patch maker (git background maintenance raced the temporary folder cleanup). Fixed and re-run from scratch. Not counted."
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Forge on SWE-bench (build 4396ec6, stopped)",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Stopped after 3 instances that cost $0.50-$1.05 each, several times Claude Code: repairs of failures the change did not cause and noisy context. Fixed in later builds. Not counted."
+}

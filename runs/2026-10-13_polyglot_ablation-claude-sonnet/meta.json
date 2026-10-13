@@ -1,0 +1,35 @@
+{
+  "tool": "run_claude.py",
+  "agent": "claude-code",
+  "agent_version": "2.1.294 (Claude Code)",
+  "os": "darwin",
+  "arch": "arm64",
+  "docker": "29.8.0",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "settings": {
+    "sandbox": {
+      "enabled": true,
+      "autoAllowBashIfSandboxed": true
+    }
+  },
+  "flags": [
+    "--permission-mode",
+    "bypassPermissions",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--no-session-persistence"
+  ],
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "task_count": 34,
+  "budget_usd": 8.0,
+  "started_at_ms": 1791841309637
+}

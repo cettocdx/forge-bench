@@ -1,0 +1,7 @@
+{
+  "label": "Forge (earlier build 3fff78e, stopped)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "The first rift-bench build on the Forge set and polyglot, stopped at 115 of 124 runs when the SWE-bench runs exposed scaling bugs; superseded by the published build."
+}

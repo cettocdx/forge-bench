@@ -1,0 +1,7 @@
+{
+  "label": "Forge on SWE-bench (build 9d64c6e, stopped)",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Stopped after 2 instances: the core sent the model to repair Django test failures that existed before the change (the suite cannot load in the sandbox). Fixed in a later build. Not counted."
+}

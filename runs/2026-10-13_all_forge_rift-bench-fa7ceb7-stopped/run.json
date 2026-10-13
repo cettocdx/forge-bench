@@ -1,0 +1,7 @@
+{
+  "label": "Forge (build fa7ceb7, stopped)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Stopped after 15 runs when its SWE-bench traces showed that search returned no matches whenever its scope was a file (43 of 63 searches); superseded by the published build."
+}

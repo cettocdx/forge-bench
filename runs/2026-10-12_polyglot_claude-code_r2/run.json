@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code",
+  "agent": "claude-code",
+  "kind": "official",
+  "date": "2026-10-12",
+  "notes": "Claude Code on the 34 polyglot Python tasks, two repeats."
+}

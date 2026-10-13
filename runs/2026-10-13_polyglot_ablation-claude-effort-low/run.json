@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code, reasoning effort low",
+  "agent": "claude-code",
+  "kind": "ablation",
+  "date": "2026-10-13",
+  "notes": "Ablation: Claude Code with reasoning effort low instead of medium, one repeat."
+}

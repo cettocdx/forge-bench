@@ -1,0 +1,25 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 10.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "medium",
+  "model": "anthropic/claude-opus-5.5",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 2,
+  "started_at_ms": 1791843353544,
+  "task_count": 62,
+  "tasks": [
+    {
+      "path": "tasks/rift-28.json",
+      "sha256": "55ae5eedb909ae5e7b7c07ea7df194c47737c2b6cce9a233699a9b0e09686b5f"
+    },
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (9d64c6e)"
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Forge, effort low (earlier build 818d4f4)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "First run of the effort-low ablation, on a build before the scaling fixes; the official ablation was re-run on the published build."
+}

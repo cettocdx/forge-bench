@@ -1,0 +1,2491 @@
+[
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/slug.js",
+        "export function slugify(text) {\n  return text\n    .toLowerCase()\n    .trim()\n    .replace(/[^a-z0-9]+/g, '_')\n    .replace(/^-+|-+$/g, '');\n}\n"
+      ],
+      [
+        "test/slug.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { slugify } from '../src/slug.js';\n\ntest('joins words with dashes', () => {\n  assert.equal(slugify('Hello World'), 'hello-world');\n});\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { slugify } from '../src/slug.js';\n\ntest('collapses runs', () => assert.equal(slugify('A  --  B'), 'a-b'));\ntest('trims dashes', () => assert.equal(slugify('--x--'), 'x'));\ntest('keeps digits', () => assert.equal(slugify('Rust 2 Go'), 'rust-2-go'));\n"
+      ]
+    ],
+    "id": "t1_node_slug",
+    "node": true,
+    "reference": [
+      [
+        "src/slug.js",
+        "export function slugify(text) {\n  return text\n    .toLowerCase()\n    .trim()\n    .replace(/[^a-z0-9]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n}\n"
+      ]
+    ],
+    "request": "The slugify tests fail. Fix the bug in src/slug.js.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "shop/mod_000.py",
+        "def helper_0(x):\n    return x + 0\n\n\ndef label_0(x):\n    return f'{x}-0'\n"
+      ],
+      [
+        "shop/mod_001.py",
+        "def helper_1(x):\n    return x + 1\n\n\ndef label_1(x):\n    return f'{x}-1'\n"
+      ],
+      [
+        "shop/mod_002.py",
+        "def helper_2(x):\n    return x + 2\n\n\ndef label_2(x):\n    return f'{x}-2'\n"
+      ],
+      [
+        "shop/mod_003.py",
+        "def helper_3(x):\n    return x + 3\n\n\ndef label_3(x):\n    return f'{x}-3'\n"
+      ],
+      [
+        "shop/mod_004.py",
+        "def helper_4(x):\n    return x + 4\n\n\ndef label_4(x):\n    return f'{x}-4'\n"
+      ],
+      [
+        "shop/mod_005.py",
+        "def helper_5(x):\n    return x + 5\n\n\ndef label_5(x):\n    return f'{x}-5'\n"
+      ],
+      [
+        "shop/mod_006.py",
+        "def helper_6(x):\n    return x + 6\n\n\ndef label_6(x):\n    return f'{x}-6'\n"
+      ],
+      [
+        "shop/mod_007.py",
+        "def helper_7(x):\n    return x + 7\n\n\ndef label_7(x):\n    return f'{x}-7'\n"
+      ],
+      [
+        "shop/mod_008.py",
+        "def helper_8(x):\n    return x + 8\n\n\ndef label_8(x):\n    return f'{x}-8'\n"
+      ],
+      [
+        "shop/mod_009.py",
+        "def helper_9(x):\n    return x + 9\n\n\ndef label_9(x):\n    return f'{x}-9'\n"
+      ],
+      [
+        "shop/mod_010.py",
+        "def helper_10(x):\n    return x + 10\n\n\ndef label_10(x):\n    return f'{x}-10'\n"
+      ],
+      [
+        "shop/mod_011.py",
+        "def helper_11(x):\n    return x + 11\n\n\ndef label_11(x):\n    return f'{x}-11'\n"
+      ],
+      [
+        "shop/mod_012.py",
+        "def helper_12(x):\n    return x + 12\n\n\ndef label_12(x):\n    return f'{x}-12'\n"
+      ],
+      [
+        "shop/mod_013.py",
+        "def helper_13(x):\n    return x + 13\n\n\ndef label_13(x):\n    return f'{x}-13'\n"
+      ],
+      [
+        "shop/mod_014.py",
+        "def helper_14(x):\n    return x + 14\n\n\ndef label_14(x):\n    return f'{x}-14'\n"
+      ],
+      [
+        "shop/mod_015.py",
+        "def helper_15(x):\n    return x + 15\n\n\ndef label_15(x):\n    return f'{x}-15'\n"
+      ],
+      [
+        "shop/mod_016.py",
+        "def helper_16(x):\n    return x + 16\n\n\ndef label_16(x):\n    return f'{x}-16'\n"
+      ],
+      [
+        "shop/mod_017.py",
+        "def helper_17(x):\n    return x + 17\n\n\ndef label_17(x):\n    return f'{x}-17'\n"
+      ],
+      [
+        "shop/mod_018.py",
+        "def helper_18(x):\n    return x + 18\n\n\ndef label_18(x):\n    return f'{x}-18'\n"
+      ],
+      [
+        "shop/mod_019.py",
+        "def helper_19(x):\n    return x + 19\n\n\ndef label_19(x):\n    return f'{x}-19'\n"
+      ],
+      [
+        "shop/mod_020.py",
+        "def helper_20(x):\n    return x + 20\n\n\ndef label_20(x):\n    return f'{x}-20'\n"
+      ],
+      [
+        "shop/mod_021.py",
+        "def helper_21(x):\n    return x + 21\n\n\ndef label_21(x):\n    return f'{x}-21'\n"
+      ],
+      [
+        "shop/mod_022.py",
+        "def helper_22(x):\n    return x + 22\n\n\ndef label_22(x):\n    return f'{x}-22'\n"
+      ],
+      [
+        "shop/mod_023.py",
+        "def helper_23(x):\n    return x + 23\n\n\ndef label_23(x):\n    return f'{x}-23'\n"
+      ],
+      [
+        "shop/mod_024.py",
+        "def helper_24(x):\n    return x + 24\n\n\ndef label_24(x):\n    return f'{x}-24'\n"
+      ],
+      [
+        "shop/mod_025.py",
+        "def helper_25(x):\n    return x + 25\n\n\ndef label_25(x):\n    return f'{x}-25'\n"
+      ],
+      [
+        "shop/mod_026.py",
+        "def helper_26(x):\n    return x + 26\n\n\ndef label_26(x):\n    return f'{x}-26'\n"
+      ],
+      [
+        "shop/mod_027.py",
+        "def helper_27(x):\n    return x + 27\n\n\ndef label_27(x):\n    return f'{x}-27'\n"
+      ],
+      [
+        "shop/mod_028.py",
+        "def helper_28(x):\n    return x + 28\n\n\ndef label_28(x):\n    return f'{x}-28'\n"
+      ],
+      [
+        "shop/mod_029.py",
+        "def helper_29(x):\n    return x + 29\n\n\ndef label_29(x):\n    return f'{x}-29'\n"
+      ],
+      [
+        "shop/__init__.py",
+        ""
+      ],
+      [
+        "shop/pricing.py",
+        "def apply_discount(price, percent):\n    \"\"\"Price after taking `percent` percent off.\"\"\"\n    return price * percent / 100\n"
+      ],
+      [
+        "test_pricing.py",
+        "import unittest\nfrom shop.pricing import apply_discount\n\n\nclass PricingTest(unittest.TestCase):\n    def test_discount(self):\n        self.assertEqual(apply_discount(200, 25), 150)\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom shop.pricing import apply_discount\n\n\nclass Acceptance(unittest.TestCase):\n    def test_cases(self):\n        self.assertEqual(apply_discount(100, 10), 90)\n        self.assertEqual(apply_discount(50, 100), 0)\n        self.assertEqual(apply_discount(80, 0), 80)\n"
+      ]
+    ],
+    "id": "t2_py_discount",
+    "node": false,
+    "reference": [
+      [
+        "shop/pricing.py",
+        "def apply_discount(price, percent):\n    \"\"\"Price after taking `percent` percent off.\"\"\"\n    return price * (100 - percent) / 100\n"
+      ]
+    ],
+    "request": "apply_discount returns the wrong price. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "calc.py",
+        "import json\n\n\ndef limit_for(kind):\n    with open('config/limits.json') as f:\n        return json.load(f)[kind]\n\n\ndef clamp(value, kind):\n    return min(value, limit_for(kind))\n"
+      ],
+      [
+        "test_calc.py",
+        "import unittest\nfrom calc import clamp\n\n\nclass LimitsTest(unittest.TestCase):\n    def test_upload_limit_is_100(self):\n        self.assertEqual(clamp(500, 'upload'), 100)\n"
+      ],
+      [
+        "config/limits.json",
+        "{\"upload\": 1000, \"download\": 50}\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom calc import clamp\n\n\nclass Acceptance(unittest.TestCase):\n    def test_limits(self):\n        self.assertEqual(clamp(50, 'upload'), 50)\n        self.assertEqual(clamp(200, 'upload'), 100)\n        self.assertEqual(clamp(60, 'download'), 50)\n"
+      ]
+    ],
+    "id": "t3_py_config",
+    "node": false,
+    "reference": [
+      [
+        "config/limits.json",
+        "{\"upload\": 100, \"download\": 50}\n"
+      ]
+    ],
+    "request": "The upload limit test fails. The upload limit must be 100. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "kv.py",
+        "def parse_kv(text):\n    \"\"\"Parse 'a=1;b=2' into {'a': 1, 'b': 2}. Values are integers. Empty segments and spaces around keys and values are ignored.\"\"\"\n    raise NotImplementedError\n"
+      ],
+      [
+        "test_kv.py",
+        "import unittest\nfrom kv import parse_kv\n\n\nclass KvTest(unittest.TestCase):\n    def test_basic(self):\n        self.assertEqual(parse_kv('a=1;b=2'), {'a': 1, 'b': 2})\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom kv import parse_kv\n\n\nclass Acceptance(unittest.TestCase):\n    def test_cases(self):\n        self.assertEqual(parse_kv(' a = 1 ;; b=20; '), {'a': 1, 'b': 20})\n        self.assertEqual(parse_kv(''), {})\n        self.assertEqual(parse_kv('x=-3'), {'x': -3})\n"
+      ]
+    ],
+    "id": "t4_py_kv",
+    "node": false,
+    "reference": [
+      [
+        "kv.py",
+        "def parse_kv(text):\n    \"\"\"Parse 'a=1;b=2' into {'a': 1, 'b': 2}. Values are integers. Empty segments and spaces around keys and values are ignored.\"\"\"\n    out = {}\n    for part in text.split(';'):\n        if not part.strip():\n            continue\n        key, value = part.split('=', 1)\n        out[key.strip()] = int(value.strip())\n    return out\n"
+      ]
+    ],
+    "request": "Implement parse_kv in kv.py as its docstring describes.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "calc.py",
+        "def add(a, b):\n    return a - b\n"
+      ],
+      [
+        "test_calc.py",
+        "import unittest\nfrom calc import add\n\n\nclass T(unittest.TestCase):\n    def test_add(self):\n        self.assertEqual(add(2, 3), 5)\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom calc import add\n\n\nclass Acceptance(unittest.TestCase):\n    def test_cases(self):\n        self.assertEqual(add(-1, 1), 0)\n        self.assertEqual(add(10, 5), 15)\n"
+      ]
+    ],
+    "id": "t5_py_add",
+    "node": false,
+    "reference": [
+      [
+        "calc.py",
+        "def add(a, b):\n    return a + b\n"
+      ]
+    ],
+    "request": "add() returns wrong results. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom fizzbuzz import fizzbuzz\n\n\nclass Acceptance(unittest.TestCase):\n    def test_15(self):\n        self.assertEqual(fizzbuzz(15), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'])\n        self.assertEqual(fizzbuzz(0), [])\n"
+      ]
+    ],
+    "id": "t6_py_empty_fizzbuzz",
+    "node": false,
+    "reference": [
+      [
+        "fizzbuzz.py",
+        "def fizzbuzz(n):\n    out = []\n    for i in range(1, n + 1):\n        if i % 15 == 0:\n            out.append('FizzBuzz')\n        elif i % 3 == 0:\n            out.append('Fizz')\n        elif i % 5 == 0:\n            out.append('Buzz')\n        else:\n            out.append(str(i))\n    return out\n"
+      ]
+    ],
+    "request": "Create fizzbuzz.py with fizzbuzz(n) returning the list of strings for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, 'FizzBuzz' for both, otherwise the number. Add tests.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/text.js",
+        "export function reverse(s) {\n  return [...s].reverse().join('');\n}\n"
+      ],
+      [
+        "test/text.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { reverse } from '../src/text.js';\n\ntest('reverse', () => assert.equal(reverse('abc'), 'cba'));\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport * as text from '../src/text.js';\n\ntest('capitalize', () => {\n  assert.equal(text.capitalize('hello'), 'Hello');\n  assert.equal(text.capitalize(''), '');\n  assert.equal(text.capitalize('éa'), 'Éa');\n  assert.equal(text.capitalize('aBC'), 'ABC');\n});\n"
+      ]
+    ],
+    "id": "t7_node_feature",
+    "node": true,
+    "reference": [
+      [
+        "src/text.js",
+        "export function reverse(s) {\n  return [...s].reverse().join('');\n}\n\nexport function capitalize(word) {\n  if (word.length === 0) return word;\n  const [first, ...rest] = word;\n  return first.toUpperCase() + rest.join('');\n}\n"
+      ]
+    ],
+    "request": "Add and export capitalize(word) in src/text.js: the first character upper-cased, the rest unchanged; an empty string stays empty. Add a test.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "ops.py",
+        "def divide(a, b):\n    return a / b\n"
+      ],
+      [
+        "test_placeholder.py",
+        "import unittest\n\n\nclass Placeholder(unittest.TestCase):\n    def test_nothing(self):\n        self.assertTrue(True)\n"
+      ]
+    ],
+    "held_out": false,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import os\nimport unittest\nfrom ops import divide\n\n\nclass Acceptance(unittest.TestCase):\n    def test_tests_exist(self):\n        self.assertTrue(os.path.exists('test_ops.py'))\n\n    def test_behaviour(self):\n        self.assertEqual(divide(6, 3), 2)\n        with self.assertRaises(ValueError):\n            divide(1, 0)\n"
+      ]
+    ],
+    "id": "t8_py_missing_test",
+    "node": false,
+    "reference": [
+      [
+        "ops.py",
+        "def divide(a, b):\n    if b == 0:\n        raise ValueError('division by zero')\n    return a / b\n"
+      ],
+      [
+        "test_ops.py",
+        "import unittest\nfrom ops import divide\n\n\nclass OpsTest(unittest.TestCase):\n    def test_divide(self):\n        self.assertEqual(divide(6, 3), 2)\n\n    def test_zero(self):\n        with self.assertRaises(ValueError):\n            divide(1, 0)\n"
+      ]
+    ],
+    "request": "ops.py has divide(a, b) without tests. Make divide raise ValueError when b is 0, and add unit tests in test_ops.py for normal division and division by zero.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "dates.py",
+        "def is_leap(year):\n    return year % 4 == 0\n"
+      ],
+      [
+        "test_dates.py",
+        "import unittest\nfrom dates import is_leap\n\n\nclass T(unittest.TestCase):\n    def test_basic(self):\n        self.assertTrue(is_leap(2024))\n        self.assertFalse(is_leap(2023))\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom dates import is_leap\n\n\nclass Acceptance(unittest.TestCase):\n    def test_centuries(self):\n        self.assertFalse(is_leap(1900))\n        self.assertTrue(is_leap(2000))\n        self.assertFalse(is_leap(2100))\n        self.assertTrue(is_leap(2024))\n"
+      ]
+    ],
+    "id": "h1_py_leap",
+    "node": false,
+    "reference": [
+      [
+        "dates.py",
+        "def is_leap(year):\n    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n"
+      ]
+    ],
+    "request": "is_leap gives the wrong answer for some century years. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "inventory/mod_000.py",
+        "def helper_0(x):\n    return x + 0\n\n\ndef label_0(x):\n    return f'{x}-0'\n"
+      ],
+      [
+        "inventory/mod_001.py",
+        "def helper_1(x):\n    return x + 1\n\n\ndef label_1(x):\n    return f'{x}-1'\n"
+      ],
+      [
+        "inventory/mod_002.py",
+        "def helper_2(x):\n    return x + 2\n\n\ndef label_2(x):\n    return f'{x}-2'\n"
+      ],
+      [
+        "inventory/mod_003.py",
+        "def helper_3(x):\n    return x + 3\n\n\ndef label_3(x):\n    return f'{x}-3'\n"
+      ],
+      [
+        "inventory/mod_004.py",
+        "def helper_4(x):\n    return x + 4\n\n\ndef label_4(x):\n    return f'{x}-4'\n"
+      ],
+      [
+        "inventory/mod_005.py",
+        "def helper_5(x):\n    return x + 5\n\n\ndef label_5(x):\n    return f'{x}-5'\n"
+      ],
+      [
+        "inventory/mod_006.py",
+        "def helper_6(x):\n    return x + 6\n\n\ndef label_6(x):\n    return f'{x}-6'\n"
+      ],
+      [
+        "inventory/mod_007.py",
+        "def helper_7(x):\n    return x + 7\n\n\ndef label_7(x):\n    return f'{x}-7'\n"
+      ],
+      [
+        "inventory/mod_008.py",
+        "def helper_8(x):\n    return x + 8\n\n\ndef label_8(x):\n    return f'{x}-8'\n"
+      ],
+      [
+        "inventory/mod_009.py",
+        "def helper_9(x):\n    return x + 9\n\n\ndef label_9(x):\n    return f'{x}-9'\n"
+      ],
+      [
+        "inventory/mod_010.py",
+        "def helper_10(x):\n    return x + 10\n\n\ndef label_10(x):\n    return f'{x}-10'\n"
+      ],
+      [
+        "inventory/mod_011.py",
+        "def helper_11(x):\n    return x + 11\n\n\ndef label_11(x):\n    return f'{x}-11'\n"
+      ],
+      [
+        "inventory/mod_012.py",
+        "def helper_12(x):\n    return x + 12\n\n\ndef label_12(x):\n    return f'{x}-12'\n"
+      ],
+      [
+        "inventory/mod_013.py",
+        "def helper_13(x):\n    return x + 13\n\n\ndef label_13(x):\n    return f'{x}-13'\n"
+      ],
+      [
+        "inventory/mod_014.py",
+        "def helper_14(x):\n    return x + 14\n\n\ndef label_14(x):\n    return f'{x}-14'\n"
+      ],
+      [
+        "inventory/mod_015.py",
+        "def helper_15(x):\n    return x + 15\n\n\ndef label_15(x):\n    return f'{x}-15'\n"
+      ],
+      [
+        "inventory/mod_016.py",
+        "def helper_16(x):\n    return x + 16\n\n\ndef label_16(x):\n    return f'{x}-16'\n"
+      ],
+      [
+        "inventory/mod_017.py",
+        "def helper_17(x):\n    return x + 17\n\n\ndef label_17(x):\n    return f'{x}-17'\n"
+      ],
+      [
+        "inventory/mod_018.py",
+        "def helper_18(x):\n    return x + 18\n\n\ndef label_18(x):\n    return f'{x}-18'\n"
+      ],
+      [
+        "inventory/mod_019.py",
+        "def helper_19(x):\n    return x + 19\n\n\ndef label_19(x):\n    return f'{x}-19'\n"
+      ],
+      [
+        "inventory/mod_020.py",
+        "def helper_20(x):\n    return x + 20\n\n\ndef label_20(x):\n    return f'{x}-20'\n"
+      ],
+      [
+        "inventory/mod_021.py",
+        "def helper_21(x):\n    return x + 21\n\n\ndef label_21(x):\n    return f'{x}-21'\n"
+      ],
+      [
+        "inventory/mod_022.py",
+        "def helper_22(x):\n    return x + 22\n\n\ndef label_22(x):\n    return f'{x}-22'\n"
+      ],
+      [
+        "inventory/mod_023.py",
+        "def helper_23(x):\n    return x + 23\n\n\ndef label_23(x):\n    return f'{x}-23'\n"
+      ],
+      [
+        "inventory/mod_024.py",
+        "def helper_24(x):\n    return x + 24\n\n\ndef label_24(x):\n    return f'{x}-24'\n"
+      ],
+      [
+        "inventory/mod_025.py",
+        "def helper_25(x):\n    return x + 25\n\n\ndef label_25(x):\n    return f'{x}-25'\n"
+      ],
+      [
+        "inventory/mod_026.py",
+        "def helper_26(x):\n    return x + 26\n\n\ndef label_26(x):\n    return f'{x}-26'\n"
+      ],
+      [
+        "inventory/mod_027.py",
+        "def helper_27(x):\n    return x + 27\n\n\ndef label_27(x):\n    return f'{x}-27'\n"
+      ],
+      [
+        "inventory/mod_028.py",
+        "def helper_28(x):\n    return x + 28\n\n\ndef label_28(x):\n    return f'{x}-28'\n"
+      ],
+      [
+        "inventory/mod_029.py",
+        "def helper_29(x):\n    return x + 29\n\n\ndef label_29(x):\n    return f'{x}-29'\n"
+      ],
+      [
+        "inventory/mod_030.py",
+        "def helper_30(x):\n    return x + 30\n\n\ndef label_30(x):\n    return f'{x}-30'\n"
+      ],
+      [
+        "inventory/mod_031.py",
+        "def helper_31(x):\n    return x + 31\n\n\ndef label_31(x):\n    return f'{x}-31'\n"
+      ],
+      [
+        "inventory/mod_032.py",
+        "def helper_32(x):\n    return x + 32\n\n\ndef label_32(x):\n    return f'{x}-32'\n"
+      ],
+      [
+        "inventory/mod_033.py",
+        "def helper_33(x):\n    return x + 33\n\n\ndef label_33(x):\n    return f'{x}-33'\n"
+      ],
+      [
+        "inventory/mod_034.py",
+        "def helper_34(x):\n    return x + 34\n\n\ndef label_34(x):\n    return f'{x}-34'\n"
+      ],
+      [
+        "inventory/mod_035.py",
+        "def helper_35(x):\n    return x + 35\n\n\ndef label_35(x):\n    return f'{x}-35'\n"
+      ],
+      [
+        "inventory/mod_036.py",
+        "def helper_36(x):\n    return x + 36\n\n\ndef label_36(x):\n    return f'{x}-36'\n"
+      ],
+      [
+        "inventory/mod_037.py",
+        "def helper_37(x):\n    return x + 37\n\n\ndef label_37(x):\n    return f'{x}-37'\n"
+      ],
+      [
+        "inventory/mod_038.py",
+        "def helper_38(x):\n    return x + 38\n\n\ndef label_38(x):\n    return f'{x}-38'\n"
+      ],
+      [
+        "inventory/mod_039.py",
+        "def helper_39(x):\n    return x + 39\n\n\ndef label_39(x):\n    return f'{x}-39'\n"
+      ],
+      [
+        "inventory/mod_040.py",
+        "def helper_40(x):\n    return x + 40\n\n\ndef label_40(x):\n    return f'{x}-40'\n"
+      ],
+      [
+        "inventory/mod_041.py",
+        "def helper_41(x):\n    return x + 41\n\n\ndef label_41(x):\n    return f'{x}-41'\n"
+      ],
+      [
+        "inventory/mod_042.py",
+        "def helper_42(x):\n    return x + 42\n\n\ndef label_42(x):\n    return f'{x}-42'\n"
+      ],
+      [
+        "inventory/mod_043.py",
+        "def helper_43(x):\n    return x + 43\n\n\ndef label_43(x):\n    return f'{x}-43'\n"
+      ],
+      [
+        "inventory/mod_044.py",
+        "def helper_44(x):\n    return x + 44\n\n\ndef label_44(x):\n    return f'{x}-44'\n"
+      ],
+      [
+        "inventory/mod_045.py",
+        "def helper_45(x):\n    return x + 45\n\n\ndef label_45(x):\n    return f'{x}-45'\n"
+      ],
+      [
+        "inventory/mod_046.py",
+        "def helper_46(x):\n    return x + 46\n\n\ndef label_46(x):\n    return f'{x}-46'\n"
+      ],
+      [
+        "inventory/mod_047.py",
+        "def helper_47(x):\n    return x + 47\n\n\ndef label_47(x):\n    return f'{x}-47'\n"
+      ],
+      [
+        "inventory/mod_048.py",
+        "def helper_48(x):\n    return x + 48\n\n\ndef label_48(x):\n    return f'{x}-48'\n"
+      ],
+      [
+        "inventory/mod_049.py",
+        "def helper_49(x):\n    return x + 49\n\n\ndef label_49(x):\n    return f'{x}-49'\n"
+      ],
+      [
+        "inventory/mod_050.py",
+        "def helper_50(x):\n    return x + 50\n\n\ndef label_50(x):\n    return f'{x}-50'\n"
+      ],
+      [
+        "inventory/mod_051.py",
+        "def helper_51(x):\n    return x + 51\n\n\ndef label_51(x):\n    return f'{x}-51'\n"
+      ],
+      [
+        "inventory/mod_052.py",
+        "def helper_52(x):\n    return x + 52\n\n\ndef label_52(x):\n    return f'{x}-52'\n"
+      ],
+      [
+        "inventory/mod_053.py",
+        "def helper_53(x):\n    return x + 53\n\n\ndef label_53(x):\n    return f'{x}-53'\n"
+      ],
+      [
+        "inventory/mod_054.py",
+        "def helper_54(x):\n    return x + 54\n\n\ndef label_54(x):\n    return f'{x}-54'\n"
+      ],
+      [
+        "inventory/mod_055.py",
+        "def helper_55(x):\n    return x + 55\n\n\ndef label_55(x):\n    return f'{x}-55'\n"
+      ],
+      [
+        "inventory/mod_056.py",
+        "def helper_56(x):\n    return x + 56\n\n\ndef label_56(x):\n    return f'{x}-56'\n"
+      ],
+      [
+        "inventory/mod_057.py",
+        "def helper_57(x):\n    return x + 57\n\n\ndef label_57(x):\n    return f'{x}-57'\n"
+      ],
+      [
+        "inventory/mod_058.py",
+        "def helper_58(x):\n    return x + 58\n\n\ndef label_58(x):\n    return f'{x}-58'\n"
+      ],
+      [
+        "inventory/mod_059.py",
+        "def helper_59(x):\n    return x + 59\n\n\ndef label_59(x):\n    return f'{x}-59'\n"
+      ],
+      [
+        "inventory/mod_060.py",
+        "def helper_60(x):\n    return x + 60\n\n\ndef label_60(x):\n    return f'{x}-60'\n"
+      ],
+      [
+        "inventory/mod_061.py",
+        "def helper_61(x):\n    return x + 61\n\n\ndef label_61(x):\n    return f'{x}-61'\n"
+      ],
+      [
+        "inventory/mod_062.py",
+        "def helper_62(x):\n    return x + 62\n\n\ndef label_62(x):\n    return f'{x}-62'\n"
+      ],
+      [
+        "inventory/mod_063.py",
+        "def helper_63(x):\n    return x + 63\n\n\ndef label_63(x):\n    return f'{x}-63'\n"
+      ],
+      [
+        "inventory/mod_064.py",
+        "def helper_64(x):\n    return x + 64\n\n\ndef label_64(x):\n    return f'{x}-64'\n"
+      ],
+      [
+        "inventory/mod_065.py",
+        "def helper_65(x):\n    return x + 65\n\n\ndef label_65(x):\n    return f'{x}-65'\n"
+      ],
+      [
+        "inventory/mod_066.py",
+        "def helper_66(x):\n    return x + 66\n\n\ndef label_66(x):\n    return f'{x}-66'\n"
+      ],
+      [
+        "inventory/mod_067.py",
+        "def helper_67(x):\n    return x + 67\n\n\ndef label_67(x):\n    return f'{x}-67'\n"
+      ],
+      [
+        "inventory/mod_068.py",
+        "def helper_68(x):\n    return x + 68\n\n\ndef label_68(x):\n    return f'{x}-68'\n"
+      ],
+      [
+        "inventory/mod_069.py",
+        "def helper_69(x):\n    return x + 69\n\n\ndef label_69(x):\n    return f'{x}-69'\n"
+      ],
+      [
+        "inventory/mod_070.py",
+        "def helper_70(x):\n    return x + 70\n\n\ndef label_70(x):\n    return f'{x}-70'\n"
+      ],
+      [
+        "inventory/mod_071.py",
+        "def helper_71(x):\n    return x + 71\n\n\ndef label_71(x):\n    return f'{x}-71'\n"
+      ],
+      [
+        "inventory/mod_072.py",
+        "def helper_72(x):\n    return x + 72\n\n\ndef label_72(x):\n    return f'{x}-72'\n"
+      ],
+      [
+        "inventory/mod_073.py",
+        "def helper_73(x):\n    return x + 73\n\n\ndef label_73(x):\n    return f'{x}-73'\n"
+      ],
+      [
+        "inventory/mod_074.py",
+        "def helper_74(x):\n    return x + 74\n\n\ndef label_74(x):\n    return f'{x}-74'\n"
+      ],
+      [
+        "inventory/mod_075.py",
+        "def helper_75(x):\n    return x + 75\n\n\ndef label_75(x):\n    return f'{x}-75'\n"
+      ],
+      [
+        "inventory/mod_076.py",
+        "def helper_76(x):\n    return x + 76\n\n\ndef label_76(x):\n    return f'{x}-76'\n"
+      ],
+      [
+        "inventory/mod_077.py",
+        "def helper_77(x):\n    return x + 77\n\n\ndef label_77(x):\n    return f'{x}-77'\n"
+      ],
+      [
+        "inventory/mod_078.py",
+        "def helper_78(x):\n    return x + 78\n\n\ndef label_78(x):\n    return f'{x}-78'\n"
+      ],
+      [
+        "inventory/mod_079.py",
+        "def helper_79(x):\n    return x + 79\n\n\ndef label_79(x):\n    return f'{x}-79'\n"
+      ],
+      [
+        "inventory/mod_080.py",
+        "def helper_80(x):\n    return x + 80\n\n\ndef label_80(x):\n    return f'{x}-80'\n"
+      ],
+      [
+        "inventory/mod_081.py",
+        "def helper_81(x):\n    return x + 81\n\n\ndef label_81(x):\n    return f'{x}-81'\n"
+      ],
+      [
+        "inventory/mod_082.py",
+        "def helper_82(x):\n    return x + 82\n\n\ndef label_82(x):\n    return f'{x}-82'\n"
+      ],
+      [
+        "inventory/mod_083.py",
+        "def helper_83(x):\n    return x + 83\n\n\ndef label_83(x):\n    return f'{x}-83'\n"
+      ],
+      [
+        "inventory/mod_084.py",
+        "def helper_84(x):\n    return x + 84\n\n\ndef label_84(x):\n    return f'{x}-84'\n"
+      ],
+      [
+        "inventory/mod_085.py",
+        "def helper_85(x):\n    return x + 85\n\n\ndef label_85(x):\n    return f'{x}-85'\n"
+      ],
+      [
+        "inventory/mod_086.py",
+        "def helper_86(x):\n    return x + 86\n\n\ndef label_86(x):\n    return f'{x}-86'\n"
+      ],
+      [
+        "inventory/mod_087.py",
+        "def helper_87(x):\n    return x + 87\n\n\ndef label_87(x):\n    return f'{x}-87'\n"
+      ],
+      [
+        "inventory/mod_088.py",
+        "def helper_88(x):\n    return x + 88\n\n\ndef label_88(x):\n    return f'{x}-88'\n"
+      ],
+      [
+        "inventory/mod_089.py",
+        "def helper_89(x):\n    return x + 89\n\n\ndef label_89(x):\n    return f'{x}-89'\n"
+      ],
+      [
+        "inventory/mod_090.py",
+        "def helper_90(x):\n    return x + 90\n\n\ndef label_90(x):\n    return f'{x}-90'\n"
+      ],
+      [
+        "inventory/mod_091.py",
+        "def helper_91(x):\n    return x + 91\n\n\ndef label_91(x):\n    return f'{x}-91'\n"
+      ],
+      [
+        "inventory/mod_092.py",
+        "def helper_92(x):\n    return x + 92\n\n\ndef label_92(x):\n    return f'{x}-92'\n"
+      ],
+      [
+        "inventory/mod_093.py",
+        "def helper_93(x):\n    return x + 93\n\n\ndef label_93(x):\n    return f'{x}-93'\n"
+      ],
+      [
+        "inventory/mod_094.py",
+        "def helper_94(x):\n    return x + 94\n\n\ndef label_94(x):\n    return f'{x}-94'\n"
+      ],
+      [
+        "inventory/mod_095.py",
+        "def helper_95(x):\n    return x + 95\n\n\ndef label_95(x):\n    return f'{x}-95'\n"
+      ],
+      [
+        "inventory/mod_096.py",
+        "def helper_96(x):\n    return x + 96\n\n\ndef label_96(x):\n    return f'{x}-96'\n"
+      ],
+      [
+        "inventory/mod_097.py",
+        "def helper_97(x):\n    return x + 97\n\n\ndef label_97(x):\n    return f'{x}-97'\n"
+      ],
+      [
+        "inventory/mod_098.py",
+        "def helper_98(x):\n    return x + 98\n\n\ndef label_98(x):\n    return f'{x}-98'\n"
+      ],
+      [
+        "inventory/mod_099.py",
+        "def helper_99(x):\n    return x + 99\n\n\ndef label_99(x):\n    return f'{x}-99'\n"
+      ],
+      [
+        "inventory/mod_100.py",
+        "def helper_100(x):\n    return x + 100\n\n\ndef label_100(x):\n    return f'{x}-100'\n"
+      ],
+      [
+        "inventory/mod_101.py",
+        "def helper_101(x):\n    return x + 101\n\n\ndef label_101(x):\n    return f'{x}-101'\n"
+      ],
+      [
+        "inventory/mod_102.py",
+        "def helper_102(x):\n    return x + 102\n\n\ndef label_102(x):\n    return f'{x}-102'\n"
+      ],
+      [
+        "inventory/mod_103.py",
+        "def helper_103(x):\n    return x + 103\n\n\ndef label_103(x):\n    return f'{x}-103'\n"
+      ],
+      [
+        "inventory/mod_104.py",
+        "def helper_104(x):\n    return x + 104\n\n\ndef label_104(x):\n    return f'{x}-104'\n"
+      ],
+      [
+        "inventory/mod_105.py",
+        "def helper_105(x):\n    return x + 105\n\n\ndef label_105(x):\n    return f'{x}-105'\n"
+      ],
+      [
+        "inventory/mod_106.py",
+        "def helper_106(x):\n    return x + 106\n\n\ndef label_106(x):\n    return f'{x}-106'\n"
+      ],
+      [
+        "inventory/mod_107.py",
+        "def helper_107(x):\n    return x + 107\n\n\ndef label_107(x):\n    return f'{x}-107'\n"
+      ],
+      [
+        "inventory/mod_108.py",
+        "def helper_108(x):\n    return x + 108\n\n\ndef label_108(x):\n    return f'{x}-108'\n"
+      ],
+      [
+        "inventory/mod_109.py",
+        "def helper_109(x):\n    return x + 109\n\n\ndef label_109(x):\n    return f'{x}-109'\n"
+      ],
+      [
+        "inventory/mod_110.py",
+        "def helper_110(x):\n    return x + 110\n\n\ndef label_110(x):\n    return f'{x}-110'\n"
+      ],
+      [
+        "inventory/mod_111.py",
+        "def helper_111(x):\n    return x + 111\n\n\ndef label_111(x):\n    return f'{x}-111'\n"
+      ],
+      [
+        "inventory/mod_112.py",
+        "def helper_112(x):\n    return x + 112\n\n\ndef label_112(x):\n    return f'{x}-112'\n"
+      ],
+      [
+        "inventory/mod_113.py",
+        "def helper_113(x):\n    return x + 113\n\n\ndef label_113(x):\n    return f'{x}-113'\n"
+      ],
+      [
+        "inventory/mod_114.py",
+        "def helper_114(x):\n    return x + 114\n\n\ndef label_114(x):\n    return f'{x}-114'\n"
+      ],
+      [
+        "inventory/mod_115.py",
+        "def helper_115(x):\n    return x + 115\n\n\ndef label_115(x):\n    return f'{x}-115'\n"
+      ],
+      [
+        "inventory/mod_116.py",
+        "def helper_116(x):\n    return x + 116\n\n\ndef label_116(x):\n    return f'{x}-116'\n"
+      ],
+      [
+        "inventory/mod_117.py",
+        "def helper_117(x):\n    return x + 117\n\n\ndef label_117(x):\n    return f'{x}-117'\n"
+      ],
+      [
+        "inventory/mod_118.py",
+        "def helper_118(x):\n    return x + 118\n\n\ndef label_118(x):\n    return f'{x}-118'\n"
+      ],
+      [
+        "inventory/mod_119.py",
+        "def helper_119(x):\n    return x + 119\n\n\ndef label_119(x):\n    return f'{x}-119'\n"
+      ],
+      [
+        "inventory/__init__.py",
+        ""
+      ],
+      [
+        "inventory/stock.py",
+        "class Stock:\n    def __init__(self, qty):\n        self.qty = qty\n\n    def reserve(self, n):\n        \"\"\"Reserve n items: True and qty lowered if at least n are available; otherwise False and qty unchanged.\"\"\"\n        if n < self.qty:\n            self.qty -= n\n            return True\n        return False\n"
+      ],
+      [
+        "test_stock.py",
+        "import unittest\nfrom inventory.stock import Stock\n\n\nclass T(unittest.TestCase):\n    def test_partial(self):\n        s = Stock(5)\n        self.assertTrue(s.reserve(2))\n        self.assertEqual(s.qty, 3)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom inventory.stock import Stock\n\n\nclass Acceptance(unittest.TestCase):\n    def test_all(self):\n        s = Stock(4)\n        self.assertTrue(s.reserve(4))\n        self.assertEqual(s.qty, 0)\n\n    def test_too_many(self):\n        s = Stock(3)\n        self.assertFalse(s.reserve(4))\n        self.assertEqual(s.qty, 3)\n"
+      ]
+    ],
+    "id": "h2_py_large_repo",
+    "node": false,
+    "reference": [
+      [
+        "inventory/stock.py",
+        "class Stock:\n    def __init__(self, qty):\n        self.qty = qty\n\n    def reserve(self, n):\n        \"\"\"Reserve n items: True and qty lowered if at least n are available; otherwise False and qty unchanged.\"\"\"\n        if n <= self.qty:\n            self.qty -= n\n            return True\n        return False\n"
+      ]
+    ],
+    "request": "Reserving exactly the remaining quantity fails. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { toRoman } from '../src/roman.js';\n\ntest('values', () => {\n  assert.equal(toRoman(1), 'I');\n  assert.equal(toRoman(4), 'IV');\n  assert.equal(toRoman(1994), 'MCMXCIV');\n  assert.equal(toRoman(3999), 'MMMCMXCIX');\n});\ntest('range', () => {\n  assert.throws(() => toRoman(0), RangeError);\n  assert.throws(() => toRoman(4000), RangeError);\n});\n"
+      ]
+    ],
+    "id": "h3_node_empty_roman",
+    "node": true,
+    "reference": [
+      [
+        "package.json",
+        "{\"name\":\"roman\",\"version\":\"1.0.0\",\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/roman.js",
+        "const TABLE = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];\n\nexport function toRoman(n) {\n  if (!Number.isInteger(n) || n < 1 || n > 3999) throw new RangeError('1..3999');\n  let out = '';\n  for (const [value, sym] of TABLE) {\n    while (n >= value) {\n      out += sym;\n      n -= value;\n    }\n  }\n  return out;\n}\n"
+      ]
+    ],
+    "request": "Create a Node.js ESM package (package.json with \"type\": \"module\" and a \"test\" script running node --test) with src/roman.js exporting toRoman(n) for integers 1..3999 that throws RangeError outside that range, plus tests.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/stats.js",
+        "export function median(nums) {\n  const s = [...nums].sort();\n  const m = Math.floor(s.length / 2);\n  return s[m];\n}\n"
+      ],
+      [
+        "test/stats.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { median } from '../src/stats.js';\n\ntest('odd', () => assert.equal(median([3, 1, 2]), 2));\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { median } from '../src/stats.js';\n\ntest('cases', () => {\n  assert.equal(median([1, 2, 3, 4]), 2.5);\n  assert.equal(median([10, 2, 33]), 10);\n  assert.equal(median([5]), 5);\n});\n"
+      ]
+    ],
+    "id": "h4_node_median",
+    "node": true,
+    "reference": [
+      [
+        "src/stats.js",
+        "export function median(nums) {\n  const s = [...nums].sort((a, b) => a - b);\n  const m = Math.floor(s.length / 2);\n  return s.length % 2 === 0 ? (s[m - 1] + s[m]) / 2 : s[m];\n}\n"
+      ]
+    ],
+    "request": "median() in src/stats.js is wrong for some inputs. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "textutils.py",
+        "def words(text):\n    return text.split()\n"
+      ],
+      [
+        "test_textutils.py",
+        "import unittest\nfrom textutils import words\n\n\nclass T(unittest.TestCase):\n    def test_words(self):\n        self.assertEqual(words('a b'), ['a', 'b'])\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom textutils import word_count\n\n\nclass Acceptance(unittest.TestCase):\n    def test_cases(self):\n        self.assertEqual(word_count(\"Hi, hi! It's\"), {'hi': 2, \"it's\": 1})\n        self.assertEqual(word_count(''), {})\n        self.assertEqual(word_count('A1 a1.'), {'a1': 2})\n"
+      ]
+    ],
+    "id": "h5_py_word_count",
+    "node": false,
+    "reference": [
+      [
+        "textutils.py",
+        "import re\n\n\ndef words(text):\n    return text.split()\n\n\ndef word_count(text):\n    counts = {}\n    for w in re.findall(r\"[A-Za-z0-9']+\", text):\n        w = w.lower()\n        counts[w] = counts.get(w, 0) + 1\n    return counts\n"
+      ]
+    ],
+    "request": "Add word_count(text) to textutils.py: a dict mapping lower-cased words to their counts, ignoring punctuation (letters, digits and apostrophes form words).",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "models.py",
+        "from dataclasses import dataclass\n\n\n@dataclass\nclass User:\n    name: str\n"
+      ],
+      [
+        "report.py",
+        "def line(user):\n    return user.name\n"
+      ],
+      [
+        "service.py",
+        "from models import User\n\n\ndef make(name):\n    return User(name)\n"
+      ],
+      [
+        "test_report.py",
+        "import unittest\nfrom models import User\nfrom report import line\n\n\nclass T(unittest.TestCase):\n    def test_line(self):\n        self.assertEqual(line(User('ann')), 'ann')\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom models import User\nfrom report import line\nfrom service import make\n\n\nclass Acceptance(unittest.TestCase):\n    def test_report(self):\n        self.assertEqual(line(User('ann', 'a@x.io')), 'ann <a@x.io>')\n        self.assertEqual(line(User('bob')), 'bob')\n\n    def test_make(self):\n        self.assertEqual(make('c', email='c@y').email, 'c@y')\n        self.assertEqual(make('d').email, '')\n"
+      ]
+    ],
+    "id": "h6_py_public_type",
+    "node": false,
+    "reference": [
+      [
+        "models.py",
+        "from dataclasses import dataclass\n\n\n@dataclass\nclass User:\n    name: str\n    email: str = ''\n"
+      ],
+      [
+        "report.py",
+        "def line(user):\n    return f'{user.name} <{user.email}>' if user.email else user.name\n"
+      ],
+      [
+        "service.py",
+        "from models import User\n\n\ndef make(name, email=''):\n    return User(name, email)\n"
+      ]
+    ],
+    "request": "Add an email field to User (a string, empty by default). Report lines must be 'name <email>' when an email is set and just 'name' otherwise. make() must accept an optional email.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "config/defaults.json",
+        "{\"timeoutSeconds\": 3}\n"
+      ],
+      [
+        "src/config.js",
+        "import { readFileSync } from 'node:fs';\n\nexport function getTimeoutMs() {\n  const cfg = JSON.parse(readFileSync(new URL('../config/defaults.json', import.meta.url), 'utf8'));\n  return cfg.timeoutSeconds * 1000;\n}\n"
+      ],
+      [
+        "test/config.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { getTimeoutMs } from '../src/config.js';\n\ntest('timeout is 30 s', () => assert.equal(getTimeoutMs(), 30000));\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { readFileSync } from 'node:fs';\nimport { getTimeoutMs } from '../src/config.js';\n\ntest('value', () => assert.equal(getTimeoutMs(), 30000));\ntest('not hard-coded', () => {\n  const src = readFileSync(new URL('../src/config.js', import.meta.url), 'utf8');\n  assert.ok(!src.includes('30000') && !/\\b30\\b/.test(src), 'the value comes from the config');\n  const cfg = JSON.parse(readFileSync(new URL('../config/defaults.json', import.meta.url), 'utf8'));\n  assert.equal(cfg.timeoutSeconds, 30);\n});\n"
+      ]
+    ],
+    "id": "h7_node_config",
+    "node": true,
+    "reference": [
+      [
+        "config/defaults.json",
+        "{\"timeoutSeconds\": 30}\n"
+      ]
+    ],
+    "request": "The request timeout must be 30 seconds; the config test fails. Fix it without hard-coding the value in code.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/queue.js",
+        "export class Queue {\n  constructor() {\n    this.items = [];\n  }\n\n  enqueue(x) {\n    this.items.push(x);\n  }\n\n  dequeue() {\n    if (this.items.length === 0) throw new Error('empty');\n    return this.items.shift();\n  }\n\n  get size() {\n    return this.items.length;\n  }\n}\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { existsSync } from 'node:fs';\nimport { Queue } from '../src/queue.js';\n\ntest('tests exist', () => assert.ok(existsSync(new URL('../test/queue.test.js', import.meta.url))));\ntest('behaviour', () => {\n  const q = new Queue();\n  assert.equal(q.dequeue(), undefined);\n  q.enqueue('a');\n  q.enqueue('b');\n  assert.equal(q.size, 2);\n  assert.equal(q.dequeue(), 'a');\n  assert.equal(q.dequeue(), 'b');\n  assert.equal(q.dequeue(), undefined);\n});\n"
+      ]
+    ],
+    "id": "h8_node_missing_test",
+    "node": true,
+    "reference": [
+      [
+        "src/queue.js",
+        "export class Queue {\n  constructor() {\n    this.items = [];\n  }\n\n  enqueue(x) {\n    this.items.push(x);\n  }\n\n  dequeue() {\n    return this.items.shift();\n  }\n\n  get size() {\n    return this.items.length;\n  }\n}\n"
+      ],
+      [
+        "test/queue.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { Queue } from '../src/queue.js';\n\ntest('fifo', () => {\n  const q = new Queue();\n  q.enqueue(1);\n  q.enqueue(2);\n  assert.equal(q.dequeue(), 1);\n  assert.equal(q.size, 1);\n});\ntest('empty', () => assert.equal(new Queue().dequeue(), undefined));\n"
+      ]
+    ],
+    "request": "src/queue.js has no tests. Add tests in test/queue.test.js, and make dequeue() on an empty queue return undefined instead of throwing.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "durations.py",
+        "def parse_duration(text):\n    \"\"\"See SPEC.md.\"\"\"\n    raise NotImplementedError\n"
+      ],
+      [
+        "SPEC.md",
+        "# Durations\n\n`parse_duration(text)` returns a number of seconds (int).\n\n- Parts are a positive or zero integer followed by a unit: `h`, `m` or `s`.\n- Units appear at most once each, in the order h, m, s. Examples: `2h`, `45m`, `90s`, `1h30m`, `1h5m30s`, `0s`.\n- Spaces between parts are allowed (`1h 30m`); no other characters.\n- Anything else (empty text, unknown unit, repeated or out-of-order unit, missing number) raises `ValueError`.\n"
+      ],
+      [
+        "test_durations.py",
+        "import unittest\nfrom durations import parse_duration\n\n\nclass T(unittest.TestCase):\n    def test_simple(self):\n        self.assertEqual(parse_duration('1h30m'), 5400)\n        self.assertEqual(parse_duration('45m'), 2700)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom durations import parse_duration\n\n\nclass Acceptance(unittest.TestCase):\n    def test_valid(self):\n        self.assertEqual(parse_duration('2h'), 7200)\n        self.assertEqual(parse_duration('90s'), 90)\n        self.assertEqual(parse_duration('1h5m30s'), 3930)\n        self.assertEqual(parse_duration('1h 30m'), 5400)\n        self.assertEqual(parse_duration('0s'), 0)\n\n    def test_invalid(self):\n        for bad in ['', '30m1h', '1x', 'h', '1h1h', '1h-5m']:\n            with self.assertRaises(ValueError, msg=bad):\n                parse_duration(bad)\n"
+      ]
+    ],
+    "id": "h9_py_long_repair",
+    "node": false,
+    "reference": [
+      [
+        "durations.py",
+        "import re\n\n_PART = re.compile(r'\\s*(\\d+)([hms])')\n\n\ndef parse_duration(text):\n    \"\"\"See SPEC.md.\"\"\"\n    pos, seen, total = 0, [], 0\n    order = 'hms'\n    text = text.strip()\n    if not text:\n        raise ValueError('empty')\n    while pos < len(text):\n        m = _PART.match(text, pos)\n        if not m:\n            raise ValueError(text)\n        unit = m.group(2)\n        if seen and order.index(unit) <= order.index(seen[-1]):\n            raise ValueError(text)\n        seen.append(unit)\n        total += int(m.group(1)) * {'h': 3600, 'm': 60, 's': 1}[unit]\n        pos = m.end()\n    return total\n"
+      ]
+    ],
+    "request": "Implement parse_duration in durations.py exactly as SPEC.md describes.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": false,
+    "concurrent_edit": [
+      "notes.py",
+      "NOTES = ['draft', 'user edit']\n"
+    ],
+    "files": [
+      [
+        "billing.py",
+        "def total(items):\n    \"\"\"Each item is a dict with 'price' and 'qty'.\"\"\"\n    return sum(i['price'] for i in items)\n"
+      ],
+      [
+        "notes.py",
+        "NOTES = ['draft']\n"
+      ],
+      [
+        "test_billing.py",
+        "import unittest\nfrom billing import total\n\n\nclass T(unittest.TestCase):\n    def test_single(self):\n        self.assertEqual(total([{'price': 5, 'qty': 1}]), 5)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom billing import total\nfrom notes import NOTES\n\n\nclass Acceptance(unittest.TestCase):\n    def test_qty(self):\n        self.assertEqual(total([{'price': 5, 'qty': 3}, {'price': 2, 'qty': 2}]), 19)\n\n    def test_notes_untouched(self):\n        self.assertEqual(NOTES[0], 'draft')\n"
+      ]
+    ],
+    "id": "h10_py_concurrent_edit",
+    "node": false,
+    "reference": [
+      [
+        "billing.py",
+        "def total(items):\n    \"\"\"Each item is a dict with 'price' and 'qty'.\"\"\"\n    return sum(i['price'] * i['qty'] for i in items)\n"
+      ]
+    ],
+    "request": "total() in billing.py ignores item quantities (each item has 'price' and 'qty'). Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "tax.py",
+        "def line_tax(price, rate):\n    return price * rate\n"
+      ],
+      [
+        "cart.py",
+        "from tax import line_tax\n\n\ndef total_with_tax(prices, rate):\n    return round(sum(p + line_tax(p, rate) for p in prices), 2)\n"
+      ],
+      [
+        "test_cart.py",
+        "import unittest\nfrom cart import total_with_tax\n\n\nclass T(unittest.TestCase):\n    def test_simple(self):\n        self.assertEqual(total_with_tax([10], 0.1), 11)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom cart import total_with_tax\n\n\nclass Acceptance(unittest.TestCase):\n    def test_half_up(self):\n        self.assertEqual(total_with_tax([0.25], 0.5), 0.38)\n        self.assertEqual(total_with_tax([10.00, 5.05], 0.1), 16.56)\n        self.assertEqual(total_with_tax([1.05], 0.1), 1.16)\n"
+      ]
+    ],
+    "id": "h11_py_rounding",
+    "node": false,
+    "reference": [
+      [
+        "tax.py",
+        "from decimal import Decimal, ROUND_HALF_UP\n\n\ndef line_tax(price, rate):\n    \"\"\"Tax of one line, rounded half-up to whole cents.\"\"\"\n    tax = Decimal(str(price)) * Decimal(str(rate))\n    return tax.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)\n"
+      ],
+      [
+        "cart.py",
+        "from decimal import Decimal\n\nfrom tax import line_tax\n\n\ndef total_with_tax(prices, rate):\n    total = sum((Decimal(str(p)) + line_tax(p, rate) for p in prices), Decimal('0'))\n    return float(total)\n"
+      ]
+    ],
+    "request": "Totals must round each line's tax half-up to whole cents before summing (0.125 becomes 0.13). Some totals are off by a cent. Fix it.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/format.js",
+        "export function pad(n) {\n  return String(n).padStart(2, '0');\n}\n"
+      ],
+      [
+        "test/format.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { pad } from '../src/format.js';\n\ntest('pad', () => assert.equal(pad(3), '03'));\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport * as f from '../src/format.js';\n\ntest('formatBytes', () => {\n  assert.equal(f.formatBytes(512), '512 B');\n  assert.equal(f.formatBytes(1536), '1.5 KB');\n  assert.equal(f.formatBytes(1048576), '1.0 MB');\n  assert.equal(f.formatBytes(3 * 1024 ** 3), '3.0 GB');\n  assert.throws(() => f.formatBytes(-1), RangeError);\n});\n"
+      ]
+    ],
+    "id": "h12_node_format_bytes",
+    "node": true,
+    "reference": [
+      [
+        "src/format.js",
+        "export function pad(n) {\n  return String(n).padStart(2, '0');\n}\n\nexport function formatBytes(n) {\n  if (n < 0) throw new RangeError('negative');\n  if (n < 1024) return `${n} B`;\n  const units = ['KB', 'MB', 'GB'];\n  let value = n / 1024;\n  let i = 0;\n  while (value >= 1024 && i < units.length - 1) {\n    value /= 1024;\n    i += 1;\n  }\n  return `${value.toFixed(1)} ${units[i]}`;\n}\n"
+      ]
+    ],
+    "request": "Add and export formatBytes(n) in src/format.js: sizes as 'B', 'KB', 'MB' or 'GB' with base 1024; one decimal place except for bytes ('512 B', '1.5 KB', '1.0 MB'); negative numbers throw RangeError.",
+    "set": "standard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "lru.py",
+        "class LRUCache:\n    \"\"\"Least-recently-used cache.\n\n    - get(key) returns the value or None, and marks the key as most recently used.\n    - put(key, value) inserts or updates; updating also marks the key as most recently used.\n    - When a put would exceed `capacity`, the least recently used key is evicted first.\n    - capacity 0 stores nothing.\n    \"\"\"\n\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.data = {}\n\n    def get(self, key):\n        return self.data.get(key)\n\n    def put(self, key, value):\n        self.data[key] = value\n"
+      ],
+      [
+        "test_lru.py",
+        "import unittest\nfrom lru import LRUCache\n\n\nclass T(unittest.TestCase):\n    def test_basic(self):\n        c = LRUCache(2)\n        c.put('a', 1)\n        self.assertEqual(c.get('a'), 1)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom lru import LRUCache\n\n\nclass Acceptance(unittest.TestCase):\n    def test_eviction_order(self):\n        c = LRUCache(2)\n        c.put('a', 1); c.put('b', 2)\n        c.get('a')\n        c.put('c', 3)\n        self.assertIsNone(c.get('b'))\n        self.assertEqual(c.get('a'), 1)\n        self.assertEqual(c.get('c'), 3)\n\n    def test_update_refreshes(self):\n        c = LRUCache(2)\n        c.put('a', 1); c.put('b', 2)\n        c.put('a', 10)\n        c.put('c', 3)\n        self.assertIsNone(c.get('b'))\n        self.assertEqual(c.get('a'), 10)\n\n    def test_zero(self):\n        c = LRUCache(0)\n        c.put('a', 1)\n        self.assertIsNone(c.get('a'))\n"
+      ]
+    ],
+    "id": "x1_py_lru",
+    "node": false,
+    "reference": [
+      [
+        "lru.py",
+        "from collections import OrderedDict\n\n\nclass LRUCache:\n    \"\"\"Least-recently-used cache (see the spec above in git history).\"\"\"\n\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.data = OrderedDict()\n\n    def get(self, key):\n        if key not in self.data:\n            return None\n        self.data.move_to_end(key)\n        return self.data[key]\n\n    def put(self, key, value):\n        if self.capacity <= 0:\n            return\n        if key in self.data:\n            self.data.move_to_end(key)\n        self.data[key] = value\n        if len(self.data) > self.capacity:\n            self.data.popitem(last=False)\n"
+      ]
+    ],
+    "request": "Make LRUCache in lru.py behave as its docstring specifies.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "csvline.py",
+        "def parse_line(line):\n    \"\"\"Split one CSV line (RFC 4180): fields separated by commas; a field may be quoted with\n    double quotes, and inside quotes commas are literal and a doubled quote (\"\") is one quote.\n    Returns the list of field strings.\"\"\"\n    return line.split(',')\n"
+      ],
+      [
+        "test_csvline.py",
+        "import unittest\nfrom csvline import parse_line\n\n\nclass T(unittest.TestCase):\n    def test_plain(self):\n        self.assertEqual(parse_line('a,b,c'), ['a', 'b', 'c'])\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom csvline import parse_line\n\n\nclass Acceptance(unittest.TestCase):\n    def test_quoted(self):\n        self.assertEqual(parse_line('1,\"Smith, John\",x'), ['1', 'Smith, John', 'x'])\n        self.assertEqual(parse_line('\"say \"\"hi\"\"\",2'), ['say \"hi\"', '2'])\n        self.assertEqual(parse_line('a,,b'), ['a', '', 'b'])\n        self.assertEqual(parse_line('\"\"'), [''])\n        self.assertEqual(parse_line('x,'), ['x', ''])\n"
+      ]
+    ],
+    "id": "x2_py_csv",
+    "node": false,
+    "reference": [
+      [
+        "csvline.py",
+        "def parse_line(line):\n    fields, cur, i, quoted = [], [], 0, False\n    while i < len(line):\n        ch = line[i]\n        if quoted:\n            if ch == '\"':\n                if i + 1 < len(line) and line[i + 1] == '\"':\n                    cur.append('\"')\n                    i += 1\n                else:\n                    quoted = False\n            else:\n                cur.append(ch)\n        elif ch == '\"':\n            quoted = True\n        elif ch == ',':\n            fields.append(''.join(cur))\n            cur = []\n        else:\n            cur.append(ch)\n        i += 1\n    fields.append(''.join(cur))\n    return fields\n"
+      ]
+    ],
+    "request": "parse_line in csvline.py breaks on quoted fields. Make it follow its docstring.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/semver.js",
+        "// compareVersions(a, b) → -1, 0 or 1 following Semantic Versioning 2.0.0 precedence\n// (including pre-release identifiers; build metadata after '+' is ignored).\nexport function compareVersions(a, b) {\n  const pa = a.split('.').map(Number);\n  const pb = b.split('.').map(Number);\n  for (let i = 0; i < 3; i++) {\n    if (pa[i] !== pb[i]) return pa[i] < pb[i] ? -1 : 1;\n  }\n  return 0;\n}\n"
+      ],
+      [
+        "test/semver.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { compareVersions } from '../src/semver.js';\n\ntest('core', () => assert.equal(compareVersions('1.2.3', '1.10.0'), -1));\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { compareVersions as c } from '../src/semver.js';\n\ntest('prerelease', () => {\n  assert.equal(c('1.0.0-alpha', '1.0.0'), -1);\n  assert.equal(c('1.0.0', '1.0.0-rc.1'), 1);\n  assert.equal(c('1.0.0-alpha', '1.0.0-alpha.1'), -1);\n  assert.equal(c('1.0.0-alpha.beta', '1.0.0-beta'), -1);\n  assert.equal(c('1.0.0-beta.2', '1.0.0-beta.11'), -1);\n  assert.equal(c('1.0.0-rc.1', '1.0.0-beta.11'), 1);\n  assert.equal(c('1.0.0-1', '1.0.0-alpha'), -1);\n});\ntest('build metadata ignored', () => assert.equal(c('1.0.0+build.5', '1.0.0+other'), 0));\n"
+      ]
+    ],
+    "id": "x3_node_semver",
+    "node": true,
+    "reference": [
+      [
+        "src/semver.js",
+        "export function compareVersions(a, b) {\n  const parse = (v) => {\n    const [main, pre] = v.split('+')[0].split(/-(.*)/s);\n    return { nums: main.split('.').map(Number), pre: pre === undefined ? null : pre.split('.') };\n  };\n  const x = parse(a);\n  const y = parse(b);\n  for (let i = 0; i < 3; i++) {\n    if (x.nums[i] !== y.nums[i]) return x.nums[i] < y.nums[i] ? -1 : 1;\n  }\n  if (x.pre === null && y.pre === null) return 0;\n  if (x.pre === null) return 1;\n  if (y.pre === null) return -1;\n  for (let i = 0; i < Math.max(x.pre.length, y.pre.length); i++) {\n    const p = x.pre[i];\n    const q = y.pre[i];\n    if (p === undefined) return -1;\n    if (q === undefined) return 1;\n    const pn = /^\\d+$/.test(p);\n    const qn = /^\\d+$/.test(q);\n    if (pn && qn) {\n      if (Number(p) !== Number(q)) return Number(p) < Number(q) ? -1 : 1;\n    } else if (pn !== qn) {\n      return pn ? -1 : 1;\n    } else if (p !== q) {\n      return p < q ? -1 : 1;\n    }\n  }\n  return 0;\n}\n"
+      ]
+    ],
+    "request": "compareVersions in src/semver.js ignores pre-release versions. Make it follow Semantic Versioning 2.0.0 precedence.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "shop/mod_000.py",
+        "def helper_0(x):\n    return x + 0\n\n\ndef label_0(x):\n    return f'{x}-0'\n"
+      ],
+      [
+        "shop/mod_001.py",
+        "def helper_1(x):\n    return x + 1\n\n\ndef label_1(x):\n    return f'{x}-1'\n"
+      ],
+      [
+        "shop/mod_002.py",
+        "def helper_2(x):\n    return x + 2\n\n\ndef label_2(x):\n    return f'{x}-2'\n"
+      ],
+      [
+        "shop/mod_003.py",
+        "def helper_3(x):\n    return x + 3\n\n\ndef label_3(x):\n    return f'{x}-3'\n"
+      ],
+      [
+        "shop/mod_004.py",
+        "def helper_4(x):\n    return x + 4\n\n\ndef label_4(x):\n    return f'{x}-4'\n"
+      ],
+      [
+        "shop/mod_005.py",
+        "def helper_5(x):\n    return x + 5\n\n\ndef label_5(x):\n    return f'{x}-5'\n"
+      ],
+      [
+        "shop/mod_006.py",
+        "def helper_6(x):\n    return x + 6\n\n\ndef label_6(x):\n    return f'{x}-6'\n"
+      ],
+      [
+        "shop/mod_007.py",
+        "def helper_7(x):\n    return x + 7\n\n\ndef label_7(x):\n    return f'{x}-7'\n"
+      ],
+      [
+        "shop/mod_008.py",
+        "def helper_8(x):\n    return x + 8\n\n\ndef label_8(x):\n    return f'{x}-8'\n"
+      ],
+      [
+        "shop/mod_009.py",
+        "def helper_9(x):\n    return x + 9\n\n\ndef label_9(x):\n    return f'{x}-9'\n"
+      ],
+      [
+        "shop/mod_010.py",
+        "def helper_10(x):\n    return x + 10\n\n\ndef label_10(x):\n    return f'{x}-10'\n"
+      ],
+      [
+        "shop/mod_011.py",
+        "def helper_11(x):\n    return x + 11\n\n\ndef label_11(x):\n    return f'{x}-11'\n"
+      ],
+      [
+        "shop/mod_012.py",
+        "def helper_12(x):\n    return x + 12\n\n\ndef label_12(x):\n    return f'{x}-12'\n"
+      ],
+      [
+        "shop/mod_013.py",
+        "def helper_13(x):\n    return x + 13\n\n\ndef label_13(x):\n    return f'{x}-13'\n"
+      ],
+      [
+        "shop/mod_014.py",
+        "def helper_14(x):\n    return x + 14\n\n\ndef label_14(x):\n    return f'{x}-14'\n"
+      ],
+      [
+        "shop/mod_015.py",
+        "def helper_15(x):\n    return x + 15\n\n\ndef label_15(x):\n    return f'{x}-15'\n"
+      ],
+      [
+        "shop/mod_016.py",
+        "def helper_16(x):\n    return x + 16\n\n\ndef label_16(x):\n    return f'{x}-16'\n"
+      ],
+      [
+        "shop/mod_017.py",
+        "def helper_17(x):\n    return x + 17\n\n\ndef label_17(x):\n    return f'{x}-17'\n"
+      ],
+      [
+        "shop/mod_018.py",
+        "def helper_18(x):\n    return x + 18\n\n\ndef label_18(x):\n    return f'{x}-18'\n"
+      ],
+      [
+        "shop/mod_019.py",
+        "def helper_19(x):\n    return x + 19\n\n\ndef label_19(x):\n    return f'{x}-19'\n"
+      ],
+      [
+        "shop/mod_020.py",
+        "def helper_20(x):\n    return x + 20\n\n\ndef label_20(x):\n    return f'{x}-20'\n"
+      ],
+      [
+        "shop/mod_021.py",
+        "def helper_21(x):\n    return x + 21\n\n\ndef label_21(x):\n    return f'{x}-21'\n"
+      ],
+      [
+        "shop/mod_022.py",
+        "def helper_22(x):\n    return x + 22\n\n\ndef label_22(x):\n    return f'{x}-22'\n"
+      ],
+      [
+        "shop/mod_023.py",
+        "def helper_23(x):\n    return x + 23\n\n\ndef label_23(x):\n    return f'{x}-23'\n"
+      ],
+      [
+        "shop/mod_024.py",
+        "def helper_24(x):\n    return x + 24\n\n\ndef label_24(x):\n    return f'{x}-24'\n"
+      ],
+      [
+        "shop/mod_025.py",
+        "def helper_25(x):\n    return x + 25\n\n\ndef label_25(x):\n    return f'{x}-25'\n"
+      ],
+      [
+        "shop/mod_026.py",
+        "def helper_26(x):\n    return x + 26\n\n\ndef label_26(x):\n    return f'{x}-26'\n"
+      ],
+      [
+        "shop/mod_027.py",
+        "def helper_27(x):\n    return x + 27\n\n\ndef label_27(x):\n    return f'{x}-27'\n"
+      ],
+      [
+        "shop/mod_028.py",
+        "def helper_28(x):\n    return x + 28\n\n\ndef label_28(x):\n    return f'{x}-28'\n"
+      ],
+      [
+        "shop/mod_029.py",
+        "def helper_29(x):\n    return x + 29\n\n\ndef label_29(x):\n    return f'{x}-29'\n"
+      ],
+      [
+        "shop/mod_030.py",
+        "def helper_30(x):\n    return x + 30\n\n\ndef label_30(x):\n    return f'{x}-30'\n"
+      ],
+      [
+        "shop/mod_031.py",
+        "def helper_31(x):\n    return x + 31\n\n\ndef label_31(x):\n    return f'{x}-31'\n"
+      ],
+      [
+        "shop/mod_032.py",
+        "def helper_32(x):\n    return x + 32\n\n\ndef label_32(x):\n    return f'{x}-32'\n"
+      ],
+      [
+        "shop/mod_033.py",
+        "def helper_33(x):\n    return x + 33\n\n\ndef label_33(x):\n    return f'{x}-33'\n"
+      ],
+      [
+        "shop/mod_034.py",
+        "def helper_34(x):\n    return x + 34\n\n\ndef label_34(x):\n    return f'{x}-34'\n"
+      ],
+      [
+        "shop/mod_035.py",
+        "def helper_35(x):\n    return x + 35\n\n\ndef label_35(x):\n    return f'{x}-35'\n"
+      ],
+      [
+        "shop/mod_036.py",
+        "def helper_36(x):\n    return x + 36\n\n\ndef label_36(x):\n    return f'{x}-36'\n"
+      ],
+      [
+        "shop/mod_037.py",
+        "def helper_37(x):\n    return x + 37\n\n\ndef label_37(x):\n    return f'{x}-37'\n"
+      ],
+      [
+        "shop/mod_038.py",
+        "def helper_38(x):\n    return x + 38\n\n\ndef label_38(x):\n    return f'{x}-38'\n"
+      ],
+      [
+        "shop/mod_039.py",
+        "def helper_39(x):\n    return x + 39\n\n\ndef label_39(x):\n    return f'{x}-39'\n"
+      ],
+      [
+        "shop/mod_040.py",
+        "def helper_40(x):\n    return x + 40\n\n\ndef label_40(x):\n    return f'{x}-40'\n"
+      ],
+      [
+        "shop/mod_041.py",
+        "def helper_41(x):\n    return x + 41\n\n\ndef label_41(x):\n    return f'{x}-41'\n"
+      ],
+      [
+        "shop/mod_042.py",
+        "def helper_42(x):\n    return x + 42\n\n\ndef label_42(x):\n    return f'{x}-42'\n"
+      ],
+      [
+        "shop/mod_043.py",
+        "def helper_43(x):\n    return x + 43\n\n\ndef label_43(x):\n    return f'{x}-43'\n"
+      ],
+      [
+        "shop/mod_044.py",
+        "def helper_44(x):\n    return x + 44\n\n\ndef label_44(x):\n    return f'{x}-44'\n"
+      ],
+      [
+        "shop/mod_045.py",
+        "def helper_45(x):\n    return x + 45\n\n\ndef label_45(x):\n    return f'{x}-45'\n"
+      ],
+      [
+        "shop/mod_046.py",
+        "def helper_46(x):\n    return x + 46\n\n\ndef label_46(x):\n    return f'{x}-46'\n"
+      ],
+      [
+        "shop/mod_047.py",
+        "def helper_47(x):\n    return x + 47\n\n\ndef label_47(x):\n    return f'{x}-47'\n"
+      ],
+      [
+        "shop/mod_048.py",
+        "def helper_48(x):\n    return x + 48\n\n\ndef label_48(x):\n    return f'{x}-48'\n"
+      ],
+      [
+        "shop/mod_049.py",
+        "def helper_49(x):\n    return x + 49\n\n\ndef label_49(x):\n    return f'{x}-49'\n"
+      ],
+      [
+        "shop/mod_050.py",
+        "def helper_50(x):\n    return x + 50\n\n\ndef label_50(x):\n    return f'{x}-50'\n"
+      ],
+      [
+        "shop/mod_051.py",
+        "def helper_51(x):\n    return x + 51\n\n\ndef label_51(x):\n    return f'{x}-51'\n"
+      ],
+      [
+        "shop/mod_052.py",
+        "def helper_52(x):\n    return x + 52\n\n\ndef label_52(x):\n    return f'{x}-52'\n"
+      ],
+      [
+        "shop/mod_053.py",
+        "def helper_53(x):\n    return x + 53\n\n\ndef label_53(x):\n    return f'{x}-53'\n"
+      ],
+      [
+        "shop/mod_054.py",
+        "def helper_54(x):\n    return x + 54\n\n\ndef label_54(x):\n    return f'{x}-54'\n"
+      ],
+      [
+        "shop/mod_055.py",
+        "def helper_55(x):\n    return x + 55\n\n\ndef label_55(x):\n    return f'{x}-55'\n"
+      ],
+      [
+        "shop/mod_056.py",
+        "def helper_56(x):\n    return x + 56\n\n\ndef label_56(x):\n    return f'{x}-56'\n"
+      ],
+      [
+        "shop/mod_057.py",
+        "def helper_57(x):\n    return x + 57\n\n\ndef label_57(x):\n    return f'{x}-57'\n"
+      ],
+      [
+        "shop/mod_058.py",
+        "def helper_58(x):\n    return x + 58\n\n\ndef label_58(x):\n    return f'{x}-58'\n"
+      ],
+      [
+        "shop/mod_059.py",
+        "def helper_59(x):\n    return x + 59\n\n\ndef label_59(x):\n    return f'{x}-59'\n"
+      ],
+      [
+        "shop/mod_060.py",
+        "def helper_60(x):\n    return x + 60\n\n\ndef label_60(x):\n    return f'{x}-60'\n"
+      ],
+      [
+        "shop/mod_061.py",
+        "def helper_61(x):\n    return x + 61\n\n\ndef label_61(x):\n    return f'{x}-61'\n"
+      ],
+      [
+        "shop/mod_062.py",
+        "def helper_62(x):\n    return x + 62\n\n\ndef label_62(x):\n    return f'{x}-62'\n"
+      ],
+      [
+        "shop/mod_063.py",
+        "def helper_63(x):\n    return x + 63\n\n\ndef label_63(x):\n    return f'{x}-63'\n"
+      ],
+      [
+        "shop/mod_064.py",
+        "def helper_64(x):\n    return x + 64\n\n\ndef label_64(x):\n    return f'{x}-64'\n"
+      ],
+      [
+        "shop/mod_065.py",
+        "def helper_65(x):\n    return x + 65\n\n\ndef label_65(x):\n    return f'{x}-65'\n"
+      ],
+      [
+        "shop/mod_066.py",
+        "def helper_66(x):\n    return x + 66\n\n\ndef label_66(x):\n    return f'{x}-66'\n"
+      ],
+      [
+        "shop/mod_067.py",
+        "def helper_67(x):\n    return x + 67\n\n\ndef label_67(x):\n    return f'{x}-67'\n"
+      ],
+      [
+        "shop/mod_068.py",
+        "def helper_68(x):\n    return x + 68\n\n\ndef label_68(x):\n    return f'{x}-68'\n"
+      ],
+      [
+        "shop/mod_069.py",
+        "def helper_69(x):\n    return x + 69\n\n\ndef label_69(x):\n    return f'{x}-69'\n"
+      ],
+      [
+        "shop/mod_070.py",
+        "def helper_70(x):\n    return x + 70\n\n\ndef label_70(x):\n    return f'{x}-70'\n"
+      ],
+      [
+        "shop/mod_071.py",
+        "def helper_71(x):\n    return x + 71\n\n\ndef label_71(x):\n    return f'{x}-71'\n"
+      ],
+      [
+        "shop/mod_072.py",
+        "def helper_72(x):\n    return x + 72\n\n\ndef label_72(x):\n    return f'{x}-72'\n"
+      ],
+      [
+        "shop/mod_073.py",
+        "def helper_73(x):\n    return x + 73\n\n\ndef label_73(x):\n    return f'{x}-73'\n"
+      ],
+      [
+        "shop/mod_074.py",
+        "def helper_74(x):\n    return x + 74\n\n\ndef label_74(x):\n    return f'{x}-74'\n"
+      ],
+      [
+        "shop/mod_075.py",
+        "def helper_75(x):\n    return x + 75\n\n\ndef label_75(x):\n    return f'{x}-75'\n"
+      ],
+      [
+        "shop/mod_076.py",
+        "def helper_76(x):\n    return x + 76\n\n\ndef label_76(x):\n    return f'{x}-76'\n"
+      ],
+      [
+        "shop/mod_077.py",
+        "def helper_77(x):\n    return x + 77\n\n\ndef label_77(x):\n    return f'{x}-77'\n"
+      ],
+      [
+        "shop/mod_078.py",
+        "def helper_78(x):\n    return x + 78\n\n\ndef label_78(x):\n    return f'{x}-78'\n"
+      ],
+      [
+        "shop/mod_079.py",
+        "def helper_79(x):\n    return x + 79\n\n\ndef label_79(x):\n    return f'{x}-79'\n"
+      ],
+      [
+        "shop/mod_080.py",
+        "def helper_80(x):\n    return x + 80\n\n\ndef label_80(x):\n    return f'{x}-80'\n"
+      ],
+      [
+        "shop/mod_081.py",
+        "def helper_81(x):\n    return x + 81\n\n\ndef label_81(x):\n    return f'{x}-81'\n"
+      ],
+      [
+        "shop/mod_082.py",
+        "def helper_82(x):\n    return x + 82\n\n\ndef label_82(x):\n    return f'{x}-82'\n"
+      ],
+      [
+        "shop/mod_083.py",
+        "def helper_83(x):\n    return x + 83\n\n\ndef label_83(x):\n    return f'{x}-83'\n"
+      ],
+      [
+        "shop/mod_084.py",
+        "def helper_84(x):\n    return x + 84\n\n\ndef label_84(x):\n    return f'{x}-84'\n"
+      ],
+      [
+        "shop/mod_085.py",
+        "def helper_85(x):\n    return x + 85\n\n\ndef label_85(x):\n    return f'{x}-85'\n"
+      ],
+      [
+        "shop/mod_086.py",
+        "def helper_86(x):\n    return x + 86\n\n\ndef label_86(x):\n    return f'{x}-86'\n"
+      ],
+      [
+        "shop/mod_087.py",
+        "def helper_87(x):\n    return x + 87\n\n\ndef label_87(x):\n    return f'{x}-87'\n"
+      ],
+      [
+        "shop/mod_088.py",
+        "def helper_88(x):\n    return x + 88\n\n\ndef label_88(x):\n    return f'{x}-88'\n"
+      ],
+      [
+        "shop/mod_089.py",
+        "def helper_89(x):\n    return x + 89\n\n\ndef label_89(x):\n    return f'{x}-89'\n"
+      ],
+      [
+        "shop/mod_090.py",
+        "def helper_90(x):\n    return x + 90\n\n\ndef label_90(x):\n    return f'{x}-90'\n"
+      ],
+      [
+        "shop/mod_091.py",
+        "def helper_91(x):\n    return x + 91\n\n\ndef label_91(x):\n    return f'{x}-91'\n"
+      ],
+      [
+        "shop/mod_092.py",
+        "def helper_92(x):\n    return x + 92\n\n\ndef label_92(x):\n    return f'{x}-92'\n"
+      ],
+      [
+        "shop/mod_093.py",
+        "def helper_93(x):\n    return x + 93\n\n\ndef label_93(x):\n    return f'{x}-93'\n"
+      ],
+      [
+        "shop/mod_094.py",
+        "def helper_94(x):\n    return x + 94\n\n\ndef label_94(x):\n    return f'{x}-94'\n"
+      ],
+      [
+        "shop/mod_095.py",
+        "def helper_95(x):\n    return x + 95\n\n\ndef label_95(x):\n    return f'{x}-95'\n"
+      ],
+      [
+        "shop/mod_096.py",
+        "def helper_96(x):\n    return x + 96\n\n\ndef label_96(x):\n    return f'{x}-96'\n"
+      ],
+      [
+        "shop/mod_097.py",
+        "def helper_97(x):\n    return x + 97\n\n\ndef label_97(x):\n    return f'{x}-97'\n"
+      ],
+      [
+        "shop/mod_098.py",
+        "def helper_98(x):\n    return x + 98\n\n\ndef label_98(x):\n    return f'{x}-98'\n"
+      ],
+      [
+        "shop/mod_099.py",
+        "def helper_99(x):\n    return x + 99\n\n\ndef label_99(x):\n    return f'{x}-99'\n"
+      ],
+      [
+        "shop/mod_100.py",
+        "def helper_100(x):\n    return x + 100\n\n\ndef label_100(x):\n    return f'{x}-100'\n"
+      ],
+      [
+        "shop/mod_101.py",
+        "def helper_101(x):\n    return x + 101\n\n\ndef label_101(x):\n    return f'{x}-101'\n"
+      ],
+      [
+        "shop/mod_102.py",
+        "def helper_102(x):\n    return x + 102\n\n\ndef label_102(x):\n    return f'{x}-102'\n"
+      ],
+      [
+        "shop/mod_103.py",
+        "def helper_103(x):\n    return x + 103\n\n\ndef label_103(x):\n    return f'{x}-103'\n"
+      ],
+      [
+        "shop/mod_104.py",
+        "def helper_104(x):\n    return x + 104\n\n\ndef label_104(x):\n    return f'{x}-104'\n"
+      ],
+      [
+        "shop/mod_105.py",
+        "def helper_105(x):\n    return x + 105\n\n\ndef label_105(x):\n    return f'{x}-105'\n"
+      ],
+      [
+        "shop/mod_106.py",
+        "def helper_106(x):\n    return x + 106\n\n\ndef label_106(x):\n    return f'{x}-106'\n"
+      ],
+      [
+        "shop/mod_107.py",
+        "def helper_107(x):\n    return x + 107\n\n\ndef label_107(x):\n    return f'{x}-107'\n"
+      ],
+      [
+        "shop/mod_108.py",
+        "def helper_108(x):\n    return x + 108\n\n\ndef label_108(x):\n    return f'{x}-108'\n"
+      ],
+      [
+        "shop/mod_109.py",
+        "def helper_109(x):\n    return x + 109\n\n\ndef label_109(x):\n    return f'{x}-109'\n"
+      ],
+      [
+        "shop/mod_110.py",
+        "def helper_110(x):\n    return x + 110\n\n\ndef label_110(x):\n    return f'{x}-110'\n"
+      ],
+      [
+        "shop/mod_111.py",
+        "def helper_111(x):\n    return x + 111\n\n\ndef label_111(x):\n    return f'{x}-111'\n"
+      ],
+      [
+        "shop/mod_112.py",
+        "def helper_112(x):\n    return x + 112\n\n\ndef label_112(x):\n    return f'{x}-112'\n"
+      ],
+      [
+        "shop/mod_113.py",
+        "def helper_113(x):\n    return x + 113\n\n\ndef label_113(x):\n    return f'{x}-113'\n"
+      ],
+      [
+        "shop/mod_114.py",
+        "def helper_114(x):\n    return x + 114\n\n\ndef label_114(x):\n    return f'{x}-114'\n"
+      ],
+      [
+        "shop/mod_115.py",
+        "def helper_115(x):\n    return x + 115\n\n\ndef label_115(x):\n    return f'{x}-115'\n"
+      ],
+      [
+        "shop/mod_116.py",
+        "def helper_116(x):\n    return x + 116\n\n\ndef label_116(x):\n    return f'{x}-116'\n"
+      ],
+      [
+        "shop/mod_117.py",
+        "def helper_117(x):\n    return x + 117\n\n\ndef label_117(x):\n    return f'{x}-117'\n"
+      ],
+      [
+        "shop/mod_118.py",
+        "def helper_118(x):\n    return x + 118\n\n\ndef label_118(x):\n    return f'{x}-118'\n"
+      ],
+      [
+        "shop/mod_119.py",
+        "def helper_119(x):\n    return x + 119\n\n\ndef label_119(x):\n    return f'{x}-119'\n"
+      ],
+      [
+        "shop/mod_120.py",
+        "def helper_120(x):\n    return x + 120\n\n\ndef label_120(x):\n    return f'{x}-120'\n"
+      ],
+      [
+        "shop/mod_121.py",
+        "def helper_121(x):\n    return x + 121\n\n\ndef label_121(x):\n    return f'{x}-121'\n"
+      ],
+      [
+        "shop/mod_122.py",
+        "def helper_122(x):\n    return x + 122\n\n\ndef label_122(x):\n    return f'{x}-122'\n"
+      ],
+      [
+        "shop/mod_123.py",
+        "def helper_123(x):\n    return x + 123\n\n\ndef label_123(x):\n    return f'{x}-123'\n"
+      ],
+      [
+        "shop/mod_124.py",
+        "def helper_124(x):\n    return x + 124\n\n\ndef label_124(x):\n    return f'{x}-124'\n"
+      ],
+      [
+        "shop/mod_125.py",
+        "def helper_125(x):\n    return x + 125\n\n\ndef label_125(x):\n    return f'{x}-125'\n"
+      ],
+      [
+        "shop/mod_126.py",
+        "def helper_126(x):\n    return x + 126\n\n\ndef label_126(x):\n    return f'{x}-126'\n"
+      ],
+      [
+        "shop/mod_127.py",
+        "def helper_127(x):\n    return x + 127\n\n\ndef label_127(x):\n    return f'{x}-127'\n"
+      ],
+      [
+        "shop/mod_128.py",
+        "def helper_128(x):\n    return x + 128\n\n\ndef label_128(x):\n    return f'{x}-128'\n"
+      ],
+      [
+        "shop/mod_129.py",
+        "def helper_129(x):\n    return x + 129\n\n\ndef label_129(x):\n    return f'{x}-129'\n"
+      ],
+      [
+        "shop/mod_130.py",
+        "def helper_130(x):\n    return x + 130\n\n\ndef label_130(x):\n    return f'{x}-130'\n"
+      ],
+      [
+        "shop/mod_131.py",
+        "def helper_131(x):\n    return x + 131\n\n\ndef label_131(x):\n    return f'{x}-131'\n"
+      ],
+      [
+        "shop/mod_132.py",
+        "def helper_132(x):\n    return x + 132\n\n\ndef label_132(x):\n    return f'{x}-132'\n"
+      ],
+      [
+        "shop/mod_133.py",
+        "def helper_133(x):\n    return x + 133\n\n\ndef label_133(x):\n    return f'{x}-133'\n"
+      ],
+      [
+        "shop/mod_134.py",
+        "def helper_134(x):\n    return x + 134\n\n\ndef label_134(x):\n    return f'{x}-134'\n"
+      ],
+      [
+        "shop/mod_135.py",
+        "def helper_135(x):\n    return x + 135\n\n\ndef label_135(x):\n    return f'{x}-135'\n"
+      ],
+      [
+        "shop/mod_136.py",
+        "def helper_136(x):\n    return x + 136\n\n\ndef label_136(x):\n    return f'{x}-136'\n"
+      ],
+      [
+        "shop/mod_137.py",
+        "def helper_137(x):\n    return x + 137\n\n\ndef label_137(x):\n    return f'{x}-137'\n"
+      ],
+      [
+        "shop/mod_138.py",
+        "def helper_138(x):\n    return x + 138\n\n\ndef label_138(x):\n    return f'{x}-138'\n"
+      ],
+      [
+        "shop/mod_139.py",
+        "def helper_139(x):\n    return x + 139\n\n\ndef label_139(x):\n    return f'{x}-139'\n"
+      ],
+      [
+        "shop/mod_140.py",
+        "def helper_140(x):\n    return x + 140\n\n\ndef label_140(x):\n    return f'{x}-140'\n"
+      ],
+      [
+        "shop/mod_141.py",
+        "def helper_141(x):\n    return x + 141\n\n\ndef label_141(x):\n    return f'{x}-141'\n"
+      ],
+      [
+        "shop/mod_142.py",
+        "def helper_142(x):\n    return x + 142\n\n\ndef label_142(x):\n    return f'{x}-142'\n"
+      ],
+      [
+        "shop/mod_143.py",
+        "def helper_143(x):\n    return x + 143\n\n\ndef label_143(x):\n    return f'{x}-143'\n"
+      ],
+      [
+        "shop/mod_144.py",
+        "def helper_144(x):\n    return x + 144\n\n\ndef label_144(x):\n    return f'{x}-144'\n"
+      ],
+      [
+        "shop/mod_145.py",
+        "def helper_145(x):\n    return x + 145\n\n\ndef label_145(x):\n    return f'{x}-145'\n"
+      ],
+      [
+        "shop/mod_146.py",
+        "def helper_146(x):\n    return x + 146\n\n\ndef label_146(x):\n    return f'{x}-146'\n"
+      ],
+      [
+        "shop/mod_147.py",
+        "def helper_147(x):\n    return x + 147\n\n\ndef label_147(x):\n    return f'{x}-147'\n"
+      ],
+      [
+        "shop/mod_148.py",
+        "def helper_148(x):\n    return x + 148\n\n\ndef label_148(x):\n    return f'{x}-148'\n"
+      ],
+      [
+        "shop/mod_149.py",
+        "def helper_149(x):\n    return x + 149\n\n\ndef label_149(x):\n    return f'{x}-149'\n"
+      ],
+      [
+        "shop/mod_150.py",
+        "def helper_150(x):\n    return x + 150\n\n\ndef label_150(x):\n    return f'{x}-150'\n"
+      ],
+      [
+        "shop/mod_151.py",
+        "def helper_151(x):\n    return x + 151\n\n\ndef label_151(x):\n    return f'{x}-151'\n"
+      ],
+      [
+        "shop/mod_152.py",
+        "def helper_152(x):\n    return x + 152\n\n\ndef label_152(x):\n    return f'{x}-152'\n"
+      ],
+      [
+        "shop/mod_153.py",
+        "def helper_153(x):\n    return x + 153\n\n\ndef label_153(x):\n    return f'{x}-153'\n"
+      ],
+      [
+        "shop/mod_154.py",
+        "def helper_154(x):\n    return x + 154\n\n\ndef label_154(x):\n    return f'{x}-154'\n"
+      ],
+      [
+        "shop/mod_155.py",
+        "def helper_155(x):\n    return x + 155\n\n\ndef label_155(x):\n    return f'{x}-155'\n"
+      ],
+      [
+        "shop/mod_156.py",
+        "def helper_156(x):\n    return x + 156\n\n\ndef label_156(x):\n    return f'{x}-156'\n"
+      ],
+      [
+        "shop/mod_157.py",
+        "def helper_157(x):\n    return x + 157\n\n\ndef label_157(x):\n    return f'{x}-157'\n"
+      ],
+      [
+        "shop/mod_158.py",
+        "def helper_158(x):\n    return x + 158\n\n\ndef label_158(x):\n    return f'{x}-158'\n"
+      ],
+      [
+        "shop/mod_159.py",
+        "def helper_159(x):\n    return x + 159\n\n\ndef label_159(x):\n    return f'{x}-159'\n"
+      ],
+      [
+        "shop/mod_160.py",
+        "def helper_160(x):\n    return x + 160\n\n\ndef label_160(x):\n    return f'{x}-160'\n"
+      ],
+      [
+        "shop/mod_161.py",
+        "def helper_161(x):\n    return x + 161\n\n\ndef label_161(x):\n    return f'{x}-161'\n"
+      ],
+      [
+        "shop/mod_162.py",
+        "def helper_162(x):\n    return x + 162\n\n\ndef label_162(x):\n    return f'{x}-162'\n"
+      ],
+      [
+        "shop/mod_163.py",
+        "def helper_163(x):\n    return x + 163\n\n\ndef label_163(x):\n    return f'{x}-163'\n"
+      ],
+      [
+        "shop/mod_164.py",
+        "def helper_164(x):\n    return x + 164\n\n\ndef label_164(x):\n    return f'{x}-164'\n"
+      ],
+      [
+        "shop/mod_165.py",
+        "def helper_165(x):\n    return x + 165\n\n\ndef label_165(x):\n    return f'{x}-165'\n"
+      ],
+      [
+        "shop/mod_166.py",
+        "def helper_166(x):\n    return x + 166\n\n\ndef label_166(x):\n    return f'{x}-166'\n"
+      ],
+      [
+        "shop/mod_167.py",
+        "def helper_167(x):\n    return x + 167\n\n\ndef label_167(x):\n    return f'{x}-167'\n"
+      ],
+      [
+        "shop/mod_168.py",
+        "def helper_168(x):\n    return x + 168\n\n\ndef label_168(x):\n    return f'{x}-168'\n"
+      ],
+      [
+        "shop/mod_169.py",
+        "def helper_169(x):\n    return x + 169\n\n\ndef label_169(x):\n    return f'{x}-169'\n"
+      ],
+      [
+        "shop/mod_170.py",
+        "def helper_170(x):\n    return x + 170\n\n\ndef label_170(x):\n    return f'{x}-170'\n"
+      ],
+      [
+        "shop/mod_171.py",
+        "def helper_171(x):\n    return x + 171\n\n\ndef label_171(x):\n    return f'{x}-171'\n"
+      ],
+      [
+        "shop/mod_172.py",
+        "def helper_172(x):\n    return x + 172\n\n\ndef label_172(x):\n    return f'{x}-172'\n"
+      ],
+      [
+        "shop/mod_173.py",
+        "def helper_173(x):\n    return x + 173\n\n\ndef label_173(x):\n    return f'{x}-173'\n"
+      ],
+      [
+        "shop/mod_174.py",
+        "def helper_174(x):\n    return x + 174\n\n\ndef label_174(x):\n    return f'{x}-174'\n"
+      ],
+      [
+        "shop/mod_175.py",
+        "def helper_175(x):\n    return x + 175\n\n\ndef label_175(x):\n    return f'{x}-175'\n"
+      ],
+      [
+        "shop/mod_176.py",
+        "def helper_176(x):\n    return x + 176\n\n\ndef label_176(x):\n    return f'{x}-176'\n"
+      ],
+      [
+        "shop/mod_177.py",
+        "def helper_177(x):\n    return x + 177\n\n\ndef label_177(x):\n    return f'{x}-177'\n"
+      ],
+      [
+        "shop/mod_178.py",
+        "def helper_178(x):\n    return x + 178\n\n\ndef label_178(x):\n    return f'{x}-178'\n"
+      ],
+      [
+        "shop/mod_179.py",
+        "def helper_179(x):\n    return x + 179\n\n\ndef label_179(x):\n    return f'{x}-179'\n"
+      ],
+      [
+        "shop/mod_180.py",
+        "def helper_180(x):\n    return x + 180\n\n\ndef label_180(x):\n    return f'{x}-180'\n"
+      ],
+      [
+        "shop/mod_181.py",
+        "def helper_181(x):\n    return x + 181\n\n\ndef label_181(x):\n    return f'{x}-181'\n"
+      ],
+      [
+        "shop/mod_182.py",
+        "def helper_182(x):\n    return x + 182\n\n\ndef label_182(x):\n    return f'{x}-182'\n"
+      ],
+      [
+        "shop/mod_183.py",
+        "def helper_183(x):\n    return x + 183\n\n\ndef label_183(x):\n    return f'{x}-183'\n"
+      ],
+      [
+        "shop/mod_184.py",
+        "def helper_184(x):\n    return x + 184\n\n\ndef label_184(x):\n    return f'{x}-184'\n"
+      ],
+      [
+        "shop/mod_185.py",
+        "def helper_185(x):\n    return x + 185\n\n\ndef label_185(x):\n    return f'{x}-185'\n"
+      ],
+      [
+        "shop/mod_186.py",
+        "def helper_186(x):\n    return x + 186\n\n\ndef label_186(x):\n    return f'{x}-186'\n"
+      ],
+      [
+        "shop/mod_187.py",
+        "def helper_187(x):\n    return x + 187\n\n\ndef label_187(x):\n    return f'{x}-187'\n"
+      ],
+      [
+        "shop/mod_188.py",
+        "def helper_188(x):\n    return x + 188\n\n\ndef label_188(x):\n    return f'{x}-188'\n"
+      ],
+      [
+        "shop/mod_189.py",
+        "def helper_189(x):\n    return x + 189\n\n\ndef label_189(x):\n    return f'{x}-189'\n"
+      ],
+      [
+        "shop/mod_190.py",
+        "def helper_190(x):\n    return x + 190\n\n\ndef label_190(x):\n    return f'{x}-190'\n"
+      ],
+      [
+        "shop/mod_191.py",
+        "def helper_191(x):\n    return x + 191\n\n\ndef label_191(x):\n    return f'{x}-191'\n"
+      ],
+      [
+        "shop/mod_192.py",
+        "def helper_192(x):\n    return x + 192\n\n\ndef label_192(x):\n    return f'{x}-192'\n"
+      ],
+      [
+        "shop/mod_193.py",
+        "def helper_193(x):\n    return x + 193\n\n\ndef label_193(x):\n    return f'{x}-193'\n"
+      ],
+      [
+        "shop/mod_194.py",
+        "def helper_194(x):\n    return x + 194\n\n\ndef label_194(x):\n    return f'{x}-194'\n"
+      ],
+      [
+        "shop/mod_195.py",
+        "def helper_195(x):\n    return x + 195\n\n\ndef label_195(x):\n    return f'{x}-195'\n"
+      ],
+      [
+        "shop/mod_196.py",
+        "def helper_196(x):\n    return x + 196\n\n\ndef label_196(x):\n    return f'{x}-196'\n"
+      ],
+      [
+        "shop/mod_197.py",
+        "def helper_197(x):\n    return x + 197\n\n\ndef label_197(x):\n    return f'{x}-197'\n"
+      ],
+      [
+        "shop/mod_198.py",
+        "def helper_198(x):\n    return x + 198\n\n\ndef label_198(x):\n    return f'{x}-198'\n"
+      ],
+      [
+        "shop/mod_199.py",
+        "def helper_199(x):\n    return x + 199\n\n\ndef label_199(x):\n    return f'{x}-199'\n"
+      ],
+      [
+        "shop/__init__.py",
+        ""
+      ],
+      [
+        "billing/__init__.py",
+        ""
+      ],
+      [
+        "billing/tax_rules.py",
+        "import json\nimport os\n\n_HERE = os.path.dirname(__file__)\n\n\ndef _rates():\n    with open(os.path.join(_HERE, '..', 'config', 'rates.json')) as f:\n        return json.load(f)\n\n\n# Nordic countries share the Swedish reduced schedule for digital goods.\n_ALIASES = {'NO': 'FI', 'DK': 'SE'}\n\n\ndef vat_rate(country):\n    rates = _rates()\n    return rates[_ALIASES.get(country, country)]\n"
+      ],
+      [
+        "billing/invoice.py",
+        "from billing.tax_rules import vat_rate\n\n\ndef invoice_total(net, country):\n    return round(net * (1 + vat_rate(country) / 100), 2)\n"
+      ],
+      [
+        "config/rates.json",
+        "{\"SE\": 25, \"NO\": 25, \"DK\": 25, \"FI\": 25.5, \"DE\": 19}\n"
+      ],
+      [
+        "test_invoice.py",
+        "import unittest\nfrom billing.invoice import invoice_total\n\n\nclass T(unittest.TestCase):\n    def test_germany(self):\n        self.assertEqual(invoice_total(100, 'DE'), 119.0)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom billing.invoice import invoice_total\n\n\nclass Acceptance(unittest.TestCase):\n    def test_nordics(self):\n        self.assertEqual(invoice_total(100, 'NO'), 125.0)\n        self.assertEqual(invoice_total(100, 'DK'), 125.0)\n        self.assertEqual(invoice_total(100, 'FI'), 125.5)\n        self.assertEqual(invoice_total(100, 'SE'), 125.0)\n"
+      ]
+    ],
+    "id": "x4_py_vat_symptom",
+    "node": false,
+    "reference": [
+      [
+        "billing/tax_rules.py",
+        "import json\nimport os\n\n_HERE = os.path.dirname(__file__)\n\n\ndef _rates():\n    with open(os.path.join(_HERE, '..', 'config', 'rates.json')) as f:\n        return json.load(f)\n\n\ndef vat_rate(country):\n    return _rates()[country]\n"
+      ]
+    ],
+    "request": "Customers in Norway and Denmark are charged the wrong VAT on invoices. Find and fix the cause.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "intervals.py",
+        "def merge(intervals):\n    \"\"\"Merge closed integer intervals [start, end]. Intervals that overlap or touch\n    ([1, 2] and [3, 4] touch, because no integer lies between them) become one. The input may\n    be unsorted and may contain duplicates; the result is sorted by start.\"\"\"\n    out = []\n    for s, e in sorted(intervals):\n        if out and s < out[-1][1]:\n            out[-1][1] = max(out[-1][1], e)\n        else:\n            out.append([s, e])\n    return out\n"
+      ],
+      [
+        "test_intervals.py",
+        "import unittest\nfrom intervals import merge\n\n\nclass T(unittest.TestCase):\n    def test_overlap(self):\n        self.assertEqual(merge([[1, 5], [2, 3]]), [[1, 5]])\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom intervals import merge\n\n\nclass Acceptance(unittest.TestCase):\n    def test_cases(self):\n        self.assertEqual(merge([[3, 4], [1, 2]]), [[1, 4]])\n        self.assertEqual(merge([[1, 3], [3, 5]]), [[1, 5]])\n        self.assertEqual(merge([[1, 2], [4, 5]]), [[1, 2], [4, 5]])\n        self.assertEqual(merge([[5, 6], [1, 10], [1, 10]]), [[1, 10]])\n        self.assertEqual(merge([]), [])\n"
+      ]
+    ],
+    "id": "x5_py_intervals",
+    "node": false,
+    "reference": [
+      [
+        "intervals.py",
+        "def merge(intervals):\n    out = []\n    for s, e in sorted(intervals):\n        if out and s <= out[-1][1] + 1:\n            out[-1][1] = max(out[-1][1], e)\n        else:\n            out.append([s, e])\n    return out\n"
+      ]
+    ],
+    "request": "merge() in intervals.py does not follow its docstring for some inputs. Fix it.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "node --test hidden/acc.test.mjs",
+      "image": "node:24-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "package.json",
+        "{\"name\":\"bench\",\"version\":\"1.0.0\",\"private\":true,\"type\":\"module\",\"scripts\":{\"test\":\"node --test\"}}"
+      ],
+      [
+        "src/debounce.js",
+        "// debounce(fn, ms): returns a function that delays calling fn until ms have passed without\n// another call; fn gets the arguments of the last call. The returned function has .cancel()\n// (drop the pending call) and .flush() (run the pending call now, if any).\nexport function debounce(fn, ms) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), ms);\n  };\n}\n"
+      ],
+      [
+        "test/debounce.test.js",
+        "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { debounce } from '../src/debounce.js';\n\ntest('exists', () => assert.equal(typeof debounce(() => {}, 10), 'function'));\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden/acc.test.mjs",
+        "import { test, mock } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { debounce } from '../src/debounce.js';\n\ntest('last call wins after quiet period', () => {\n  mock.timers.enable({ apis: ['setTimeout'] });\n  const calls = [];\n  const d = debounce((x) => calls.push(x), 100);\n  d(1); mock.timers.tick(50); d(2); mock.timers.tick(99);\n  assert.deepEqual(calls, []);\n  mock.timers.tick(1);\n  assert.deepEqual(calls, [2]);\n  mock.timers.reset();\n});\ntest('cancel and flush', () => {\n  mock.timers.enable({ apis: ['setTimeout'] });\n  const calls = [];\n  const d = debounce((x) => calls.push(x), 100);\n  d(1); d.cancel(); mock.timers.tick(200);\n  assert.deepEqual(calls, []);\n  d(3); d.flush();\n  assert.deepEqual(calls, [3]);\n  mock.timers.tick(200);\n  assert.deepEqual(calls, [3]);\n  d.flush();\n  assert.deepEqual(calls, [3]);\n  mock.timers.reset();\n});\n"
+      ]
+    ],
+    "id": "x6_node_debounce",
+    "node": true,
+    "reference": [
+      [
+        "src/debounce.js",
+        "export function debounce(fn, ms) {\n  let timer = null;\n  let pending = null;\n  const run = () => {\n    timer = null;\n    const args = pending;\n    pending = null;\n    if (args) fn(...args);\n  };\n  const debounced = (...args) => {\n    pending = args;\n    if (timer !== null) clearTimeout(timer);\n    timer = setTimeout(run, ms);\n  };\n  debounced.cancel = () => {\n    if (timer !== null) clearTimeout(timer);\n    timer = null;\n    pending = null;\n  };\n  debounced.flush = () => {\n    if (timer !== null) {\n      clearTimeout(timer);\n      run();\n    }\n  };\n  return debounced;\n}\n"
+      ]
+    ],
+    "request": "Complete debounce in src/debounce.js as its comment describes.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "users/__init__.py",
+        ""
+      ],
+      [
+        "users/core.py",
+        "def fetch_user(uid):\n    return {'id': uid}\n"
+      ],
+      [
+        "users/api.py",
+        "from users.core import fetch_user\n\n\ndef user_json(uid):\n    return fetch_user(uid)\n"
+      ],
+      [
+        "users/jobs.py",
+        "from users.core import fetch_user\n\n\ndef warm(ids):\n    return [fetch_user(i) for i in ids]\n"
+      ],
+      [
+        "test_users.py",
+        "import unittest\nfrom users.api import user_json\n\n\nclass T(unittest.TestCase):\n    def test_api(self):\n        self.assertEqual(user_json(1), {'id': 1})\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nimport warnings\n\n\nclass Acceptance(unittest.TestCase):\n    def test_new_name(self):\n        from users.core import load_user\n        self.assertEqual(load_user(2), {'id': 2})\n\n    def test_old_name_warns(self):\n        from users.core import fetch_user\n        with warnings.catch_warnings(record=True) as w:\n            warnings.simplefilter('always')\n            self.assertEqual(fetch_user(3), {'id': 3})\n        self.assertTrue(any(issubclass(x.category, DeprecationWarning) for x in w))\n\n    def test_callers_moved(self):\n        from users.api import user_json\n        from users.jobs import warm\n        with warnings.catch_warnings():\n            warnings.simplefilter('error', DeprecationWarning)\n            self.assertEqual(user_json(4), {'id': 4})\n            self.assertEqual(warm([5]), [{'id': 5}])\n"
+      ]
+    ],
+    "id": "x7_py_compat_rename",
+    "node": false,
+    "reference": [
+      [
+        "users/core.py",
+        "import warnings\n\n\ndef load_user(uid):\n    return {'id': uid}\n\n\ndef fetch_user(uid):\n    warnings.warn('fetch_user is deprecated; use load_user', DeprecationWarning, stacklevel=2)\n    return load_user(uid)\n"
+      ],
+      [
+        "users/api.py",
+        "from users.core import load_user\n\n\ndef user_json(uid):\n    return load_user(uid)\n"
+      ],
+      [
+        "users/jobs.py",
+        "from users.core import load_user\n\n\ndef warm(ids):\n    return [load_user(i) for i in ids]\n"
+      ]
+    ],
+    "request": "Rename fetch_user to load_user in the users package. Move every caller to the new name, and keep fetch_user working as a deprecated alias that emits a DeprecationWarning.",
+    "set": "hard"
+  },
+  {
+    "acceptance": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest -v hidden_acc",
+      "image": "python:3.13-alpine"
+    },
+    "allow_exec": true,
+    "concurrent_edit": null,
+    "files": [
+      [
+        "roman.py",
+        "_VALUES = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n\n\ndef from_roman(s):\n    \"\"\"Value of a Roman numeral in standard form (1..3999). Anything not in standard form\n    (for example IIII, VX, IC, MMMM, lower case, empty) raises ValueError.\"\"\"\n    total = 0\n    for i, ch in enumerate(s):\n        v = _VALUES[ch]\n        if i + 1 < len(s) and _VALUES[s[i + 1]] > v:\n            total -= v\n        else:\n            total += v\n    return total\n"
+      ],
+      [
+        "test_roman.py",
+        "import unittest\nfrom roman import from_roman\n\n\nclass T(unittest.TestCase):\n    def test_basic(self):\n        self.assertEqual(from_roman('XIV'), 14)\n"
+      ]
+    ],
+    "held_out": true,
+    "hidden": [
+      [
+        "hidden_acc.py",
+        "import unittest\nfrom roman import from_roman\n\n\nclass Acceptance(unittest.TestCase):\n    def test_valid(self):\n        self.assertEqual(from_roman('MCMXCIV'), 1994)\n        self.assertEqual(from_roman('MMMCMXCIX'), 3999)\n        self.assertEqual(from_roman('XL'), 40)\n\n    def test_invalid(self):\n        for bad in ['IIII', 'VX', 'IC', 'MMMM', 'xiv', '', 'IIV', 'VV', 'XM', 'A']:\n            with self.assertRaises(ValueError, msg=bad):\n                from_roman(bad)\n"
+      ]
+    ],
+    "id": "x8_py_roman_strict",
+    "node": false,
+    "reference": [
+      [
+        "roman.py",
+        "_TABLE = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]\n\n\ndef _to_roman(n):\n    out = ''\n    for v, sym in _TABLE:\n        while n >= v:\n            out += sym\n            n -= v\n    return out\n\n\n_CANON = {_to_roman(n): n for n in range(1, 4000)}\n\n\ndef from_roman(s):\n    if not isinstance(s, str) or s not in _CANON:\n        raise ValueError(s)\n    return _CANON[s]\n"
+      ]
+    ],
+    "request": "from_roman in roman.py accepts numerals that are not in standard form. Make it follow its docstring.",
+    "set": "hard"
+  }
+]

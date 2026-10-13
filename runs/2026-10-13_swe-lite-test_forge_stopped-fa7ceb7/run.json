@@ -1,0 +1,7 @@
+{
+  "label": "Forge on the fresh SWE-bench sample (build fa7ceb7, stopped)",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Stopped after 7 instances to fix the search tool (a file as the scope returned no matches); made again from scratch on the published build. Not counted."
+}

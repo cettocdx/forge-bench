@@ -1,0 +1,7 @@
+{
+  "label": "Forge development run: django__django-12284 traced (build 81ee14b)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Development: the same instance again with its conversation recorded, to find where the tokens went."
+}

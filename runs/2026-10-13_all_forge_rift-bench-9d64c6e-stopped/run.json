@@ -1,0 +1,7 @@
+{
+  "label": "Forge (build 9d64c6e, stopped)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Stopped after 19 runs when a fourth scaling issue showed on SWE-bench; superseded by the published build."
+}

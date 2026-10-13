@@ -1,0 +1,10 @@
+# built locally (Exercism content, not redistributed) and your own runs
+tasks/polyglot-py.json
+mine/
+.venv/
+__pycache__/
+*.pyc
+swe-eval/
+logs/
+rift-bench
+rift-bench-macos-arm64*

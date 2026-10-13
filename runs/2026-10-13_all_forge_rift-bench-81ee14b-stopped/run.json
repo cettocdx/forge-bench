@@ -1,0 +1,7 @@
+{
+  "label": "Forge (build 81ee14b, stopped)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Stopped after 12 runs when its first SWE-bench run of the fresh sample cost 5x Claude Code; superseded by the published build."
+}

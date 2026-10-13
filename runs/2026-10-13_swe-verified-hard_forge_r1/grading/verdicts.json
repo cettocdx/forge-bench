@@ -1,0 +1,52 @@
+{
+ "Forge|1|astropy__astropy-13398": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-13579": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14369": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13449": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13837": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-4551": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-8898": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5787": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-11510": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17630": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ }
+}

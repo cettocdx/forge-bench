@@ -1,0 +1,7 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-13",
+  "notes": "Forge through the published rift-bench build on 10 hard SWE-bench Verified instances (annotated 1-4 hours), one run each, graded by the official harness."
+}

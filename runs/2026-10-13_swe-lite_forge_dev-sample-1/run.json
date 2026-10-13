@@ -1,0 +1,7 @@
+{
+  "label": "Forge development run: 5 development-sample instances",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Development: unreleased build between 81ee14b and 0f836d2, on the development sample only."
+}

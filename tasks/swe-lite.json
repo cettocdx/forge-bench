@@ -1,0 +1,422 @@
+[
+ {
+  "set": "swe-lite",
+  "id": "django__django-11019",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nMerging 3 or more media objects can throw unnecessary MediaOrderConflictWarnings\nDescription\n\t\nConsider the following form definition, where text-editor-extras.js depends on text-editor.js but all other JS files are independent:\nfrom django import forms\nclass ColorPicker(forms.Widget):\n\tclass Media:\n\t\tjs = ['color-picker.js']\nclass SimpleTextWidget(forms.Widget):\n\tclass Media:\n\t\tjs = ['text-editor.js']\nclass FancyTextWidget(forms.Widget):\n\tclass Media:\n\t\tjs = ['text-editor.js', 'text-editor-extras.js', 'color-picker.js']\nclass MyForm(forms.Form):\n\tbackground_color = forms.CharField(widget=ColorPicker())\n\tintro = forms.CharField(widget=SimpleTextWidget())\n\tbody = forms.CharField(widget=FancyTextWidget())\nDjango should be able to resolve the JS files for the final form into the order text-editor.js, text-editor-extras.js, color-picker.js. However, accessing MyForm().media results in:\n/projects/django/django/forms/widgets.py:145: MediaOrderConflictWarning: Detected duplicate Media files in an opposite order:\ntext-editor-extras.js\ntext-editor.js\n MediaOrderConflictWarning,\nMedia(css={}, js=['text-editor-extras.js', 'color-picker.js', 'text-editor.js'])\nThe MediaOrderConflictWarning is a result of the order that the additions happen in: ColorPicker().media + SimpleTextWidget().media produces Media(css={}, js=['color-picker.js', 'text-editor.js']), which (wrongly) imposes the constraint that color-picker.js must appear before text-editor.js.\nThe final result is particularly unintuitive here, as it's worse than the \"na\u00efve\" result produced by Django 1.11 before order-checking was added (color-picker.js, text-editor.js, text-editor-extras.js), and the pair of files reported in the warning message seems wrong too (aren't color-picker.js and text-editor.js the wrong-ordered ones?)\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-11019"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "93e892bb645b16ebaf287beb5fe7f3ffe8d10408",
+   "version": "3.0"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-11964",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nThe value of a TextChoices/IntegerChoices field has a differing type\nDescription\n\t\nIf we create an instance of a model having a CharField or IntegerField with the keyword choices pointing to IntegerChoices or TextChoices, the value returned by the getter of the field will be of the same type as the one created by enum.Enum (enum value).\nFor example, this model:\nfrom django.db import models\nfrom django.utils.translation import gettext_lazy as _\nclass MyChoice(models.TextChoices):\n\tFIRST_CHOICE = \"first\", _(\"The first choice, it is\")\n\tSECOND_CHOICE = \"second\", _(\"The second choice, it is\")\nclass MyObject(models.Model):\n\tmy_str_value = models.CharField(max_length=10, choices=MyChoice.choices)\nThen this test:\nfrom django.test import TestCase\nfrom testing.pkg.models import MyObject, MyChoice\nclass EnumTest(TestCase):\n\tdef setUp(self) -> None:\n\t\tself.my_object = MyObject.objects.create(my_str_value=MyChoice.FIRST_CHOICE)\n\tdef test_created_object_is_str(self):\n\t\tmy_object = self.my_object\n\t\tself.assertIsInstance(my_object.my_str_value, str)\n\t\tself.assertEqual(str(my_object.my_str_value), \"first\")\n\tdef test_retrieved_object_is_str(self):\n\t\tmy_object = MyObject.objects.last()\n\t\tself.assertIsInstance(my_object.my_str_value, str)\n\t\tself.assertEqual(str(my_object.my_str_value), \"first\")\nAnd then the results:\n(django30-venv) \u279c django30 ./manage.py test\nCreating test database for alias 'default'...\nSystem check identified no issues (0 silenced).\nF.\n======================================================================\nFAIL: test_created_object_is_str (testing.tests.EnumTest)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n File \"/Users/mikailkocak/Development/django30/testing/tests.py\", line 14, in test_created_object_is_str\n\tself.assertEqual(str(my_object.my_str_value), \"first\")\nAssertionError: 'MyChoice.FIRST_CHOICE' != 'first'\n- MyChoice.FIRST_CHOICE\n+ first\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\nFAILED (failures=1)\nWe notice when invoking __str__(...) we don't actually get the value property of the enum value which can lead to some unexpected issues, especially when communicating to an external API with a freshly created instance that will send MyEnum.MyValue, and the one that was retrieved would send my_value.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-11964"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "fc2b1cc926e34041953738e58fa6ad3053059b22",
+   "version": "3.1"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-12497",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nWrong hint about recursive relationship.\nDescription\n\t \n\t\t(last modified by Matheus Cunha Motta)\n\t \nWhen there's more than 2 ForeignKeys in an intermediary model of a m2m field and no through_fields have been set, Django will show an error with the following hint:\nhint=(\n\t'If you want to create a recursive relationship, '\n\t'use ForeignKey(\"%s\", symmetrical=False, through=\"%s\").'\nBut 'symmetrical' and 'through' are m2m keyword arguments, not ForeignKey.\nThis was probably a small mistake where the developer thought ManyToManyField but typed ForeignKey instead. And the symmetrical=False is an outdated requirement to recursive relationships with intermediary model to self, not required since 3.0. I'll provide a PR with a proposed correction shortly after.\nEdit: fixed description.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-12497"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "a4881f5e5d7ee38b7e83301331a0b4962845ef8a",
+   "version": "3.1"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-13220",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nAllow ValidationErrors to equal each other when created identically\nDescription\n\t \n\t\t(last modified by kamni)\n\t \nCurrently ValidationErrors (django.core.exceptions.ValidationError) that have identical messages don't equal each other, which is counter-intuitive, and can make certain kinds of testing more complicated. Please add an __eq__ method that allows two ValidationErrors to be compared. \nIdeally, this would be more than just a simple self.messages == other.messages. It would be most helpful if the comparison were independent of the order in which errors were raised in a field or in non_field_errors.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-13220"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "16218c20606d8cd89c5393970c83da04598a3e04",
+   "version": "3.2"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-13321",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nDecoding an invalid session data crashes.\nDescription\n\t \n\t\t(last modified by Matt Hegarty)\n\t \nHi\nI recently upgraded my staging server to 3.1. I think that there was an old session which was still active.\nOn browsing to any URL, I get the crash below. It looks similar to \u200bthis issue.\nI cannot login at all with Chrome - each attempt to access the site results in a crash. Login with Firefox works fine.\nThis is only happening on my Staging site, which is running Gunicorn behind nginx proxy.\nInternal Server Error: /overview/\nTraceback (most recent call last):\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 215, in _get_session\nreturn self._session_cache\nAttributeError: 'SessionStore' object has no attribute '_session_cache'\nDuring handling of the above exception, another exception occurred:\nTraceback (most recent call last):\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 118, in decode\nreturn signing.loads(session_data, salt=self.key_salt, serializer=self.serializer)\nFile \"/usr/local/lib/python3.8/site-packages/django/core/signing.py\", line 135, in loads\nbase64d = TimestampSigner(key, salt=salt).unsign(s, max_age=max_age).encode()\nFile \"/usr/local/lib/python3.8/site-packages/django/core/signing.py\", line 201, in unsign\nresult = super().unsign(value)\nFile \"/usr/local/lib/python3.8/site-packages/django/core/signing.py\", line 184, in unsign\nraise BadSignature('Signature \"%s\" does not match' % sig)\ndjango.core.signing.BadSignature: Signature \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" does not match\nDuring handling of the above exception, another exception occurred:\nTraceback (most recent call last):\nFile \"/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py\", line 47, in inner\nresponse = get_response(request)\nFile \"/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py\", line 179, in _get_response\nresponse = wrapped_callback(request, *callback_args, **callback_kwargs)\nFile \"/usr/local/lib/python3.8/site-packages/django/views/generic/base.py\", line 73, in view\nreturn self.dispatch(request, *args, **kwargs)\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/auth/mixins.py\", line 50, in dispatch\nif not request.user.is_authenticated:\nFile \"/usr/local/lib/python3.8/site-packages/django/utils/functional.py\", line 240, in inner\nself._setup()\nFile \"/usr/local/lib/python3.8/site-packages/django/utils/functional.py\", line 376, in _setup\nself._wrapped = self._setupfunc()\nFile \"/usr/local/lib/python3.8/site-packages/django_otp/middleware.py\", line 38, in _verify_user\nuser.otp_device = None\nFile \"/usr/local/lib/python3.8/site-packages/django/utils/functional.py\", line 270, in __setattr__\nself._setup()\nFile \"/usr/local/lib/python3.8/site-packages/django/utils/functional.py\", line 376, in _setup\nself._wrapped = self._setupfunc()\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/auth/middleware.py\", line 23, in <lambda>\nrequest.user = SimpleLazyObject(lambda: get_user(request))\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/auth/middleware.py\", line 11, in get_user\nrequest._cached_user = auth.get_user(request)\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py\", line 174, in get_user\nuser_id = _get_user_session_key(request)\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py\", line 58, in _get_user_session_key\nreturn get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 65, in __getitem__\nreturn self._session[key]\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 220, in _get_session\nself._session_cache = self.load()\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/db.py\", line 44, in load\nreturn self.decode(s.session_data) if s else {}\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 122, in decode\nreturn self._legacy_decode(session_data)\nFile \"/usr/local/lib/python3.8/site-packages/django/contrib/sessions/backends/base.py\", line 126, in _legacy_decode\nencoded_data = base64.b64decode(session_data.encode('ascii'))\nFile \"/usr/local/lib/python3.8/base64.py\", line 87, in b64decode\nreturn binascii.a2b_base64(s)\nbinascii.Error: Incorrect padding\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-13321"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "35b03788b0607c1f8d2b64e4fa9e1669b0907ea4",
+   "version": "3.2"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-13964",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nSaving parent object after setting on child leads to data loss for parents with non-numeric primary key.\nDescription\n\t \n\t\t(last modified by Charlie DeTar)\n\t \nGiven a model with a foreign key relation to another model that has a non-auto CharField as its primary key:\nclass Product(models.Model):\n\tsku = models.CharField(primary_key=True, max_length=50)\nclass Order(models.Model):\n\tproduct = models.ForeignKey(Product, on_delete=models.CASCADE)\nIf the relation is initialized on the parent with an empty instance that does not yet specify its primary key, and the primary key is subsequently defined, the parent does not \"see\" the primary key's change:\nwith transaction.atomic():\n\torder = Order()\n\torder.product = Product()\n\torder.product.sku = \"foo\"\n\torder.product.save()\n\torder.save()\n\tassert Order.objects.filter(product_id=\"\").exists() # Succeeds, but shouldn't\n\tassert Order.objects.filter(product=order.product).exists() # Fails\nInstead of product_id being populated with product.sku, it is set to emptystring. The foreign key constraint which would enforce the existence of a product with sku=\"\" is deferred until the transaction commits. The transaction does correctly fail on commit with a ForeignKeyViolation due to the non-existence of a product with emptystring as its primary key.\nOn the other hand, if the related unsaved instance is initialized with its primary key before assignment to the parent, it is persisted correctly:\nwith transaction.atomic():\n\torder = Order()\n\torder.product = Product(sku=\"foo\")\n\torder.product.save()\n\torder.save()\n\tassert Order.objects.filter(product=order.product).exists() # succeeds\nCommitting the transaction also succeeds.\nThis may have something to do with how the Order.product_id field is handled at assignment, together with something about handling fetching of auto vs non-auto primary keys from the related instance.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-13964"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "f39634ff229887bf7790c069d0c411b38494ca38",
+   "version": "4.0"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-15814",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nQuerySet.only() after select_related() crash on proxy models.\nDescription\n\t\nWhen I optimize a query using select_related() and only() methods from the proxy model I encounter an error:\nWindows 10; Python 3.10; Django 4.0.5\nTraceback (most recent call last):\n File \"D:\\study\\django_college\\manage.py\", line 22, in <module>\n\tmain()\n File \"D:\\study\\django_college\\manage.py\", line 18, in main\n\texecute_from_command_line(sys.argv)\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\core\\management\\__init__.py\", line 446, in execute_from_command_line\n\tutility.execute()\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\core\\management\\__init__.py\", line 440, in execute\n\tself.fetch_command(subcommand).run_from_argv(self.argv)\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\core\\management\\base.py\", line 414, in run_from_argv\n\tself.execute(*args, **cmd_options)\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\core\\management\\base.py\", line 460, in execute\n\toutput = self.handle(*args, **options)\n File \"D:\\study\\django_college\\project\\users\\management\\commands\\test_proxy.py\", line 9, in handle\n\tobjs = list(AnotherModel.objects.select_related(\"custom\").only(\"custom__name\").all())\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\db\\models\\query.py\", line 302, in __len__\n\tself._fetch_all()\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\db\\models\\query.py\", line 1507, in _fetch_all\n\tself._result_cache = list(self._iterable_class(self))\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\db\\models\\query.py\", line 71, in __iter__\n\trelated_populators = get_related_populators(klass_info, select, db)\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\db\\models\\query.py\", line 2268, in get_related_populators\n\trel_cls = RelatedPopulator(rel_klass_info, select, db)\n File \"D:\\Anaconda3\\envs\\django\\lib\\site-packages\\django\\db\\models\\query.py\", line 2243, in __init__\n\tself.pk_idx = self.init_list.index(self.model_cls._meta.pk.attname)\nValueError: 'id' is not in list\nModels:\nclass CustomModel(models.Model):\n\tname = models.CharField(max_length=16)\nclass ProxyCustomModel(CustomModel):\n\tclass Meta:\n\t\tproxy = True\nclass AnotherModel(models.Model):\n\tcustom = models.ForeignKey(\n\t\tProxyCustomModel,\n\t\ton_delete=models.SET_NULL,\n\t\tnull=True,\n\t\tblank=True,\n\t)\nCommand:\nclass Command(BaseCommand):\n\tdef handle(self, *args, **options):\n\t\tlist(AnotherModel.objects.select_related(\"custom\").only(\"custom__name\").all())\nAt django/db/models/sql/query.py in 745 line there is snippet:\nopts = cur_model._meta\nIf I replace it by \nopts = cur_model._meta.concrete_model._meta\nall works as expected.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-15814"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "5eb6a2b33d70b9889e1cafa12594ad6f80773d3a",
+   "version": "4.2"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-15902",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\n\"default.html\" deprecation warning raised for ManagementForm's\nDescription\n\t\nI have a project where I never render forms with the {{ form }} expression. However, I'm still getting the new template deprecation warning because of the formset management form production, during which the template used is insignificant (only hidden inputs are produced).\nIs it worth special-casing this and avoid producing the warning for the management forms?\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-15902"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "44c24bf02835323d5418512ebe8e76166739ebf8",
+   "version": "4.2"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "django__django-16595",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (django/django).\n\n<issue>\nMigration optimizer does not reduce multiple AlterField\nDescription\n\t\nLet's consider the following operations: \noperations = [\n\tmigrations.AddField(\n\t\tmodel_name=\"book\",\n\t\tname=\"title\",\n\t\tfield=models.CharField(max_length=256, null=True),\n\t),\n\tmigrations.AlterField(\n\t\tmodel_name=\"book\",\n\t\tname=\"title\",\n\t\tfield=models.CharField(max_length=128, null=True),\n\t),\n\tmigrations.AlterField(\n\t\tmodel_name=\"book\",\n\t\tname=\"title\",\n\t\tfield=models.CharField(max_length=128, null=True, help_text=\"help\"),\n\t),\n\tmigrations.AlterField(\n\t\tmodel_name=\"book\",\n\t\tname=\"title\",\n\t\tfield=models.CharField(max_length=128, null=True, help_text=\"help\", default=None),\n\t),\n]\nIf I run the optimizer, I get only the AddField, as we could expect. However, if the AddField model is separated from the AlterField (e.g. because of a non-elidable migration, or inside a non-squashed migration), none of the AlterField are reduced:\noptimizer.optimize(operations[1:], \"books\") \n[<AlterField model_name='book', name='title', field=<django.db.models.fields.CharField>>,\n <AlterField model_name='book', name='title', field=<django.db.models.fields.CharField>>,\n <AlterField model_name='book', name='title', field=<django.db.models.fields.CharField>>]\nIndeed, the AlterField.reduce does not consider the the case where operation is also an AlterField. \nIs this behaviour intended? If so, could it be documented? \nOtherwise, would it make sense to add something like\n\t\tif isinstance(operation, AlterField) and self.is_same_field_operation(\n\t\t\toperation\n\t\t):\n\t\t\treturn [operation]\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite django__django-16595"
+  },
+  "swe": {
+   "repo": "django/django",
+   "base_commit": "f9fe062de5fc0896d6bbbf3f260b5c44473b3c77",
+   "version": "5.0"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "matplotlib__matplotlib-22711",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (matplotlib/matplotlib).\n\n<issue>\n[Bug]: cannot give init value for RangeSlider widget\n### Bug summary\r\n\r\nI think `xy[4] = .25, val[0]` should be commented in /matplotlib/widgets. py\", line 915, in set_val\r\nas it prevents to initialized value for RangeSlider\r\n\r\n### Code for reproduction\r\n\r\n```python\r\nimport numpy as np\r\nimport matplotlib.pyplot as plt\r\nfrom matplotlib.widgets import RangeSlider\r\n\r\n# generate a fake image\r\nnp.random.seed(19680801)\r\nN = 128\r\nimg = np.random.randn(N, N)\r\n\r\nfig, axs = plt.subplots(1, 2, figsize=(10, 5))\r\nfig.subplots_adjust(bottom=0.25)\r\n\r\nim = axs[0].imshow(img)\r\naxs[1].hist(img.flatten(), bins='auto')\r\naxs[1].set_title('Histogram of pixel intensities')\r\n\r\n# Create the RangeSlider\r\nslider_ax = fig.add_axes([0.20, 0.1, 0.60, 0.03])\r\nslider = RangeSlider(slider_ax, \"Threshold\", img.min(), img.max(),valinit=[0.0,0.0])\r\n\r\n# Create the Vertical lines on the histogram\r\nlower_limit_line = axs[1].axvline(slider.val[0], color='k')\r\nupper_limit_line = axs[1].axvline(slider.val[1], color='k')\r\n\r\n\r\ndef update(val):\r\n    # The val passed to a callback by the RangeSlider will\r\n    # be a tuple of (min, max)\r\n\r\n    # Update the image's colormap\r\n    im.norm.vmin = val[0]\r\n    im.norm.vmax = val[1]\r\n\r\n    # Update the position of the vertical lines\r\n    lower_limit_line.set_xdata([val[0], val[0]])\r\n    upper_limit_line.set_xdata([val[1], val[1]])\r\n\r\n    # Redraw the figure to ensure it updates\r\n    fig.canvas.draw_idle()\r\n\r\n\r\nslider.on_changed(update)\r\nplt.show()\r\n```\r\n\r\n\r\n### Actual outcome\r\n\r\n```python\r\n  File \"<ipython-input-52-b704c53e18d4>\", line 19, in <module>\r\n    slider = RangeSlider(slider_ax, \"Threshold\", img.min(), img.max(),valinit=[0.0,0.0])\r\n\r\n  File \"/Users/Vincent/opt/anaconda3/envs/py38/lib/python3.8/site-packages/matplotlib/widgets.py\", line 778, in __init__\r\n    self.set_val(valinit)\r\n\r\n  File \"/Users/Vincent/opt/anaconda3/envs/py38/lib/python3.8/site-packages/matplotlib/widgets.py\", line 915, in set_val\r\n    xy[4] = val[0], .25\r\n\r\nIndexError: index 4 is out of bounds for axis 0 with size 4\r\n```\r\n\r\n### Expected outcome\r\n\r\nrange slider with user initial values\r\n\r\n### Additional information\r\n\r\nerror can be removed by commenting this line\r\n```python\r\n\r\n    def set_val(self, val):\r\n        \"\"\"\r\n        Set slider value to *val*.\r\n\r\n        Parameters\r\n        ----------\r\n        val : tuple or array-like of float\r\n        \"\"\"\r\n        val = np.sort(np.asanyarray(val))\r\n        if val.shape != (2,):\r\n            raise ValueError(\r\n                f\"val must have shape (2,) but has shape {val.shape}\"\r\n            )\r\n        val[0] = self._min_in_bounds(val[0])\r\n        val[1] = self._max_in_bounds(val[1])\r\n        xy = self.poly.xy\r\n        if self.orientation == \"vertical\":\r\n            xy[0] = .25, val[0]\r\n            xy[1] = .25, val[1]\r\n            xy[2] = .75, val[1]\r\n            xy[3] = .75, val[0]\r\n            # xy[4] = .25, val[0]\r\n        else:\r\n            xy[0] = val[0], .25\r\n            xy[1] = val[0], .75\r\n            xy[2] = val[1], .75\r\n            xy[3] = val[1], .25\r\n            # xy[4] = val[0], .25\r\n        self.poly.xy = xy\r\n        self.valtext.set_text(self._format(val))\r\n        if self.drawon:\r\n            self.ax.figure.canvas.draw_idle()\r\n        self.val = val\r\n        if self.eventson:\r\n            self._observers.process(\"changed\", val)\r\n\r\n```\r\n\r\n### Operating system\r\n\r\nOSX\r\n\r\n### Matplotlib Version\r\n\r\n3.5.1\r\n\r\n### Matplotlib Backend\r\n\r\n_No response_\r\n\r\n### Python version\r\n\r\n3.8\r\n\r\n### Jupyter version\r\n\r\n_No response_\r\n\r\n### Installation\r\n\r\npip\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite matplotlib__matplotlib-22711"
+  },
+  "swe": {
+   "repo": "matplotlib/matplotlib",
+   "base_commit": "f670fe78795b18eb1118707721852209cd77ad51",
+   "version": "3.5"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "matplotlib__matplotlib-23563",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (matplotlib/matplotlib).\n\n<issue>\n[Bug]: 'Line3D' object has no attribute '_verts3d'\n### Bug summary\n\nI use matplotlib 3D to visualize some lines in 3D. When I first run the following code, the code can run right. But, if I give `x_s_0[n]` a numpy array, it will report the error 'input operand has more dimensions than allowed by the axis remapping'. The point is when next I give  `x_s_0[n]` and other variables an int number, the AttributeError: 'Line3D' object has no attribute '_verts3d' will appear and can not be fixed whatever I change the variables or delete them. The error can be only fixed when I restart the kernel of ipython console. I don't know why it happens, so I come here for help.\n\n### Code for reproduction\n\n```python\nx_s_0 = np.array(['my int number list'])\r\nx_e_0 = np.array(['my int number list'])\r\ny_s_0 = np.array(['my int number list'])\r\ny_e_0 = np.array(['my int number list'])\r\nz_s_0 = np.array(['my int number list'])\r\nz_e_0 = np.array(['my int number list'])\r\n\r\nfig = plt.figure()\r\n        ax = fig.gca(projection='3d')\r\n        ax.view_init(elev=90, azim=0)\r\n        ax.set_zlim3d(-10, 10)\r\n        clr_list = 'r-'\r\n\r\n        for n in range(np.size(z_s_0, axis=0)):\r\n            ax.plot([int(x_s_0[n]), int(x_e_0[n])],\r\n                    [int(y_s_0[n]), int(y_e_0[n])],\r\n                    [int(z_s_0[n]), int(z_e_0[n])], clr_list)\r\n\r\n        plt.xlabel('x')\r\n        plt.ylabel('y')\r\n        # ax.zlabel('z')\r\n        plt.title('90-0')\r\n        plt.show()\n```\n\n\n### Actual outcome\n\nTraceback (most recent call last):\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/IPython/core/interactiveshell.py\", line 3444, in run_code\r\n    exec(code_obj, self.user_global_ns, self.user_ns)\r\n  File \"<ipython-input-80-e04907066a16>\", line 20, in <module>\r\n    plt.show()\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/pyplot.py\", line 368, in show\r\n    return _backend_mod.show(*args, **kwargs)\r\n  File \"/home/hanyaning/.pycharm_helpers/pycharm_matplotlib_backend/backend_interagg.py\", line 29, in __call__\r\n    manager.show(**kwargs)\r\n  File \"/home/hanyaning/.pycharm_helpers/pycharm_matplotlib_backend/backend_interagg.py\", line 112, in show\r\n    self.canvas.show()\r\n  File \"/home/hanyaning/.pycharm_helpers/pycharm_matplotlib_backend/backend_interagg.py\", line 68, in show\r\n    FigureCanvasAgg.draw(self)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py\", line 436, in draw\r\n    self.figure.draw(self.renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/artist.py\", line 73, in draw_wrapper\r\n    result = draw(artist, renderer, *args, **kwargs)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/artist.py\", line 50, in draw_wrapper\r\n    return draw(artist, renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/figure.py\", line 2803, in draw\r\n    mimage._draw_list_compositing_images(\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/image.py\", line 132, in _draw_list_compositing_images\r\n    a.draw(renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/artist.py\", line 50, in draw_wrapper\r\n    return draw(artist, renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/mpl_toolkits/mplot3d/axes3d.py\", line 469, in draw\r\n    super().draw(renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/artist.py\", line 50, in draw_wrapper\r\n    return draw(artist, renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/axes/_base.py\", line 3082, in draw\r\n    mimage._draw_list_compositing_images(\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/image.py\", line 132, in _draw_list_compositing_images\r\n    a.draw(renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/matplotlib/artist.py\", line 50, in draw_wrapper\r\n    return draw(artist, renderer)\r\n  File \"/home/hanyaning/anaconda3/envs/SBeA/lib/python3.8/site-packages/mpl_toolkits/mplot3d/art3d.py\", line 215, in draw\r\n    xs3d, ys3d, zs3d = self._verts3d\r\nAttributeError: 'Line3D' object has no attribute '_verts3d'\n\n### Expected outcome\n\nSome 3D lines\n\n### Additional information\n\n_No response_\n\n### Operating system\n\nLocal: windows + pycharm, Remote: Ubuntu 20.04\n\n### Matplotlib Version\n\n3.5.0\n\n### Matplotlib Backend\n\nmodule://backend_interagg\n\n### Python version\n\n3.8.12\n\n### Jupyter version\n\n_No response_\n\n### Installation\n\npip\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite matplotlib__matplotlib-23563"
+  },
+  "swe": {
+   "repo": "matplotlib/matplotlib",
+   "base_commit": "149a0398b391cfc4eddb5e659f50b3c66f32ea65",
+   "version": "3.5"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "pytest-dev__pytest-11143",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (pytest-dev/pytest).\n\n<issue>\nRewrite fails when first expression of file is a number and mistaken as docstring \n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list while reporting bugs:\r\n-->\r\n\r\n- [x] a detailed description of the bug or problem you are having\r\n- [x] output of `pip list` from the virtual environment you are using\r\n- [x] pytest and operating system versions\r\n- [x] minimal example if possible\r\n```\r\nInstalling collected packages: zipp, six, PyYAML, python-dateutil, MarkupSafe, importlib-metadata, watchdog, tomli, soupsieve, pyyaml-env-tag, pycparser, pluggy, packaging, mergedeep, Markdown, jinja2, iniconfig, ghp-import, exceptiongroup, click, websockets, urllib3, tqdm, smmap, pytest, pyee, mkdocs, lxml, importlib-resources, idna, cssselect, charset-normalizer, cffi, certifi, beautifulsoup4, attrs, appdirs, w3lib, typing-extensions, texttable, requests, pyzstd, pytest-metadata, pyquery, pyppmd, pyppeteer, pynacl, pymdown-extensions, pycryptodomex, pybcj, pyasn1, py, psutil, parse, multivolumefile, mkdocs-autorefs, inflate64, gitdb, fake-useragent, cryptography, comtypes, bs4, brotli, bcrypt, allure-python-commons, xlwt, xlrd, rsa, requests-html, pywinauto, python-i18n, python-dotenv, pytest-rerunfailures, pytest-html, pytest-check, PySocks, py7zr, paramiko, mkdocstrings, loguru, GitPython, ftputil, crcmod, chardet, brotlicffi, allure-pytest\r\nSuccessfully installed GitPython-3.1.31 Markdown-3.3.7 MarkupSafe-2.1.3 PySocks-1.7.1 PyYAML-6.0 allure-pytest-2.13.2 allure-python-commons-2.13.2 appdirs-1.4.4 attrs-23.1.0 bcrypt-4.0.1 beautifulsoup4-4.12.2 brotli-1.0.9 brotlicffi-1.0.9.2 bs4-0.0.1 certifi-2023.5.7 cffi-1.15.1 chardet-5.1.0 charset-normalizer-3.1.0 click-8.1.3 comtypes-1.2.0 crcmod-1.7 cryptography-41.0.1 cssselect-1.2.0 exceptiongroup-1.1.1 fake-useragent-1.1.3 ftputil-5.0.4 ghp-import-2.1.0 gitdb-4.0.10 idna-3.4 importlib-metadata-6.7.0 importlib-resources-5.12.0 inflate64-0.3.1 iniconfig-2.0.0 jinja2-3.1.2 loguru-0.7.0 lxml-4.9.2 mergedeep-1.3.4 mkdocs-1.4.3 mkdocs-autorefs-0.4.1 mkdocstrings-0.22.0 multivolumefile-0.2.3 packaging-23.1 paramiko-3.2.0 parse-1.19.1 pluggy-1.2.0 psutil-5.9.5 py-1.11.0 py7zr-0.20.5 pyasn1-0.5.0 pybcj-1.0.1 pycparser-2.21 pycryptodomex-3.18.0 pyee-8.2.2 pymdown-extensions-10.0.1 pynacl-1.5.0 pyppeteer-1.0.2 pyppmd-1.0.0 pyquery-2.0.0 pytest-7.4.0 pytest-check-2.1.5 pytest-html-3.2.0 pytest-metadata-3.0.0 pytest-rerunfailures-11.1.2 python-dateutil-2.8.2 python-dotenv-1.0.0 python-i18n-0.3.9 pywinauto-0.6.6 pyyaml-env-tag-0.1 pyzstd-0.15.9 requests-2.31.0 requests-html-0.10.0 rsa-4.9 six-1.16.0 smmap-5.0.0 soupsieve-2.4.1 texttable-1.6.7 tomli-2.0.1 tqdm-4.65.0 typing-extensions-4.6.3 urllib3-1.26.16 w3lib-2.1.1 watchdog-3.0.0 websockets-10.4 xlrd-2.0.1 xlwt-1.3.0 zipp-3.15.0\r\n```\r\nuse `pytest -k xxx`\uff0c report an error\uff1a`TypeError: argument of type 'int' is not iterable`\r\n\r\nit seems a error in collecting testcase\r\n```\r\n==================================== ERRORS ====================================\r\n_ ERROR collecting testcases/\u57fa\u7ebf/\u4ee3\u7406\u7b56\u7565/SOCKS\u4e8c\u7ea7\u4ee3\u7406\u8fed\u4ee3\u4e8c/\u5728\u7ebf\u7528\u6237/\u5728\u7ebf\u7528\u6237\u66f4\u65b0/\u4e0a\u7ebf\u7528\u6237/test_socks_user_011.py _\r\n/usr/local/lib/python3.8/site-packages/_pytest/runner.py:341: in from_call\r\n    result: Optional[TResult] = func()\r\n/usr/local/lib/python3.8/site-packages/_pytest/runner.py:372: in <lambda>\r\n    call = CallInfo.from_call(lambda: list(collector.collect()), \"collect\")\r\n/usr/local/lib/python3.8/site-packages/_pytest/python.py:531: in collect\r\n    self._inject_setup_module_fixture()\r\n/usr/local/lib/python3.8/site-packages/_pytest/python.py:545: in _inject_setup_module_fixture\r\n    self.obj, (\"setUpModule\", \"setup_module\")\r\n/usr/local/lib/python3.8/site-packages/_pytest/python.py:310: in obj\r\n    self._obj = obj = self._getobj()\r\n/usr/local/lib/python3.8/site-packages/_pytest/python.py:528: in _getobj\r\n    return self._importtestmodule()\r\n/usr/local/lib/python3.8/site-packages/_pytest/python.py:617: in _importtestmodule\r\n    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)\r\n/usr/local/lib/python3.8/site-packages/_pytest/pathlib.py:565: in import_path\r\n    importlib.import_module(module_name)\r\n/usr/local/lib/python3.8/importlib/__init__.py:127: in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n<frozen importlib._bootstrap>:1014: in _gcd_import\r\n    ???\r\n<frozen importlib._bootstrap>:991: in _find_and_load\r\n    ???\r\n<frozen importlib._bootstrap>:975: in _find_and_load_unlocked\r\n    ???\r\n<frozen importlib._bootstrap>:671: in _load_unlocked\r\n    ???\r\n/usr/local/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:169: in exec_module\r\n    source_stat, co = _rewrite_test(fn, self.config)\r\n/usr/local/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:352: in _rewrite_test\r\n    rewrite_asserts(tree, source, strfn, config)\r\n/usr/local/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:413: in rewrite_asserts\r\n    AssertionRewriter(module_path, config, source).run(mod)\r\n/usr/local/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:695: in run\r\n    if self.is_rewrite_disabled(doc):\r\n/usr/local/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:760: in is_rewrite_disabled\r\n    return \"PYTEST_DONT_REWRITE\" in docstring\r\nE   TypeError: argument of type 'int' is not iterable\r\n```\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite pytest-dev__pytest-11143"
+  },
+  "swe": {
+   "repo": "pytest-dev/pytest",
+   "base_commit": "6995257cf470d2143ad1683824962de4071c0eb7",
+   "version": "8.0"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sphinx-doc__sphinx-7975",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sphinx-doc/sphinx).\n\n<issue>\nTwo sections called Symbols in index\nWhen using index entries with the following leading characters: _@_, _\u00a3_, and _\u2190_ I get two sections called _Symbols_ in the HTML output, the first containing all _@_ entries before \u201dnormal\u201d words and the second containing _\u00a3_ and _\u2190_ entries after the \u201dnormal\u201d words.  Both have the same anchor in HTML so the links at the top of the index page contain two _Symbols_ links, one before the letters and one after, but both lead to the first section.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sphinx-doc__sphinx-7975"
+  },
+  "swe": {
+   "repo": "sphinx-doc/sphinx",
+   "base_commit": "4ec6cbe341fd84468c448e20082c778043bbea4b",
+   "version": "3.2"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-13031",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nBehavior of Matrix hstack and vstack changed in sympy 1.1\nIn sympy 1.0:\r\n```\r\nimport sympy as sy\r\nM1 = sy.Matrix.zeros(0, 0)\r\nM2 = sy.Matrix.zeros(0, 1)\r\nM3 = sy.Matrix.zeros(0, 2)\r\nM4 = sy.Matrix.zeros(0, 3)\r\nsy.Matrix.hstack(M1, M2, M3, M4).shape\r\n```\r\nreturns \r\n`(0, 6)`\r\n\r\nNow, same in sympy 1.1:\r\n```\r\nimport sympy as sy\r\nM1 = sy.Matrix.zeros(0, 0)\r\nM2 = sy.Matrix.zeros(0, 1)\r\nM3 = sy.Matrix.zeros(0, 2)\r\nM4 = sy.Matrix.zeros(0, 3)\r\nsy.Matrix.hstack(M1, M2, M3, M4).shape\r\n```\r\nreturns\r\n`(0, 3)\r\n`\r\nwhereas:\r\n```\r\nimport sympy as sy\r\nM1 = sy.Matrix.zeros(1, 0)\r\nM2 = sy.Matrix.zeros(1, 1)\r\nM3 = sy.Matrix.zeros(1, 2)\r\nM4 = sy.Matrix.zeros(1, 3)\r\nsy.Matrix.hstack(M1, M2, M3, M4).shape\r\n```\r\nreturns\r\n`(1, 6)\r\n`\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-13031"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "2dfa7457f20ee187fbb09b5b6a1631da4458388c",
+   "version": "1.1"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-13177",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nMod(x**2, x) is not (always) 0\nWhen the base is not an integer, `x**2 % x` is not 0. The base is not tested to be an integer in Mod's eval logic:\r\n\r\n```\r\nif (p == q or p == -q or\r\n        p.is_Pow and p.exp.is_Integer and p.base == q or\r\n        p.is_integer and q == 1):\r\n    return S.Zero\r\n```\r\n\r\nso\r\n\r\n```\r\n>>> Mod(x**2, x)\r\n0\r\n```\r\nbut\r\n```\r\n>>> x = S(1.5)\r\n>>> Mod(x**2, x)\r\n0.75\r\n```\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-13177"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "662cfb818e865f580e18b59efbb3540c34232beb",
+   "version": "1.1"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-13971",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nDisplay of SeqFormula()\n```\r\nimport sympy as sp\r\nk, m, n = sp.symbols('k m n', integer=True)\r\nsp.init_printing()\r\n\r\nsp.SeqFormula(n**2, (n,0,sp.oo))\r\n```\r\n\r\nThe Jupyter rendering of this command backslash-escapes the brackets producing:\r\n\r\n`\\left\\[0, 1, 4, 9, \\ldots\\right\\]`\r\n\r\nCopying this output to a markdown cell this does not render properly.  Whereas:\r\n\r\n`[0, 1, 4, 9, \\ldots ]`\r\n\r\ndoes render just fine.  \r\n\r\nSo - sequence output should not backslash-escape square brackets, or, `\\]` should instead render?\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-13971"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "84c125972ad535b2dfb245f8d311d347b45e5b8a",
+   "version": "1.1"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-15308",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nLaTeX printing for Matrix Expression\n```py\r\n>>> A = MatrixSymbol(\"A\", n, n)\r\n>>> latex(trace(A**2))\r\n'Trace(A**2)'\r\n```\r\n\r\nThe bad part is not only is Trace not recognized, but whatever printer is being used doesn't fallback to the LaTeX printer for the inner expression (it should be `A^2`).\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-15308"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "fb59d703e6863ed803c98177b59197b5513332e9",
+   "version": "1.4"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-21379",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nUnexpected `PolynomialError` when using simple `subs()` for particular expressions\nI am seeing weird behavior with `subs` for particular expressions with hyperbolic sinusoids with piecewise arguments. When applying `subs`, I obtain an unexpected `PolynomialError`. For context, I was umbrella-applying a casting from int to float of all int atoms for a bunch of random expressions before using a tensorflow lambdify to avoid potential tensorflow type errors. You can pretend the expression below has a `+ 1` at the end, but below is the MWE that I could produce.\r\n\r\nSee the expression below, and the conditions in which the exception arises.\r\n\r\nSympy version: 1.8.dev\r\n\r\n```python\r\nfrom sympy import *\r\nfrom sympy.core.cache import clear_cache\r\n\r\nx, y, z = symbols('x y z')\r\n\r\nclear_cache()\r\nexpr = exp(sinh(Piecewise((x, y > x), (y, True)) / z))\r\n# This works fine\r\nexpr.subs({1: 1.0})\r\n\r\nclear_cache()\r\nx, y, z = symbols('x y z', real=True)\r\nexpr = exp(sinh(Piecewise((x, y > x), (y, True)) / z))\r\n# This fails with \"PolynomialError: Piecewise generators do not make sense\"\r\nexpr.subs({1: 1.0})  # error\r\n# Now run it again (isympy...) w/o clearing cache and everything works as expected without error\r\nexpr.subs({1: 1.0})\r\n```\r\n\r\nI am not really sure where the issue is, but I think it has something to do with the order of assumptions in this specific type of expression. Here is what I found-\r\n\r\n- The error only (AFAIK) happens with `cosh` or `tanh` in place of `sinh`, otherwise it succeeds\r\n- The error goes away if removing the division by `z`\r\n- The error goes away if removing `exp` (but stays for most unary functions, `sin`, `log`, etc.)\r\n- The error only happens with real symbols for `x` and `y` (`z` does not have to be real)\r\n\r\nNot too sure how to debug this one.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-21379"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "624217179aaf8d094e6ff75b7493ad1ee47599b0",
+   "version": "1.9"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-23191",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\ndisplay bug while using pretty_print with sympy.vector object in the terminal\nThe following code jumbles some of the outputs in the terminal, essentially by inserting the unit vector in the middle -\r\n```python\r\nfrom sympy import *\r\nfrom sympy.vector import CoordSys3D, Del\r\n\r\ninit_printing()\r\n\r\ndelop = Del()\r\nCC_ = CoordSys3D(\"C\")\r\nx,    y,    z    = CC_.x, CC_.y, CC_.z\r\nxhat, yhat, zhat = CC_.i, CC_.j, CC_.k\r\n\r\nt = symbols(\"t\")\r\nten = symbols(\"10\", positive=True)\r\neps, mu = 4*pi*ten**(-11), ten**(-5)\r\n\r\nBx = 2 * ten**(-4) * cos(ten**5 * t) * sin(ten**(-3) * y)\r\nvecB = Bx * xhat\r\nvecE = (1/eps) * Integral(delop.cross(vecB/mu).doit(), t)\r\n\r\npprint(vecB)\r\nprint()\r\npprint(vecE)\r\nprint()\r\npprint(vecE.doit())\r\n```\r\n\r\nOutput:\r\n```python\r\n\u239b     \u239by_C\u239e    \u239b  5  \u239e\u239e    \r\n\u239c2\u22c5sin\u239c\u2500\u2500\u2500\u239f i_C\u22c5cos\u239d10 \u22c5t\u23a0\u239f\r\n\u239c     \u239c  3\u239f           \u239f    \r\n\u239c     \u239d10 \u23a0           \u239f    \r\n\u239c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u239f    \r\n\u239c           4         \u239f    \r\n\u239d         10          \u23a0    \r\n\r\n\u239b     \u2320                           \u239e    \r\n\u239c     \u23ae       \u239by_C\u239e    \u239b  5  \u239e    \u239f k_C\r\n\u239c     \u23ae -2\u22c5cos\u239c\u2500\u2500\u2500\u239f\u22c5cos\u239d10 \u22c5t\u23a0    \u239f    \r\n\u239c     \u23ae       \u239c  3\u239f               \u239f    \r\n\u239c  11 \u23ae       \u239d10 \u23a0               \u239f    \r\n\u239c10  \u22c5\u23ae \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 dt\u239f    \r\n\u239c     \u23ae             2             \u239f    \r\n\u239c     \u23ae           10              \u239f    \r\n\u239c     \u2321                           \u239f    \r\n\u239c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u239f    \r\n\u239d               4\u22c5\u03c0               \u23a0    \r\n\r\n\u239b   4    \u239b  5  \u239e    \u239by_C\u239e \u239e    \r\n\u239c-10 \u22c5sin\u239d10 \u22c5t\u23a0\u22c5cos\u239c\u2500\u2500\u2500\u239f k_C \u239f\r\n\u239c                   \u239c  3\u239f \u239f    \r\n\u239c                   \u239d10 \u23a0 \u239f    \r\n\u239c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u239f    \r\n\u239d           2\u22c5\u03c0           \u23a0    ```\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-23191"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "fa9b4b140ec0eaf75a62c1111131626ef0f6f524",
+   "version": "1.11"
+  }
+ },
+ {
+  "set": "swe-lite",
+  "id": "sympy__sympy-23262",
+  "held_out": true,
+  "request": "Resolve the following GitHub issue in this repository (sympy/sympy).\n\n<issue>\nPython code printer not respecting tuple with one element\nHi,\r\n\r\nThanks for the recent updates in SymPy! I'm trying to update my code to use SymPy 1.10 but ran into an issue with the Python code printer. MWE:\r\n\r\n\r\n```python\r\nimport inspect\r\nfrom sympy import lambdify\r\n\r\ninspect.getsource(lambdify([], tuple([1])))\r\n```\r\nSymPy 1.9 and under outputs:\r\n```\r\n'def _lambdifygenerated():\\n    return (1,)\\n'\r\n```\r\n\r\nBut SymPy 1.10 gives\r\n\r\n```\r\n'def _lambdifygenerated():\\n    return (1)\\n'\r\n```\r\nNote the missing comma after `1` that causes an integer to be returned instead of a tuple. \r\n\r\nFor tuples with two or more elements, the generated code is correct:\r\n```python\r\ninspect.getsource(lambdify([], tuple([1, 2])))\r\n```\r\nIn SymPy  1.10 and under, outputs:\r\n\r\n```\r\n'def _lambdifygenerated():\\n    return (1, 2)\\n'\r\n```\r\nThis result is expected.\r\n\r\nNot sure if this is a regression. As this breaks my program which assumes the return type to always be a tuple, could you suggest a workaround from the code generation side? Thank you.\n</issue>\n\nThe repository is checked out in the current folder at the commit where the issue was reported. Fix the issue by changing the library's source code. Do not edit or add tests: hidden tests will check the fix.",
+  "allow_exec": true,
+  "node": false,
+  "files": [],
+  "reference": [],
+  "hidden": [],
+  "concurrent_edit": null,
+  "acceptance": {
+   "image": "swebench",
+   "command": "SWE-bench/SWE-bench_Lite sympy__sympy-23262"
+  },
+  "swe": {
+   "repo": "sympy/sympy",
+   "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+   "version": "1.11"
+  }
+ }
+]

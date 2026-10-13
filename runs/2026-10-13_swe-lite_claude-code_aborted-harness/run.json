@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code on SWE-bench (harness bug, discarded)",
+  "agent": "claude-code",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Discarded: our patch maker followed symbolic links in one tree and not the other, so unrelated files showed as changed. Fixed and re-run from scratch. Not counted."
+}

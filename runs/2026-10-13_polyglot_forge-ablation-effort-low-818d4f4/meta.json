@@ -1,0 +1,21 @@
+{
+  "tool": "rift-engine live_benchmark (cargo test)",
+  "agent": "forge",
+  "agent_version": "ri/cost-quality@818d4f4",
+  "os": "macos",
+  "arch": "aarch64",
+  "docker": "29.8.0",
+  "model": "anthropic/claude-opus-5.5",
+  "effort": "low",
+  "context_mode": "sce",
+  "prompt_cache": true,
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "reconstructed": true,
+  "note": "Only the effort changes."
+}

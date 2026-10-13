@@ -1,0 +1,102 @@
+{
+ "Forge|1|django__django-12284": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14997": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15738": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-24265": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pallets__flask-5063": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5221": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5413": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-6116": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-8365": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13496": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13584": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13471": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13647": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14317": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17655": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20212": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21627": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24909": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ }
+}

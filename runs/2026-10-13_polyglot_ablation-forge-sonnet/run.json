@@ -1,0 +1,7 @@
+{
+  "label": "Forge on Claude Sonnet 5.5",
+  "agent": "forge",
+  "kind": "ablation",
+  "date": "2026-10-13",
+  "notes": "Ablation: the published rift-bench build on Claude Sonnet 5.5 instead of Opus 5.5, one repeat."
+}

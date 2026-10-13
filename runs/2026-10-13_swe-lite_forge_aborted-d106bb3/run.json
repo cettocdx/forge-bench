@@ -1,0 +1,7 @@
+{
+  "label": "Forge on SWE-bench (build d106bb3, aborted)",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Aborted after one instance: the first call was 243k tokens and the run spent $2.90 without finishing. This exposed three scaling bugs, fixed in later builds. Not counted."
+}

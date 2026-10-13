@@ -1,0 +1,7 @@
+{
+  "label": "Forge development run: one-hour prefix cache check",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Development: one polyglot task to check that the provider accepts the one-hour cache marker."
+}
