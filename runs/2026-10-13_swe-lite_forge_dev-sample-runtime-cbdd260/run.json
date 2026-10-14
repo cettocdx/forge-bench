@@ -1,0 +1,7 @@
+{
+  "label": "Forge development run: project Python runtime (cbdd260)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Development: older projects on the Python they declare, installed in .venv; six development-sample instances. Taken back."
+}

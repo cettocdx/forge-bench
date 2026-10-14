@@ -1,0 +1,35 @@
+{
+  "tool": "run_claude.py",
+  "agent": "claude-code",
+  "agent_version": "2.1.294 (Claude Code)",
+  "os": "darwin",
+  "arch": "arm64",
+  "docker": "29.8.0",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "settings": {
+    "sandbox": {
+      "enabled": true,
+      "autoAllowBashIfSandboxed": true
+    }
+  },
+  "flags": [
+    "--permission-mode",
+    "bypassPermissions",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--no-session-persistence"
+  ],
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/swe-lite-test.json",
+      "sha256": "73106ece55654c2de08d2fe7c8c64dd4aac7424128bddda2bcaa756d011df930"
+    }
+  ],
+  "task_count": 20,
+  "budget_usd": 8.0,
+  "started_at_ms": 1791846566847
+}

@@ -18,6 +18,8 @@ import argparse, json, random, re, shutil, subprocess, sys, tempfile
 ROOT = Path(__file__).resolve().parent.parent
 DATASET = 'SWE-bench/SWE-bench_Lite'
 SEED, N = 20261013, 20
+# swebench.harness.constants.APPLY_PATCH_FAIL: the harness's log line for a patch it could not apply.
+APPLY_PATCH_FAIL = '>>>>> Patch Apply Failed'
 
 PROMPT = """Resolve the following GitHub issue in this repository ({repo}).
 
@@ -130,10 +132,14 @@ def image_of(instance_id):
 
 
 def harness(workdir, preds, run_id, instance_id, dataset=DATASET):
-    """One instance through the official harness; returns its report (or None)."""
-    subprocess.run([sys.executable, '-m', 'swebench.harness.run_evaluation', '-d', dataset, '-p', str(preds),
-                    '-id', run_id, '--max_workers', '1', '-i', instance_id], cwd=workdir, check=False,
-                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    """One instance through the official harness; returns its report (or None). The harness's own output
+    goes to harness.log in the workdir, so a run that stops before the instance can be read."""
+    with open(Path(workdir) / 'harness.log', 'a') as out:
+        out.write(f'--- {run_id} {instance_id}\n')
+        out.flush()
+        subprocess.run([sys.executable, '-m', 'swebench.harness.run_evaluation', '-d', dataset, '-p', str(preds),
+                        '-id', run_id, '--max_workers', '1', '-i', instance_id], cwd=workdir, check=False,
+                       stdout=out, stderr=subprocess.STDOUT)
     model = 'gold' if preds == 'gold' else json.loads(Path(preds).read_text().splitlines()[0])['model_name_or_path']
     rep = Path(workdir) / 'logs' / 'run_evaluation' / run_id / model / instance_id / 'report.json'
     return json.loads(rep.read_text()).get(instance_id) if rep.exists() else None
@@ -157,15 +163,43 @@ def evaluate(args):
     validity_path = workdir / 'gold-validity.json'
     validity = json.loads(validity_path.read_text()) if validity_path.exists() else {}
     verdicts = json.loads((workdir / 'verdicts.json').read_text()) if (workdir / 'verdicts.json').exists() else {}
-    for iid in tasks:
-        todo = [(label, r) for label, rs in runs.items() for r in rs if r['task'] == iid and f"{label}|{r.get('rep', 1)}|{iid}" not in verdicts]
-        if iid in validity and not todo:
+    def todo_of(iid):
+        return [(label, r) for label, rs in runs.items() for r in rs if r['task'] == iid and f"{label}|{r.get('rep', 1)}|{iid}" not in verdicts]
+
+    def pull(iid):
+        return subprocess.Popen(['docker', 'pull', '-q', '--platform', 'linux/amd64', image_of(iid)],
+                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    def present(iid):
+        return subprocess.run(['docker', 'image', 'inspect', image_of(iid)], stdout=subprocess.DEVNULL,
+                              stderr=subprocess.DEVNULL).returncode == 0
+
+    # The next instance's image downloads while this one is graded (a pull takes minutes; grading is unchanged).
+    pending = [iid for iid in tasks if iid not in validity or todo_of(iid)]
+    pulls = {}
+    for n, iid in enumerate(pending):
+        todo = todo_of(iid)
+        (pulls.pop(iid, None) or pull(iid)).wait()
+        # Without its image the harness stops before the instance and writes no report: pull it again, and
+        # grade nothing for this instance if it is still missing (a harness error, retried by the next evaluate).
+        for _ in range(2):
+            if present(iid):
+                break
+            pull(iid).wait()
+        if not present(iid):
+            print(f'HARNESS ERROR {iid}: its evaluation image could not be pulled', flush=True)
             continue
-        subprocess.run(['docker', 'pull', '-q', '--platform', 'linux/amd64', image_of(iid)], check=False, stdout=subprocess.DEVNULL)
+        if n + 1 < len(pending):
+            pulls[pending[n + 1]] = pull(pending[n + 1])
         if iid not in validity:
             g = harness(workdir, 'gold', 'gold', iid, dataset)
-            validity[iid] = {'resolved': bool(g and g.get('resolved')), 'report': g}
-            validity_path.write_text(json.dumps(validity, indent=1) + '\n')
+            if g is None:
+                # No report for the gold patch is the harness failing (it stopped before the instance ran),
+                # not an invalid instance: nothing is recorded, so the next evaluate grades it again.
+                print(f'HARNESS ERROR gold {iid}: no report (see {workdir}/logs/run_evaluation/gold)', flush=True)
+            else:
+                validity[iid] = {'resolved': bool(g.get('resolved')), 'report': g}
+                validity_path.write_text(json.dumps(validity, indent=1) + '\n')
         for label, r in todo:
             # The harness names a Docker container after the run id: letters, digits, _ . - only.
             model = re.sub(r'[^A-Za-z0-9_.-]+', '-', f"{label}-rep{r.get('rep', 1)}")
@@ -175,6 +209,12 @@ def evaluate(args):
             preds = workdir / f'{model}.{iid}.preds.jsonl'
             preds.write_text(json.dumps({'instance_id': iid, 'model_name_or_path': model, 'model_patch': r['patch']}) + '\n')
             rep = harness(workdir, preds, model, iid, dataset)
+            log = workdir / 'logs' / 'run_evaluation' / model / model / iid / 'run_instance.log'
+            if rep is None and log.exists() and APPLY_PATCH_FAIL in log.read_text(errors='replace'):
+                # The harness's own verdict on the agent's patch (git apply and patch --fuzz=5 both
+                # refused it): not resolved, as in the official SWE-bench report.
+                verdicts[f"{label}|{r.get('rep', 1)}|{iid}"] = {'resolved': False, 'why': 'patch does not apply', 'applied': False}
+                continue
             if rep is None:
                 # No report is the harness failing, not the agent: nothing is recorded, so the next
                 # evaluate retries it, and no graded file is written while any verdict is missing.
@@ -185,10 +225,16 @@ def evaluate(args):
                                                          'applied': bool(rep.get('patch_successfully_applied'))}
         (workdir / 'verdicts.json').write_text(json.dumps(verdicts, indent=1) + '\n')
         if not args.keep_images:
+            # Images of one project share layers: removing this one while the next is still downloading can
+            # break that download, so the removal waits for it.
+            nxt = pulls.get(pending[n + 1]) if n + 1 < len(pending) else None
+            if nxt:
+                nxt.wait()
             subprocess.run(['docker', 'rmi', '-f', image_of(iid)], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        print(iid, 'gold', validity[iid]['resolved'], {k.split('|')[0]: v['resolved'] for k, v in verdicts.items() if k.endswith('|' + iid)}, flush=True)
+        print(iid, 'gold', validity.get(iid, {}).get('resolved'), {k.split('|')[0]: v['resolved'] for k, v in verdicts.items() if k.endswith('|' + iid)}, flush=True)
     missing = [f"{label}|{r.get('rep', 1)}|{r['task']}" for label, rs in runs.items() for r in rs
                if f"{label}|{r.get('rep', 1)}|{r['task']}" not in verdicts]
+    missing += [f'gold|{iid}' for iid in tasks if iid not in validity]
     if missing:
         sys.exit(f'{len(missing)} runs have no verdict (harness errors); run evaluate again: {missing}')
     for label, path in files:

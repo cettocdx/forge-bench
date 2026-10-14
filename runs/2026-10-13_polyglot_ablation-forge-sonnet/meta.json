@@ -8,7 +8,7 @@
   "os": "macos",
   "prompt_cache": true,
   "reps": 1,
-  "started_at_ms": 1791856089821,
+  "started_at_ms": 1791888253799,
   "task_count": 34,
   "tasks": [
     {
@@ -17,5 +17,5 @@
     }
   ],
   "tool": "rift-bench",
-  "version": "0.1.0 (8899c7f)"
+  "version": "0.1.0 (585ff1b)"
 }

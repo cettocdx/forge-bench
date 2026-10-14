@@ -1,0 +1,7 @@
+{
+  "label": "Forge on Claude Sonnet 5.5 (build 8899c7f)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "The Sonnet ablation on the first published build; superseded by 585ff1b."
+}

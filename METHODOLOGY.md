@@ -38,14 +38,14 @@ Three samples of [SWE-bench](https://www.swebench.com): real GitHub issues in re
 the benchmark Aider reported its SWE-bench results on; SWE-bench Verified's issues carry an estimate, by
 SWE-bench's annotators, of how long an engineer needs to fix them.
 
-This uses Aider's SWE-bench in the sense of its dataset and its grading: SWE-bench Lite, judged by the official
-SWE-bench harness, one attempt per instance. The agents compared are Forge and Claude Code; Aider itself is not
-run. Aider's published score covers all 300 Lite instances; here 40 of them are used (two seeded samples of 20),
-plus 10 hard Verified instances, so the resolution rates have wide intervals.
+This is Aider's SWE-bench in its dataset and its grading: all 300 instances of SWE-bench Lite, judged by the
+official SWE-bench harness, one attempt per instance. The agents compared are Forge and Claude Code; Aider itself
+is not run.
 
 | Sample | Task file | How it was drawn | Role |
 |---|---|---|---|
 | Fresh | `tasks/swe-lite-test.json` | 20 of Lite's 300, seed 20261014, none from the development sample | Measurement |
+| The rest of Lite | `tasks/swe-lite-rest.json` | The 260 Lite instances in neither sample (seed 20261016 only orders them) | Measurement |
 | Hard | `tasks/swe-verified-hard.json` | 10 of the 45 Verified instances annotated "1-4 hours" or ">4 hours", seed 20261015, none from the Lite samples | Measurement |
 | Development | `tasks/swe-lite.json` | 20 of Lite's 300, seed 20261013 | Found Forge's problems and checked the fixes |
 
@@ -65,9 +65,41 @@ plus 10 hard Verified instances, so the resolution rates have wide intervals.
   not resolve here is left out for every agent, whatever the agents did. Each graded run's folder has `grading/`:
   `gold-validity.json`, the verdicts, and the harness's own report for every instance.
 - **Harness errors are not failures.** If the harness produces no report for a patch (as when a run id is not a
-  valid Docker name), no verdict is recorded and no graded file is written until it is graded again.
-- **Large and small.** The headline for large tasks pools the fresh and the hard samples, the two nobody tuned Forge
-  on. The development sample is reported on its own.
+  valid Docker name), no verdict is recorded and no graded file is written until it is graded again. The same now
+  holds for the gold patch. During the full run the harness stopped seven times before a gold patch's instance ran
+  (its output was discarded then, so the cause is not known), and our grader recorded those gold patches as
+  invalid: two instances were left out of the graded results for both agents, and the other five, graded valid in
+  the other workdir, would have shown as invalid in the published grading. A gold verdict now comes only from the
+  harness's report, the grader checks each image is present (and removes one only after the next has finished
+  downloading, since images of a project share layers), the harness's output is kept in each workdir's
+  `harness.log`, and `check_runs.py` fails any instance left out without a report. All seven were graded again;
+  every one of their gold patches resolves.
+- **A patch the harness cannot apply is not resolved.** When `git apply` and `patch --fuzz=5` both refuse an agent's
+  patch, the harness writes no report but logs `Patch Apply Failed`; that run counts as not resolved, as in the
+  official SWE-bench report, and the log is kept in `grading/reports/` in place of the report. The rule is the same
+  for both agents.
+- **One instance in two sets.** `sympy__sympy-17630` is a SWE-bench Lite instance and one of the 10 hard Verified
+  ones, so each agent runs it once per set. Forge's full run kept one run per instance id and ran it only as a hard
+  instance; it was then run once more as a Lite instance with the same build and settings
+  (`runs/2026-10-14_swe-lite-rest-overlap_forge_r1`). Claude Code's Lite run of it was first graded against the
+  Verified spec (its test spec there is identical) and was graded again against Lite. In the pooled large-task
+  numbers the instance counts once per set, for both agents alike.
+- **One finished run per instance.** A run counts if it ended on its own, whatever it cost; only runs that never
+  reached the model, were cut off by the provider or our credit, or were stopped by us are run again. During the
+  full run our orchestrator also set aside nine *finished* Forge runs because their cost could not be fully measured
+  (a web search's helper model whose charge Forge does not record, or a provider receipt without a price) and ran
+  those instances again; `sympy__sympy-16988` searched the web every time and was run five times. That gave Forge a
+  second chance on those instances, so the rule was applied after the fact: each instance's first finished attempt
+  is the counted run, graded in its own workdir (`full/first/`), and the later attempts are kept as
+  `runs/2026-10-14_swe-all_forge_reruns` (not counted). The nine counted runs' cost is a lower bound
+  (`usage_complete: false`); their traces were overwritten by the re-runs, whose traces are in the re-runs folder.
+  The first attempts resolved 8 of the 9. On the seven instances whose re-run had been graded, the first attempts
+  and the re-runs each resolved 6 (`astropy__astropy-14369` only on its first attempt, `django__django-11910` only
+  on its re-run). Claude Code had no finished run set aside: its three set-aside runs ended in an API error during
+  the network outage, as Forge's provider cut-offs did.
+- **Large and small.** The headline for large tasks pools every instance nobody tuned Forge on: the fresh sample,
+  the rest of Lite and the hard sample. All 300 Lite instances are also reported together, as Aider reports them
+  (development sample included), and the development sample on its own.
 
 ### What the SWE-bench runs found in Forge, and what we looked at
 
@@ -84,6 +116,24 @@ None of the fixes names a repository or an instance:
 | 552d23f | After the completion check the model rewrote its whole summary | It can keep the summary as written |
 | 61463e9 | On large projects the context block and the first-edit note held thousands of same-named occurrences and unrelated code | Smaller block (3k tokens) and no selection there on large projects |
 | fa7ceb7 | The fixed prompt prefix was rewritten whenever two tasks were more than five minutes apart | It is cached for an hour (the conversation keeps five minutes) |
+| 8899c7f | 43 of 63 searches named a file as their scope and all came back "no matches"; the model tried `git`, which the sandbox lacks | A file is a scope; the tool says there is no git |
+| 585ff1b | 5 of 50 patches carried installed packages (`.deps/`) or `*.egg-info` build metadata; a check that ran no test could pass | Package metadata is never source, files the first test run creates are the starting state, packages go to `.venv` (outside the changes); no test run is not a pass |
+
+Found during the published run and fixed after it (33d204b, not in the counted runs): one Forge patch
+(`pytest-dev__pytest-11143`) carried `src/_pytest/_version.py`, which the model's own `pip install -e .` generated
+and the evaluation image already has, so the harness could not apply it and the run counts as not resolved. Files
+a command or a check generates that the project's `.gitignore` ignores, and their later rewrites, are now the
+starting state, not changes.
+
+Also found during the run and fixed after it (e373e69, not in the counted runs): under heavy load on the shared Mac
+(load average 70-115), runs on sympy instances failed at the start with SQLite "database is locked" before any model
+call. Forge's first code index of a large project wrote all of it in one transaction and held the write lock for more
+than 20 s, and the task snapshot gave up after its 5 s wait. These records cost nothing, are kept in the
+`*.infra-errors.jsonl` files and were run again; the index now commits in short parts so other writers get the lock.
+
+One change was tried and taken back: running older projects on the Python they declare, with the project installed
+in `.venv`. On six development instances it did not lower the cost and Python 3.10 and older print test names the
+per-test parser cannot tell apart; the runs are in `runs/` as development runs.
 
 What we looked at, so you can discount it:
 

@@ -1,0 +1,7 @@
+{
+  "label": "Forge small tasks: infrastructure errors (network outage)",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Runs that could not reach the model provider during a network outage (0 s, no cost): run again, never counted."
+}

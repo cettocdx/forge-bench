@@ -1,0 +1,7 @@
+{
+  "label": "Forge SWE-bench: infrastructure errors and runs we stopped",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Runs that never reached the model or did not end on their own: the provider unreachable during a network outage, our OpenRouter credit running out mid-run (402), sympy starts failing on a locked index under load, and runs we stopped (pauses of the machine and our own stops). Run again, never counted."
+}

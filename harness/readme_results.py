@@ -4,8 +4,10 @@ import json
 
 ROOT = Path(__file__).resolve().parent.parent
 START, END = '<!-- results:start -->', '<!-- results:end -->'
-SETS = [('large', '**Large tasks**: fresh SWE-bench Lite + hard Verified'), ('swe-verified-hard', 'SWE-bench Verified, hard (10)'),
-        ('swe-lite-test', 'SWE-bench Lite, fresh sample (20)'), ('swe-lite-test-unobserved', 'Fresh sample, never looked at (19)'),
+SETS = [('large', '**Large tasks**: SWE-bench Lite without the development sample + hard Verified'),
+        ('swe-lite-300', '**SWE-bench Lite, all 300** (Aider\'s benchmark)'), ('swe-verified-hard', 'SWE-bench Verified, hard (10)'),
+        ('swe-lite-rest', 'SWE-bench Lite, the other 260'), ('swe-lite-test', 'SWE-bench Lite, fresh sample (20)'),
+        ('swe-lite-test-unobserved', 'Fresh sample, never looked at (19)'),
         ('swe-lite', 'SWE-bench Lite, development sample (20)'), ('small', '**Small tasks**: Forge set + polyglot'),
         ('standard', 'Forge set (20)'), ('hard', 'Forge hard set (8)'), ('polyglot-py', 'Polyglot · Python (34)'), ('all', 'All tasks')]
 NAMES = {'forge': 'Forge', 'claude-code': 'Claude Code'}
@@ -36,7 +38,8 @@ def block(summary):
             if a:
                 lines.append(row(label if i == 0 else '', agent, a))
     head = ''
-    for group, words in (('large', 'On large tasks (real GitHub issues in real repositories)'), ('small', 'On small tasks')):
+    for group, words in (('large', 'On large tasks (real GitHub issues in real repositories, none used to tune Forge)'),
+                         ('swe-lite-300', "On all of SWE-bench Lite (Aider's benchmark)"), ('small', 'On small tasks')):
         f, k = (off.get(a, {}).get('groups', {}).get(group) for a in ('forge', 'claude-code'))
         if not (f and k and f['cost_per_accepted_usd'] and k['cost_per_accepted_usd']):
             continue

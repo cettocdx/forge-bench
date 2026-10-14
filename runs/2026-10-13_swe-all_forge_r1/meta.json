@@ -1,0 +1,32 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 32.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "medium",
+  "model": "anthropic/claude-opus-5.5",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/swe-lite-test.json",
+      "sha256": "73106ece55654c2de08d2fe7c8c64dd4aac7424128bddda2bcaa756d011df930"
+    },
+    {
+      "path": "tasks/swe-lite.json",
+      "sha256": "e51627ee9b9773076c02c8fc2c08f78070d4bdc924693f131bda15ddb3a5b9ff"
+    },
+    {
+      "path": "tasks/swe-verified-hard.json",
+      "sha256": "41412d8806e3db7407e6c18412fc693838c641b44a0229d3de5ea339f2f56dc5"
+    },
+    {
+      "path": "tasks/swe-lite-rest.json",
+      "sha256": "88701e72534165cfac3dc2d1e12876275c211c400dd7c163882b95685000c2a5"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (585ff1b)",
+  "note": "Two shards (forge-0, forge-1) started by full/orchestrate.py; an instance in two task files ran once here (see the overlap run)."
+}

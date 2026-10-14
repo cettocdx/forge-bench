@@ -1,0 +1,7 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-14",
+  "notes": "Forge on sympy__sympy-17630 as a SWE-bench Lite instance. It is also one of the 10 hard Verified instances, and the full run kept one run per instance id, so its Lite set lacked it while Claude Code ran it once per set. Same build and settings, graded by the official harness against SWE-bench Lite."
+}

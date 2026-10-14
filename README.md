@@ -2,9 +2,9 @@
 
 **The same model, the same tasks, the same hidden tests.** This repository compares
 [Forge by Cogniphic Superintelligence](https://cogniphic.com/forge), a coding agent for the Mac,
-with Claude Code, both running Claude Opus 5.5 at medium reasoning effort, on 112 programming tasks: real GitHub
-issues in real repositories (a fresh SWE-bench Lite sample and hard SWE-bench Verified instances, the large tasks),
-a SWE-bench Lite development sample, the Forge set and Aider's polyglot exercises (the small tasks). Every ablation
+with Claude Code, both running Claude Opus 5.5 at medium reasoning effort, on 372 programming tasks: real GitHub
+issues in real repositories (all 300 of SWE-bench Lite, the benchmark Aider reported on, and 10 hard SWE-bench
+Verified issues: the large tasks) and the Forge set and Aider's polyglot exercises (the small tasks). Every ablation
 (reasoning effort low, Claude Sonnet 5.5) is run on both agents too. It measures how often each agent's result passes
 tests it never saw, and what it spends to get there: tokens, dollars, model turns and seconds.
 
@@ -15,34 +15,40 @@ file. You can run both agents yourself.
 ## Results
 
 <!-- results:start -->
-On large tasks (real GitHub issues in real repositories): Forge solved 28/30 and Claude Code 25/30; Claude Code costs **1.49×** as much per solved task ($0.234 against $0.348).
+On large tasks (real GitHub issues in real repositories, none used to tune Forge): Forge solved 254/287 and Claude Code 259/287; Claude Code costs **1.17×** as much per solved task ($0.199 against $0.233).
 
-On small tasks: Forge solved 123/124 and Claude Code 122/124; Claude Code costs **2.56×** as much per solved task ($0.044 against $0.113).
+On all of SWE-bench Lite (Aider's benchmark): Forge solved 263/297 and Claude Code 270/297; Claude Code costs **1.17×** as much per solved task ($0.190 against $0.222).
+
+On small tasks: Forge solved 124/124 and Claude Code 122/124; Claude Code costs **2.59×** as much per solved task ($0.044 against $0.113).
 
 | Tasks | Agent | Accepted | Success (95% CI) | Cost / accepted | Cost / run | Input tok / run | Output tok / run | Turns | Median s |
 |---|---|---|---|---|---|---|---|---|---|
-| **Large tasks**: fresh SWE-bench Lite + hard Verified | Forge | 28/30 | 93.3% (79–98%) | $0.2337 | $0.2181 | 200,457 | 5,034 | 11.43 | 120 |
-|  | Claude Code | 25/30 | 83.3% (66–93%) | $0.3483 | $0.2902 | 336,897 | 4,573 | 10.03 | 49 |
-| SWE-bench Verified, hard (10) | Forge | 8/10 | 80.0% (49–94%) | $0.3852 | $0.3081 | 283,910 | 7,431 | 13.30 | 193 |
+| **Large tasks**: SWE-bench Lite without the development sample + hard Verified | Forge | 254/287 | 88.5% (84–92%) | $0.1987 | $0.1758 | 153,383 | 3,659 | 9.92 | 373 |
+|  | Claude Code | 259/287 | 90.2% (86–93%) | $0.2332 | $0.2104 | 239,694 | 2,978 | 8.46 | 36 |
+| **SWE-bench Lite, all 300** (Aider's benchmark) | Forge | 263/297 | 88.5% (84–92%) | $0.1902 | $0.1684 | 146,528 | 3,512 | 9.72 | 354 |
+|  | Claude Code | 270/297 | 90.9% (87–94%) | $0.2222 | $0.2020 | 229,498 | 2,814 | 8.18 | 35 |
+| SWE-bench Verified, hard (10) | Forge | 7/10 | 70.0% (40–89%) | $0.4670 | $0.3269 | 295,800 | 7,138 | 14.00 | 230 |
 |  | Claude Code | 7/10 | 70.0% (40–89%) | $0.5705 | $0.3993 | 466,944 | 6,601 | 12.50 | 81 |
-| SWE-bench Lite, fresh sample (20) | Forge | 20/20 | 100.0% (84–100%) | $0.1731 | $0.1731 | 158,730 | 3,835 | 10.50 | 111 |
+| SWE-bench Lite, the other 260 | Forge | 227/257 | 88.3% (84–92%) | $0.1921 | $0.1697 | 147,480 | 3,516 | 9.73 | 409 |
+|  | Claude Code | 234/257 | 91.0% (87–94%) | $0.2209 | $0.2011 | 228,348 | 2,792 | 8.28 | 35 |
+| SWE-bench Lite, fresh sample (20) | Forge | 20/20 | 100.0% (84–100%) | $0.1791 | $0.1791 | 158,035 | 3,756 | 10.35 | 215 |
 |  | Claude Code | 18/20 | 90.0% (70–97%) | $0.2619 | $0.2357 | 271,874 | 3,559 | 8.80 | 49 |
-| Fresh sample, never looked at (19) | Forge | 19/19 | 100.0% (83–100%) | $0.1760 | $0.1760 | 160,213 | 3,899 | 10.42 | 107 |
+| Fresh sample, never looked at (19) | Forge | 19/19 | 100.0% (83–100%) | $0.1828 | $0.1828 | 160,128 | 3,831 | 10.32 | 183 |
 |  | Claude Code | 17/19 | 89.5% (69–97%) | $0.2686 | $0.2404 | 274,527 | 3,670 | 8.79 | 49 |
-| SWE-bench Lite, development sample (20) | Forge | 17/20 | 85.0% (64–95%) | $0.1641 | $0.1395 | 119,499 | 3,199 | 8.90 | 124 |
+| SWE-bench Lite, development sample (20) | Forge | 16/20 | 80.0% (58–92%) | $0.1766 | $0.1412 | 122,790 | 3,217 | 8.90 | 228 |
 |  | Claude Code | 18/20 | 90.0% (70–97%) | $0.1998 | $0.1799 | 201,908 | 2,352 | 6.30 | 34 |
-| **Small tasks**: Forge set + polyglot | Forge | 123/124 | 99.2% (96–100%) | $0.0440 | $0.0437 | 20,131 | 1,321 | 2.90 | 20 |
+| **Small tasks**: Forge set + polyglot | Forge | 124/124 | 100.0% (97–100%) | $0.0436 | $0.0436 | 20,463 | 1,341 | 2.91 | 26 |
 |  | Claude Code | 122/124 | 98.4% (94–100%) | $0.1129 | $0.1111 | 88,203 | 1,359 | 3.95 | 17 |
-| Forge set (20) | Forge | 40/40 | 100.0% (91–100%) | $0.0353 | $0.0353 | 18,168 | 970 | 3.08 | 22 |
+| Forge set (20) | Forge | 40/40 | 100.0% (91–100%) | $0.0331 | $0.0331 | 17,823 | 970 | 3.02 | 30 |
 |  | Claude Code | 40/40 | 100.0% (91–100%) | $0.0956 | $0.0956 | 86,758 | 1,073 | 4.35 | 13 |
-| Forge hard set (8) | Forge | 16/16 | 100.0% (81–100%) | $0.0480 | $0.0480 | 24,732 | 1,533 | 4.00 | 23 |
+| Forge hard set (8) | Forge | 16/16 | 100.0% (81–100%) | $0.0494 | $0.0494 | 23,263 | 1,609 | 3.75 | 35 |
 |  | Claude Code | 16/16 | 100.0% (81–100%) | $0.1205 | $0.1205 | 106,207 | 1,524 | 4.75 | 18 |
-| Polyglot · Python (34) | Forge | 67/68 | 98.5% (92–100%) | $0.0483 | $0.0476 | 20,204 | 1,478 | 2.53 | 18 |
+| Polyglot · Python (34) | Forge | 68/68 | 100.0% (95–100%) | $0.0484 | $0.0484 | 21,357 | 1,496 | 2.65 | 24 |
 |  | Claude Code | 66/68 | 97.1% (90–99%) | $0.1216 | $0.1180 | 84,817 | 1,488 | 3.53 | 17 |
-| All tasks | Forge | 168/174 | 96.5% (93–98%) | $0.0878 | $0.0848 | 62,643 | 2,177 | 5.06 | 22 |
-|  | Claude Code | 165/174 | 94.8% (90–97%) | $0.1580 | $0.1499 | 144,151 | 2,027 | 5.27 | 18 |
+| All tasks | Forge | 394/431 | 91.4% (88–94%) | $0.1490 | $0.1362 | 113,722 | 2,972 | 7.86 | 224 |
+|  | Claude Code | 399/431 | 92.6% (90–95%) | $0.1949 | $0.1804 | 194,357 | 2,483 | 7.06 | 27 |
 
-Official runs only, pooled from `runs/` and computed by `harness/summarize.py` on 2026-10-13. Every other run (earlier builds, ablations) is in `runs/` too; see `results/summary.json`.
+Official runs only, pooled from `runs/` and computed by `harness/summarize.py` on 2026-10-14. Every other run (earlier builds, ablations) is in `runs/` too; see `results/summary.json`.
 <!-- results:end -->
 
 ## What's in here

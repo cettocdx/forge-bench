@@ -1,0 +1,7 @@
+{
+  "label": "Forge on the hard sample (build 8899c7f, first release)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "The first published build on the 10 hard Verified instances, graded by the official harness; superseded by 585ff1b."
+}

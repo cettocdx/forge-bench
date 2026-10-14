@@ -1,0 +1,7 @@
+{
+  "label": "Claude Code SWE-bench: infrastructure errors (network outage)",
+  "agent": "claude-code",
+  "kind": "aborted",
+  "date": "2026-10-13",
+  "notes": "Runs that ended in an API error during a network outage: run again, never counted."
+}

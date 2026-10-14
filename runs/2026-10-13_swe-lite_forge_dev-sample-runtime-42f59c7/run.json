@@ -1,0 +1,7 @@
+{
+  "label": "Forge development run: project Python runtime (42f59c7)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-13",
+  "notes": "Development: the same with install files kept out of the changes; it did not lower the cost, so it was taken back in 585ff1b."
+}

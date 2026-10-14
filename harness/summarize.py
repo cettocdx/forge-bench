@@ -18,10 +18,15 @@ ROOT = Path(__file__).resolve().parent.parent
 # The development sample (swe-lite) was used to find and fix Forge's problems, so it has no such view.
 OBSERVED = {'swe-lite-test': {'django__django-12284'}}
 VIEW = '-unobserved'
-# The headline groups: large tasks are real repositories with issues nobody tuned Forge on (the fresh
-# SWE-bench Lite sample and the hard SWE-bench Verified instances); small tasks are single-file
-# exercises and the Forge set. The development sample is reported on its own, never in a group.
-GROUPS = {'large': ('swe-lite-test', 'swe-verified-hard'), 'small': ('standard', 'hard', 'polyglot-py')}
+# The headline groups: large tasks are real repositories with issues nobody tuned Forge on (SWE-bench
+# Lite except the development sample, and the hard SWE-bench Verified instances); small tasks are
+# single-file exercises and the Forge set. 'swe-lite-300' is all of SWE-bench Lite, the benchmark Aider
+# reported on, development sample included.
+GROUPS = {
+    'large': ('swe-lite-test', 'swe-lite-rest', 'swe-verified-hard'),
+    'swe-lite-300': ('swe-lite', 'swe-lite-test', 'swe-lite-rest'),
+    'small': ('standard', 'hard', 'polyglot-py'),
+}
 
 
 def primary(rs):

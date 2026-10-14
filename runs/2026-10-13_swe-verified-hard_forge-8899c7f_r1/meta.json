@@ -1,0 +1,21 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 8.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "medium",
+  "model": "anthropic/claude-opus-5.5",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 1,
+  "started_at_ms": 1791855261460,
+  "task_count": 10,
+  "tasks": [
+    {
+      "path": "tasks/swe-verified-hard.json",
+      "sha256": "41412d8806e3db7407e6c18412fc693838c641b44a0229d3de5ea339f2f56dc5"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (8899c7f)"
+}

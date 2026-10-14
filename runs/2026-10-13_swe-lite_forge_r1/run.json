@@ -1,7 +1,0 @@
-{
-  "label": "Forge",
-  "agent": "forge",
-  "kind": "official",
-  "date": "2026-10-13",
-  "notes": "Forge through the published rift-bench build on the 20-instance development sample of SWE-bench Lite, one run each, graded by the official harness."
-}

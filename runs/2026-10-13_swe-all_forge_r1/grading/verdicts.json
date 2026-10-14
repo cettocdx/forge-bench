@@ -1,0 +1,1460 @@
+{
+ "Forge|1|astropy__astropy-12907": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-13398": {
+  "resolved": false,
+  "why": "empty patch"
+ },
+ "Forge|1|astropy__astropy-13579": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14182": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14365": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14369": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14995": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-7746": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-10914": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-10924": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11001": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11019": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11049": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11099": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11133": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11179": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11283": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11422": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11564": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11583": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11620": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11630": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11742": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11797": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11815": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11848": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11905": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": false
+ },
+ "Forge|1|django__django-11910": {
+  "resolved": false,
+  "why": "empty patch"
+ },
+ "Forge|1|django__django-11964": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11999": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12113": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12125": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12184": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12284": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12286": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12453": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12497": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12589": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12700": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12708": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12747": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12856": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12908": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12983": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13028": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13033": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13158": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13220": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13230": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13265": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13315": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13321": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13401": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13447": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13448": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13449": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13551": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13590": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13658": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13660": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13710": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13757": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13768": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13837": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13925": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13933": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13964": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14016": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14017": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14155": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14238": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14382": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14411": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14534": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14580": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14608": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14667": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14672": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14730": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14752": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14787": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14855": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14997": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14999": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15061": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15202": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15213": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15252": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15320": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15347": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15388": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15400": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15498": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15695": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15738": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15781": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15789": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15790": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15814": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15819": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15851": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15902": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15996": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16041": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16046": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16139": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16229": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16255": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16379": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16400": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16408": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16527": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16595": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16816": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16820": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16873": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16910": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-17051": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-17087": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-18869": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-22711": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-22835": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23299": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23314": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23476": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23562": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23563": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23913": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23964": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-23987": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-24149": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-24334": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-24970": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25079": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25311": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25332": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25433": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25442": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-25498": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-26011": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-26020": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|mwaskom__seaborn-2848": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|mwaskom__seaborn-3010": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|mwaskom__seaborn-3190": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|mwaskom__seaborn-3407": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pallets__flask-4045": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pallets__flask-4992": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pallets__flask-5063": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-1963": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-2148": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-2317": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-2674": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-3362": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|psf__requests-863": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-3364": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-4094": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-4248": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-4493": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-5131": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-4551": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-5859": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-6506": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-7114": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-7228": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-7993": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-8898": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-11143": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-11148": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-5103": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5227": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5413": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5692": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5787": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-7220": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-7432": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-8365": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-8906": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false
+ },
+ "Forge|1|scikit-learn__scikit-learn-10297": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-10508": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-10949": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-11040": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-11281": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-12471": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13142": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13241": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13439": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13496": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13497": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13584": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13779": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-14087": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-14092": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-14894": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-14983": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-15512": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-15535": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-25500": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-25570": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-25638": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-25747": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-10325": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-10451": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-11445": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-11510": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-7686": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-7738": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-7975": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8273": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8282": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8435": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8474": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8506": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8595": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8627": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8713": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8721": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-8801": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-11400": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-11897": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-12171": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-12236": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-12454": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13031": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13043": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13146": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13177": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13437": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13471": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13480": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13647": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13773": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13895": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13971": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14024": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14308": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14317": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14396": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14774": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14817": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15011": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15308": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15345": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15346": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15609": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-15678": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16106": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16281": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16503": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16792": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16988": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17022": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17139": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17630": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17655": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18057": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18087": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18189": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18532": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18621": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18698": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18835": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-19007": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-19254": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-19487": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20049": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20154": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20212": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20322": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20442": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20590": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20639": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21055": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21171": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21379": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21612": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21614": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21627": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21847": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-22005": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-22714": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-22840": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-23117": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-23191": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-23262": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24066": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24102": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24152": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24213": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24909": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ }
+}

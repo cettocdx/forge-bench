@@ -1,0 +1,21 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 3.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "low",
+  "model": "anthropic/claude-opus-5.5",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 1,
+  "started_at_ms": 1791855549383,
+  "task_count": 34,
+  "tasks": [
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (8899c7f)"
+}
