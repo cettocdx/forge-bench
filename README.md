@@ -1,7 +1,7 @@
 # Forge vs Claude Code
 
 **The same model, the same tasks, the same hidden tests.** This repository compares
-[Forge by Cogniphic Superintelligence](https://recursiveintelligence.vercel.app/download), a coding agent for the Mac,
+[Forge by Cogniphic Superintelligence](https://cogniphic.com/forge), a coding agent for the Mac,
 with Claude Code, both running Claude Opus 5.5 at medium reasoning effort, on 112 programming tasks: real GitHub
 issues in real repositories (a fresh SWE-bench Lite sample and hard SWE-bench Verified instances, the large tasks),
 a SWE-bench Lite development sample, the Forge set and Aider's polyglot exercises (the small tasks). Every ablation
