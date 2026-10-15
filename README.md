@@ -57,6 +57,7 @@ Official runs only, pooled from `runs/` and computed by `harness/summarize.py` o
 |---|---|
 | `tasks/` | The Forge task set (`rift-28.json`) and how to build the polyglot set ([tasks/README.md](tasks/README.md)) |
 | `harness/run_claude.py` | Runs Claude Code headless (`claude -p`) on a task file and judges each run with the hidden tests |
+| `harness/run_codex.py` | Runs Codex headless (`codex exec`) the same way, on any OpenRouter model, so Forge can be compared with Codex on one model |
 | `harness/polyglot_tasks.py` | Builds the polyglot Python tasks from Aider's benchmark at a pinned commit, and checks each one |
 | `harness/swe_tasks.py` | SWE-bench: the seeded samples (Lite; Verified's hard instances), repositories at their base commits, and grading with the official harness |
 | `harness/summarize.py` | Turns `runs/` into `results/summary.json` (what the benchmark page shows) |
@@ -112,6 +113,19 @@ python3 harness/run_claude.py --tasks tasks/swe-lite.json --repos /tmp/swe-repos
 
 # 5. compare
 python3 harness/report.py "Forge=mine/forge.jsonl" "Claude Code=mine/claude.jsonl"
+```
+
+To compare Forge with Codex instead, give both agents the same OpenRouter model. `run_codex.py` runs each task in a
+fresh project with a fresh, empty `CODEX_HOME` (no user config, `AGENTS.md`, skills, plugins or MCP servers), Codex's
+sandbox on and its host integrations off. Codex reports tokens, not cost, so a run's cost is its tokens at the model's
+OpenRouter list prices, kept in the meta file. Codex reads files only through its shell, so on tasks that disable
+commands its shell stays on; those records say `shell_kept`.
+
+```bash
+export OPENROUTER_API_KEY=...
+./rift-bench run --tasks tasks/rift-28.json --model openai/gpt-6-astra --out mine/forge.jsonl
+python3 harness/run_codex.py --tasks tasks/rift-28.json --model openai/gpt-6-astra --out mine/codex.jsonl
+python3 harness/report.py "Forge=mine/forge.jsonl" "Codex=mine/codex.jsonl"
 ```
 
 To add your runs to the record, put each in `runs/<date>_<what>/` with `results.jsonl`, its `.meta.json` renamed to
