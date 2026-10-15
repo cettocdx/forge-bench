@@ -73,7 +73,9 @@ is not run.
   harness's report, the grader checks each image is present (and removes one only after the next has finished
   downloading, since images of a project share layers), the harness's output is kept in each workdir's
   `harness.log`, and `check_runs.py` fails any instance left out without a report. All seven were graded again;
-  every one of their gold patches resolves.
+  every one of their gold patches resolves. Two gradings sometimes ran in one workdir at once and one rewrote the
+  other's verdict cache: 31 counted runs lost their entry there, and `grading/verdicts.json` gives it back from the
+  harness's own report or log (marked `rebuilt_from`); every counted run's result agrees with its report.
 - **A patch the harness cannot apply is not resolved.** When `git apply` and `patch --fuzz=5` both refuse an agent's
   patch, the harness writes no report but logs `Patch Apply Failed`; that run counts as not resolved, as in the
   official SWE-bench report, and the log is kept in `grading/reports/` in place of the report. The rule is the same
@@ -85,18 +87,31 @@ is not run.
   Verified spec (its test spec there is identical) and was graded again against Lite. In the pooled large-task
   numbers the instance counts once per set, for both agents alike.
 - **One finished run per instance.** A run counts if it ended on its own, whatever it cost; only runs that never
-  reached the model, were cut off by the provider or our credit, or were stopped by us are run again. During the
-  full run our orchestrator also set aside nine *finished* Forge runs because their cost could not be fully measured
-  (a web search's helper model whose charge Forge does not record, or a provider receipt without a price) and ran
-  those instances again; `sympy__sympy-16988` searched the web every time and was run five times. That gave Forge a
-  second chance on those instances, so the rule was applied after the fact: each instance's first finished attempt
-  is the counted run, graded in its own workdir (`full/first/`), and the later attempts are kept as
-  `runs/2026-10-14_swe-all_forge_reruns` (not counted). The nine counted runs' cost is a lower bound
+  reached the model, were cut off by the provider, our credit or the machine's sleep, or were stopped by us are run
+  again. During the full run our orchestrator also set aside eight *finished* Forge runs because their cost could not
+  be fully measured (a web search's helper model whose charge Forge does not record, or a provider receipt without a
+  price) and ran those instances again; `sympy__sympy-16988` searched the web every time and was run five times. That
+  gave Forge a second chance on those instances, so the rule was applied after the fact: each instance's first
+  finished attempt is the counted run, graded in its own workdir (`full/first/`), and the later attempts are kept as
+  `runs/2026-10-14_swe-all_forge_reruns` (not counted). The eight counted runs' cost is a lower bound
   (`usage_complete: false`); their traces were overwritten by the re-runs, whose traces are in the re-runs folder.
-  The first attempts resolved 8 of the 9. On the seven instances whose re-run had been graded, the first attempts
-  and the re-runs each resolved 6 (`astropy__astropy-14369` only on its first attempt, `django__django-11910` only
-  on its re-run). Claude Code had no finished run set aside: its three set-aside runs ended in an API error during
-  the network outage, as Forge's provider cut-offs did.
+  The first attempts resolved all 8. On the six instances whose re-run had been graded, the first attempts resolved
+  6 and the re-runs 5 (`astropy__astropy-14369` only on its first attempt), so the rule counts one more instance for
+  Forge than the re-runs did. Claude Code had no finished run set aside: its three set-aside runs ended in an API
+  error during the network outage, as Forge's provider cut-offs did.
+- **A gold patch that failed on an outside service is graded again, with both agents.** In the full run the gold
+  patches of `psf__requests-1963` and `psf__requests-2317` failed tests that call httpbin.org, and that of
+  `sympy__sympy-13146` failed one test; the agents' patches were graded in the same minutes, under the same
+  conditions. The three instances were graded again, the gold patch and both agents' patches together
+  (`full/regrade3/`), and that grading counts for all three: every gold patch resolves, Forge resolved 2 and Claude
+  Code 3. No instance is left out.
+- **A run the machine's sleep cut off is run again.** Forge's deadline is an hour of wall-clock time, while the
+  run's own clock (and Claude Code's timeout) stops when the Mac sleeps. Two Forge runs reached that deadline after
+  only 678 s and 2,413 s of run time: the Mac slept during them (its power log shows repeated sleep on 13 October),
+  so they did not end on their own. `django__django-11910`'s next finished attempt counts;
+  `astropy__astropy-13398` had no other and was run again with the same build, kept awake
+  (`runs/2026-10-13_swe-all_forge_r1`, its record and trace; the cut run is with the set-aside records).
+  `check_runs.py` now fails any counted run that reaches the deadline in less than an hour of run time.
 - **Large and small.** The headline for large tasks pools every instance nobody tuned Forge on: the fresh sample,
   the rest of Lite and the hard sample. All 300 Lite instances are also reported together, as Aider reports them
   (development sample included), and the development sample on its own.
@@ -119,11 +134,13 @@ None of the fixes names a repository or an instance:
 | 8899c7f | 43 of 63 searches named a file as their scope and all came back "no matches"; the model tried `git`, which the sandbox lacks | A file is a scope; the tool says there is no git |
 | 585ff1b | 5 of 50 patches carried installed packages (`.deps/`) or `*.egg-info` build metadata; a check that ran no test could pass | Package metadata is never source, files the first test run creates are the starting state, packages go to `.venv` (outside the changes); no test run is not a pass |
 
-Found during the published run and fixed after it (33d204b, not in the counted runs): one Forge patch
-(`pytest-dev__pytest-11143`) carried `src/_pytest/_version.py`, which the model's own `pip install -e .` generated
-and the evaluation image already has, so the harness could not apply it and the run counts as not resolved. Files
-a command or a check generates that the project's `.gitignore` ignores, and their later rewrites, are now the
-starting state, not changes.
+Found during the published run and fixed after it (33d204b, not in the counted runs): eight Forge patches, all on
+pytest (`11143`, `11148`, `7373`, `7432`, `7490`, `8906`, `9359` and the hard `5787`), carried
+`src/_pytest/_version.py`, which the model's own `pip install -e .` generated and the evaluation image already has,
+so the harness could not apply them and the runs count as not resolved. Claude Code had no such patch. Files a
+command or a check generates that the project's `.gitignore` ignores, and their later rewrites, are now the
+starting state, not changes. As a diagnostic only, the same eight patches without that file were graded too
+(`runs/2026-10-15_swe-pytest_forge_diagnostic-no-version`, not counted).
 
 Also found during the run and fixed after it (e373e69, not in the counted runs): under heavy load on the shared Mac
 (load average 70-115), runs on sympy instances failed at the start with SQLite "database is locked" before any model

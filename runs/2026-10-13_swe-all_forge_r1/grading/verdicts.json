@@ -33,6 +33,12 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|astropy__astropy-6938": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|astropy__astropy-7746": {
   "resolved": false,
   "why": "not resolved",
@@ -57,6 +63,12 @@
   "resolved": true,
   "why": "resolved",
   "applied": true
+ },
+ "Forge|1|django__django-11039": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
  },
  "Forge|1|django__django-11049": {
   "resolved": true,
@@ -134,8 +146,9 @@
   "applied": false
  },
  "Forge|1|django__django-11910": {
-  "resolved": false,
-  "why": "empty patch"
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
  },
  "Forge|1|django__django-11964": {
   "resolved": true,
@@ -172,10 +185,22 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|django__django-12308": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|django__django-12453": {
   "resolved": true,
   "why": "resolved",
   "applied": true
+ },
+ "Forge|1|django__django-12470": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
  },
  "Forge|1|django__django-12497": {
   "resolved": true,
@@ -662,6 +687,12 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|matplotlib__matplotlib-24265": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|matplotlib__matplotlib-24334": {
   "resolved": true,
   "why": "resolved",
@@ -758,8 +789,8 @@
   "applied": true
  },
  "Forge|1|psf__requests-2317": {
-  "resolved": false,
-  "why": "not resolved",
+  "resolved": true,
+  "why": "resolved",
   "applied": true
  },
  "Forge|1|psf__requests-2674": {
@@ -817,6 +848,12 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|pylint-dev__pylint-7080": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|pylint-dev__pylint-7114": {
   "resolved": true,
   "why": "resolved",
@@ -852,6 +889,12 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|pytest-dev__pytest-5221": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|pytest-dev__pytest-5227": {
   "resolved": true,
   "why": "resolved",
@@ -861,6 +904,12 @@
   "resolved": true,
   "why": "resolved",
   "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5495": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
  },
  "Forge|1|pytest-dev__pytest-5692": {
   "resolved": true,
@@ -872,15 +921,39 @@
   "why": "patch does not apply",
   "applied": false
  },
+ "Forge|1|pytest-dev__pytest-6116": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
+ "Forge|1|pytest-dev__pytest-7168": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|pytest-dev__pytest-7220": {
   "resolved": true,
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|pytest-dev__pytest-7373": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false,
+  "rebuilt_from": "harness log"
+ },
  "Forge|1|pytest-dev__pytest-7432": {
   "resolved": false,
   "why": "patch does not apply",
   "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-7490": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false,
+  "rebuilt_from": "harness log"
  },
  "Forge|1|pytest-dev__pytest-8365": {
   "resolved": true,
@@ -891,6 +964,12 @@
   "resolved": false,
   "why": "patch does not apply",
   "applied": false
+ },
+ "Forge|1|pytest-dev__pytest-9359": {
+  "resolved": false,
+  "why": "patch does not apply",
+  "applied": false,
+  "rebuilt_from": "harness log"
  },
  "Forge|1|scikit-learn__scikit-learn-10297": {
   "resolved": true,
@@ -1097,6 +1176,12 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|sympy__sympy-11870": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|sympy__sympy-11897": {
   "resolved": true,
   "why": "resolved",
@@ -1112,10 +1197,22 @@
   "why": "resolved",
   "applied": true
  },
+ "Forge|1|sympy__sympy-12419": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
+ },
  "Forge|1|sympy__sympy-12454": {
   "resolved": true,
   "why": "resolved",
   "applied": true
+ },
+ "Forge|1|sympy__sympy-12481": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
  },
  "Forge|1|sympy__sympy-13031": {
   "resolved": true,
@@ -1296,6 +1393,12 @@
   "resolved": true,
   "why": "resolved",
   "applied": true
+ },
+ "Forge|1|sympy__sympy-18199": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true,
+  "rebuilt_from": "harness report"
  },
  "Forge|1|sympy__sympy-18532": {
   "resolved": true,

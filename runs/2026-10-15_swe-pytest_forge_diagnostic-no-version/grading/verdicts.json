@@ -1,0 +1,42 @@
+{
+ "Forge (no _version.py)|1|pytest-dev__pytest-11143": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-11148": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-5787": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-7373": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-7432": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-7490": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-8906": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge (no _version.py)|1|pytest-dev__pytest-9359": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ }
+}

@@ -3,7 +3,7 @@
         "patch_is_None": false,
         "patch_exists": true,
         "patch_successfully_applied": true,
-        "resolved": false,
+        "resolved": true,
         "infra_failure": false,
         "tests_status": {
             "FAIL_TO_PASS": {
@@ -71,6 +71,7 @@
                     "test_requests.py::RequestsTestCase::test_invalid_url",
                     "test_requests.py::RequestsTestCase::test_links",
                     "test_requests.py::RequestsTestCase::test_long_authinfo_in_url",
+                    "test_requests.py::RequestsTestCase::test_mixed_case_scheme_acceptable",
                     "test_requests.py::RequestsTestCase::test_no_content_length",
                     "test_requests.py::RequestsTestCase::test_nonhttp_schemes_dont_check_URLs",
                     "test_requests.py::RequestsTestCase::test_param_cookiejar_works",
@@ -92,6 +93,7 @@
                     "test_requests.py::RequestsTestCase::test_session_hooks_are_overriden_by_request_hooks",
                     "test_requests.py::RequestsTestCase::test_session_hooks_are_used_with_no_request_hooks",
                     "test_requests.py::RequestsTestCase::test_session_pickling",
+                    "test_requests.py::RequestsTestCase::test_set_cookie_on_301",
                     "test_requests.py::RequestsTestCase::test_status_raising",
                     "test_requests.py::RequestsTestCase::test_time_elapsed_blank",
                     "test_requests.py::RequestsTestCase::test_transport_adapter_ordering",
@@ -153,10 +155,7 @@
                     "test_requests.py::test_prepared_request_complete_copy",
                     "test_requests.py::test_prepare_unicode_url"
                 ],
-                "failure": [
-                    "test_requests.py::RequestsTestCase::test_mixed_case_scheme_acceptable",
-                    "test_requests.py::RequestsTestCase::test_set_cookie_on_301"
-                ]
+                "failure": []
             },
             "FAIL_TO_FAIL": {
                 "success": [],

@@ -1,0 +1,7 @@
+{
+  "label": "Forge diagnostic: the eight pytest patches without the generated _version.py (not counted)",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-15",
+  "notes": "Not counted. The eight counted Forge runs whose patch the harness could not apply carried src/_pytest/_version.py, which pip install -e . generated (fixed after the run in 33d204b). Here the same patches, with only that file left out, graded by the official harness: what Forge's own code changes do."
+}

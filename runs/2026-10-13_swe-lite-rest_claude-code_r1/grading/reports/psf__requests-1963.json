@@ -3,7 +3,7 @@
         "patch_is_None": false,
         "patch_exists": true,
         "patch_successfully_applied": true,
-        "resolved": false,
+        "resolved": true,
         "infra_failure": false,
         "tests_status": {
             "FAIL_TO_PASS": {
@@ -27,6 +27,7 @@
                     "test_requests.py::RequestsTestCase::test_HTTP_200_OK_GET_WITH_MIXED_PARAMS",
                     "test_requests.py::RequestsTestCase::test_HTTP_200_OK_GET_WITH_PARAMS",
                     "test_requests.py::RequestsTestCase::test_HTTP_200_OK_HEAD",
+                    "test_requests.py::RequestsTestCase::test_HTTP_200_OK_PUT",
                     "test_requests.py::RequestsTestCase::test_HTTP_302_ALLOW_REDIRECT_GET",
                     "test_requests.py::RequestsTestCase::test_POSTBIN_GET_POST_FILES",
                     "test_requests.py::RequestsTestCase::test_autoset_header_values_are_native",
@@ -132,9 +133,7 @@
                     "test_requests.py::TestMorselToCookieMaxAge::test_max_age_valid_int",
                     "test_requests.py::TestTimeout::test_stream_timeout"
                 ],
-                "failure": [
-                    "test_requests.py::RequestsTestCase::test_HTTP_200_OK_PUT"
-                ]
+                "failure": []
             },
             "FAIL_TO_FAIL": {
                 "success": [],

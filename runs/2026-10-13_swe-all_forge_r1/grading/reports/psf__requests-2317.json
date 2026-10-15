@@ -3,7 +3,7 @@
         "patch_is_None": false,
         "patch_exists": true,
         "patch_successfully_applied": true,
-        "resolved": false,
+        "resolved": true,
         "infra_failure": false,
         "tests_status": {
             "FAIL_TO_PASS": {
@@ -48,6 +48,7 @@
                     "test_requests.py::RequestsTestCase::test_cookie_as_dict_values",
                     "test_requests.py::RequestsTestCase::test_cookie_parameters",
                     "test_requests.py::RequestsTestCase::test_cookie_persists_via_api",
+                    "test_requests.py::RequestsTestCase::test_cookie_quote_wrapped",
                     "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
                     "test_requests.py::RequestsTestCase::test_cookie_sent_on_redirect",
                     "test_requests.py::RequestsTestCase::test_custom_content_type",
@@ -70,6 +71,7 @@
                     "test_requests.py::RequestsTestCase::test_invalid_url",
                     "test_requests.py::RequestsTestCase::test_links",
                     "test_requests.py::RequestsTestCase::test_long_authinfo_in_url",
+                    "test_requests.py::RequestsTestCase::test_mixed_case_scheme_acceptable",
                     "test_requests.py::RequestsTestCase::test_no_content_length",
                     "test_requests.py::RequestsTestCase::test_nonhttp_schemes_dont_check_URLs",
                     "test_requests.py::RequestsTestCase::test_param_cookiejar_works",
@@ -153,10 +155,7 @@
                     "test_requests.py::test_prepared_request_complete_copy",
                     "test_requests.py::test_prepare_unicode_url"
                 ],
-                "failure": [
-                    "test_requests.py::RequestsTestCase::test_cookie_quote_wrapped",
-                    "test_requests.py::RequestsTestCase::test_mixed_case_scheme_acceptable"
-                ]
+                "failure": []
             },
             "FAIL_TO_FAIL": {
                 "success": [],

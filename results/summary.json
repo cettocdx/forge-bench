@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T22:16:52+00:00",
+ "generated_at": "2026-10-15T00:51:37+00:00",
  "schema": 1,
  "official": {
   "claude-code": {
@@ -14,64 +14,64 @@
    ],
    "tasks_left_out": [],
    "overall": {
-    "runs": 431,
-    "accepted": 399,
-    "success_rate": 0.9258,
+    "runs": 434,
+    "accepted": 402,
+    "success_rate": 0.9263,
     "success_ci95": [
-     0.8971,
-     0.9469
+     0.8978,
+     0.9473
     ],
-    "total_cost_usd": 77.7649,
-    "cost_per_run_usd": 0.18043,
-    "cost_per_accepted_usd": 0.1949,
-    "input_tokens_mean": 194356.50116,
-    "cache_read_mean": 182567.607889,
-    "cache_write_mean": 11774.603248,
-    "output_tokens_mean": 2483.069606,
-    "turns_mean": 7.064965,
+    "total_cost_usd": 78.5879,
+    "cost_per_run_usd": 0.18108,
+    "cost_per_accepted_usd": 0.19549,
+    "input_tokens_mean": 195396.02765,
+    "cache_read_mean": 183580.172811,
+    "cache_write_mean": 11801.497696,
+    "output_tokens_mean": 2494.629032,
+    "turns_mean": 7.099078,
     "seconds_median": 27.27,
-    "seconds_p90": 91.51,
+    "seconds_p90": 92.23,
     "incomplete_usage": 0
    },
    "groups": {
     "large": {
-     "runs": 287,
-     "accepted": 259,
-     "success_rate": 0.9024,
+     "runs": 290,
+     "accepted": 262,
+     "success_rate": 0.9034,
      "success_ci95": [
-      0.8626,
-      0.9316
+      0.864,
+      0.9324
      ],
-     "total_cost_usd": 60.3946,
-     "cost_per_run_usd": 0.21043,
-     "cost_per_accepted_usd": 0.23318,
-     "input_tokens_mean": 239694.38676,
-     "cache_read_mean": 226488.780488,
-     "cache_write_mean": 13188.449477,
-     "output_tokens_mean": 2978.010453,
-     "turns_mean": 8.463415,
-     "seconds_median": 36.39,
-     "seconds_p90": 105.8,
+     "total_cost_usd": 61.2176,
+     "cost_per_run_usd": 0.2111,
+     "cost_per_accepted_usd": 0.23366,
+     "input_tokens_mean": 240781.07931,
+     "cache_read_mean": 227549.77931,
+     "cache_write_mean": 13214.072414,
+     "output_tokens_mean": 2990.189655,
+     "turns_mean": 8.5,
+     "seconds_median": 36.26,
+     "seconds_p90": 107.74,
      "incomplete_usage": 0
     },
     "swe-lite-300": {
-     "runs": 297,
-     "accepted": 270,
-     "success_rate": 0.9091,
+     "runs": 300,
+     "accepted": 273,
+     "success_rate": 0.91,
      "success_ci95": [
-      0.871,
-      0.9368
+      0.8722,
+      0.9374
      ],
-     "total_cost_usd": 59.9985,
-     "cost_per_run_usd": 0.20202,
-     "cost_per_accepted_usd": 0.22222,
-     "input_tokens_mean": 229498.343434,
-     "cache_read_mean": 216689.983165,
-     "cache_write_mean": 12791.713805,
-     "output_tokens_mean": 2813.838384,
-     "turns_mean": 8.181818,
+     "total_cost_usd": 60.8215,
+     "cost_per_run_usd": 0.20274,
+     "cost_per_accepted_usd": 0.22279,
+     "input_tokens_mean": 230650.773333,
+     "cache_read_mean": 217813.603333,
+     "cache_write_mean": 12820.45,
+     "output_tokens_mean": 2827.253333,
+     "turns_mean": 8.22,
      "seconds_median": 35.26,
-     "seconds_p90": 103.68,
+     "seconds_p90": 103.85,
      "incomplete_usage": 0
     },
     "small": {
@@ -177,23 +177,23 @@
      "incomplete_usage": 0
     },
     "swe-lite-rest": {
-     "runs": 257,
-     "accepted": 234,
-     "success_rate": 0.9105,
+     "runs": 260,
+     "accepted": 237,
+     "success_rate": 0.9115,
      "success_ci95": [
-      0.8693,
-      0.9396
+      0.8708,
+      0.9403
      ],
-     "total_cost_usd": 51.6881,
-     "cost_per_run_usd": 0.20112,
-     "cost_per_accepted_usd": 0.22089,
-     "input_tokens_mean": 228347.750973,
-     "cache_read_mean": 215568.050584,
-     "cache_write_mean": 12763.124514,
-     "output_tokens_mean": 2791.81323,
-     "turns_mean": 8.280156,
+     "total_cost_usd": 52.5111,
+     "cost_per_run_usd": 0.20197,
+     "cost_per_accepted_usd": 0.22157,
+     "input_tokens_mean": 229690.753846,
+     "cache_read_mean": 216877.480769,
+     "cache_write_mean": 12796.611538,
+     "output_tokens_mean": 2807.546154,
+     "turns_mean": 8.323077,
      "seconds_median": 35.26,
-     "seconds_p90": 97.92,
+     "seconds_p90": 99.43,
      "incomplete_usage": 0
     },
     "swe-lite-test": {
@@ -1761,6 +1761,15 @@
      "output_tokens": 5239.0,
      "seconds": 68.566872
     },
+    "psf__requests-1963": {
+     "set": "swe-lite-rest",
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.181519,
+     "input_tokens": 207429.0,
+     "output_tokens": 2498.0,
+     "seconds": 31.159627
+    },
     "psf__requests-2148": {
      "set": "swe-lite-rest",
      "accepted": 1,
@@ -1769,6 +1778,15 @@
      "input_tokens": 127642.0,
      "output_tokens": 1367.0,
      "seconds": 20.270367
+    },
+    "psf__requests-2317": {
+     "set": "swe-lite-rest",
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.147882,
+     "input_tokens": 151047.0,
+     "output_tokens": 1683.0,
+     "seconds": 25.179933
     },
     "psf__requests-2674": {
      "set": "swe-lite-rest",
@@ -2832,6 +2850,15 @@
      "output_tokens": 2333.0,
      "seconds": 29.004972
     },
+    "sympy__sympy-13146": {
+     "set": "swe-lite-rest",
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.493607,
+     "input_tokens": 675748.0,
+     "output_tokens": 8285.0,
+     "seconds": 179.899661
+    },
     "sympy__sympy-13177": {
      "set": "swe-lite",
      "accepted": 1,
@@ -3581,65 +3608,65 @@
    ],
    "tasks_left_out": [],
    "overall": {
-    "runs": 431,
-    "accepted": 394,
-    "success_rate": 0.9142,
+    "runs": 434,
+    "accepted": 397,
+    "success_rate": 0.9147,
     "success_ci95": [
-     0.8839,
-     0.9371
+     0.8847,
+     0.9375
     ],
-    "total_cost_usd": 58.7008,
-    "cost_per_run_usd": 0.1362,
-    "cost_per_accepted_usd": 0.14899,
-    "input_tokens_mean": 113721.993039,
-    "cache_read_mean": 102541.403712,
-    "cache_write_mean": 11161.962877,
-    "output_tokens_mean": 2971.684455,
-    "turns_mean": 7.858469,
-    "seconds_median": 224.27,
-    "seconds_p90": 809.82,
-    "incomplete_usage": 9
+    "total_cost_usd": 60.0952,
+    "cost_per_run_usd": 0.13847,
+    "cost_per_accepted_usd": 0.15137,
+    "input_tokens_mean": 117557.580645,
+    "cache_read_mean": 106221.513825,
+    "cache_write_mean": 11317.200461,
+    "output_tokens_mean": 3008.129032,
+    "turns_mean": 7.97235,
+    "seconds_median": 227.88,
+    "seconds_p90": 819.16,
+    "incomplete_usage": 8
    },
    "groups": {
     "large": {
-     "runs": 287,
-     "accepted": 254,
-     "success_rate": 0.885,
+     "runs": 290,
+     "accepted": 257,
+     "success_rate": 0.8862,
      "success_ci95": [
-      0.8429,
-      0.9169
+      0.8445,
+      0.9178
      ],
-     "total_cost_usd": 50.4669,
-     "cost_per_run_usd": 0.17584,
-     "cost_per_accepted_usd": 0.19869,
-     "input_tokens_mean": 153383.094077,
-     "cache_read_mean": 138488.108014,
-     "cache_write_mean": 14871.905923,
-     "output_tokens_mean": 3659.160279,
-     "turns_mean": 9.923345,
+     "total_cost_usd": 51.8613,
+     "cost_per_run_usd": 0.17883,
+     "cost_per_accepted_usd": 0.2018,
+     "input_tokens_mean": 158712.962069,
+     "cache_read_mean": 143623.72069,
+     "cache_write_mean": 15065.848276,
+     "output_tokens_mean": 3706.589655,
+     "turns_mean": 10.072414,
      "seconds_median": 372.54,
-     "seconds_p90": 983.16,
-     "incomplete_usage": 9
+     "seconds_p90": 985.0,
+     "incomplete_usage": 8
     },
     "swe-lite-300": {
-     "runs": 297,
-     "accepted": 263,
-     "success_rate": 0.8855,
+     "runs": 300,
+     "accepted": 266,
+     "success_rate": 0.8867,
      "success_ci95": [
-      0.8443,
-      0.9169
+      0.8458,
+      0.9178
      ],
-     "total_cost_usd": 50.0232,
-     "cost_per_run_usd": 0.16843,
-     "cost_per_accepted_usd": 0.1902,
-     "input_tokens_mean": 146527.754209,
-     "cache_read_mean": 132263.020202,
-     "cache_write_mean": 14242.114478,
-     "output_tokens_mean": 3512.26936,
-     "turns_mean": 9.717172,
-     "seconds_median": 354.48,
-     "seconds_p90": 945.65,
-     "incomplete_usage": 8
+     "total_cost_usd": 51.0106,
+     "cost_per_run_usd": 0.17004,
+     "cost_per_accepted_usd": 0.19177,
+     "input_tokens_mean": 148627.583333,
+     "cache_read_mean": 134242.726667,
+     "cache_write_mean": 14362.05,
+     "output_tokens_mean": 3543.023333,
+     "turns_mean": 9.803333,
+     "seconds_median": 356.68,
+     "seconds_p90": 964.86,
+     "incomplete_usage": 7
     },
     "small": {
      "runs": 124,
@@ -3744,24 +3771,24 @@
      "incomplete_usage": 0
     },
     "swe-lite-rest": {
-     "runs": 257,
-     "accepted": 227,
-     "success_rate": 0.8833,
+     "runs": 260,
+     "accepted": 230,
+     "success_rate": 0.8846,
      "success_ci95": [
-      0.8382,
-      0.917
+      0.8401,
+      0.918
      ],
-     "total_cost_usd": 43.6155,
-     "cost_per_run_usd": 0.16971,
-     "cost_per_accepted_usd": 0.19214,
-     "input_tokens_mean": 147479.575875,
-     "cache_read_mean": 133017.898833,
-     "cache_write_mean": 14439.054475,
-     "output_tokens_mean": 3516.229572,
-     "turns_mean": 9.731518,
-     "seconds_median": 409.46,
-     "seconds_p90": 983.16,
-     "incomplete_usage": 8
+     "total_cost_usd": 44.6029,
+     "cost_per_run_usd": 0.17155,
+     "cost_per_accepted_usd": 0.19393,
+     "input_tokens_mean": 149891.473077,
+     "cache_read_mean": 135293.465385,
+     "cache_write_mean": 14575.169231,
+     "output_tokens_mean": 3551.669231,
+     "turns_mean": 9.830769,
+     "seconds_median": 413.5,
+     "seconds_p90": 985.0,
+     "incomplete_usage": 7
     },
     "swe-lite-test": {
      "runs": 20,
@@ -3811,14 +3838,14 @@
       0.3968,
       0.8922
      ],
-     "total_cost_usd": 3.2687,
-     "cost_per_run_usd": 0.32687,
-     "cost_per_accepted_usd": 0.46696,
-     "input_tokens_mean": 295799.5,
-     "cache_read_mean": 270154.8,
-     "cache_write_mean": 25612.7,
-     "output_tokens_mean": 7137.9,
-     "turns_mean": 14.0,
+     "total_cost_usd": 3.6757,
+     "cost_per_run_usd": 0.36757,
+     "cost_per_accepted_usd": 0.5251,
+     "input_tokens_mean": 389427.4,
+     "cache_read_mean": 361563.9,
+     "cache_write_mean": 27827.9,
+     "output_tokens_mean": 7634.8,
+     "turns_mean": 15.8,
      "seconds_median": 229.76,
      "seconds_p90": 1413.39,
      "incomplete_usage": 1
@@ -3838,10 +3865,10 @@
      "set": "swe-verified-hard",
      "accepted": 0,
      "runs": 1,
-     "cost_usd": 0.870876,
-     "input_tokens": 534547.0,
-     "output_tokens": 18139.0,
-     "seconds": 2412.816421
+     "cost_usd": 1.277856,
+     "input_tokens": 1470826.0,
+     "output_tokens": 23108.0,
+     "seconds": 3615.841137
     },
     "astropy__astropy-13579": {
      "set": "swe-verified-hard",
@@ -4088,12 +4115,12 @@
     },
     "django__django-11910": {
      "set": "swe-lite-rest",
-     "accepted": 0,
+     "accepted": 1,
      "runs": 1,
-     "cost_usd": 0.162213,
-     "input_tokens": 72316.0,
-     "output_tokens": 2659.0,
-     "seconds": 678.270616
+     "cost_usd": 0.283376,
+     "input_tokens": 319600.0,
+     "output_tokens": 6688.0,
+     "seconds": 707.033582
     },
     "django__django-11964": {
      "set": "swe-lite",
@@ -5328,6 +5355,15 @@
      "output_tokens": 5505.0,
      "seconds": 150.978736
     },
+    "psf__requests-1963": {
+     "set": "swe-lite-rest",
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.24166,
+     "input_tokens": 201113.0,
+     "output_tokens": 3956.0,
+     "seconds": 796.139545
+    },
     "psf__requests-2148": {
      "set": "swe-lite-rest",
      "accepted": 1,
@@ -5336,6 +5372,15 @@
      "input_tokens": 253933.0,
      "output_tokens": 3851.0,
      "seconds": 644.519783
+    },
+    "psf__requests-2317": {
+     "set": "swe-lite-rest",
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.157908,
+     "input_tokens": 171820.0,
+     "output_tokens": 3016.0,
+     "seconds": 352.784045
     },
     "psf__requests-2674": {
      "set": "swe-lite-rest",
@@ -6399,6 +6444,15 @@
      "output_tokens": 4632.0,
      "seconds": 364.914549
     },
+    "sympy__sympy-13146": {
+     "set": "swe-lite-rest",
+     "accepted": 0,
+     "runs": 1,
+     "cost_usd": 0.466701,
+     "input_tokens": 449315.0,
+     "output_tokens": 8762.0,
+     "seconds": 2077.111532
+    },
     "sympy__sympy-13177": {
      "set": "swe-lite",
      "accepted": 1,
@@ -7269,23 +7323,23 @@
      "incomplete_usage": 0
     },
     "swe-lite-rest": {
-     "runs": 257,
-     "accepted": 234,
-     "success_rate": 0.9105,
+     "runs": 260,
+     "accepted": 237,
+     "success_rate": 0.9115,
      "success_ci95": [
-      0.8693,
-      0.9396
+      0.8708,
+      0.9403
      ],
-     "total_cost_usd": 51.6881,
-     "cost_per_run_usd": 0.20112,
-     "cost_per_accepted_usd": 0.22089,
-     "input_tokens_mean": 228347.750973,
-     "cache_read_mean": 215568.050584,
-     "cache_write_mean": 12763.124514,
-     "output_tokens_mean": 2791.81323,
-     "turns_mean": 8.280156,
+     "total_cost_usd": 52.5111,
+     "cost_per_run_usd": 0.20197,
+     "cost_per_accepted_usd": 0.22157,
+     "input_tokens_mean": 229690.753846,
+     "cache_read_mean": 216877.480769,
+     "cache_write_mean": 12796.611538,
+     "output_tokens_mean": 2807.546154,
+     "turns_mean": 8.323077,
      "seconds_median": 35.26,
-     "seconds_p90": 97.92,
+     "seconds_p90": 99.43,
      "incomplete_usage": 0
     },
     "swe-lite-test": {
@@ -7507,24 +7561,24 @@
      "incomplete_usage": 0
     },
     "swe-lite-rest": {
-     "runs": 257,
-     "accepted": 227,
-     "success_rate": 0.8833,
+     "runs": 260,
+     "accepted": 230,
+     "success_rate": 0.8846,
      "success_ci95": [
-      0.8382,
-      0.917
+      0.8401,
+      0.918
      ],
-     "total_cost_usd": 43.6155,
-     "cost_per_run_usd": 0.16971,
-     "cost_per_accepted_usd": 0.19214,
-     "input_tokens_mean": 147479.575875,
-     "cache_read_mean": 133017.898833,
-     "cache_write_mean": 14439.054475,
-     "output_tokens_mean": 3516.229572,
-     "turns_mean": 9.731518,
-     "seconds_median": 409.46,
-     "seconds_p90": 983.16,
-     "incomplete_usage": 8
+     "total_cost_usd": 44.6029,
+     "cost_per_run_usd": 0.17155,
+     "cost_per_accepted_usd": 0.19393,
+     "input_tokens_mean": 149891.473077,
+     "cache_read_mean": 135293.465385,
+     "cache_write_mean": 14575.169231,
+     "output_tokens_mean": 3551.669231,
+     "turns_mean": 9.830769,
+     "seconds_median": 413.5,
+     "seconds_p90": 985.0,
+     "incomplete_usage": 7
     },
     "swe-lite-test": {
      "runs": 20,
@@ -7574,14 +7628,14 @@
       0.3968,
       0.8922
      ],
-     "total_cost_usd": 3.2687,
-     "cost_per_run_usd": 0.32687,
-     "cost_per_accepted_usd": 0.46696,
-     "input_tokens_mean": 295799.5,
-     "cache_read_mean": 270154.8,
-     "cache_write_mean": 25612.7,
-     "output_tokens_mean": 7137.9,
-     "turns_mean": 14.0,
+     "total_cost_usd": 3.6757,
+     "cost_per_run_usd": 0.36757,
+     "cost_per_accepted_usd": 0.5251,
+     "input_tokens_mean": 389427.4,
+     "cache_read_mean": 361563.9,
+     "cache_write_mean": 27827.9,
+     "output_tokens_mean": 7634.8,
+     "turns_mean": 15.8,
      "seconds_median": 229.76,
      "seconds_p90": 1413.39,
      "incomplete_usage": 1
@@ -15543,27 +15597,27 @@
    },
    "files": {
     "meta.json": "c3ab643930b59980aa6ffece813df02bd5e76be41969ae8ad65eb2f471656755",
-    "results.jsonl": "8fcd0fb50bafcbd1c6d20402c78aea33608c2fd44f93a306681c8b3c710a90f8",
+    "results.jsonl": "9fcd1d9130527fbea2157035a49dbc509b19a0aa5e45f8ad715c65137badcfa3",
     "run.json": "e5e3f504b5306dba796e411044bf09e3da5ce381705496383128d1d3a17ac785"
    },
    "overall": {
-    "runs": 419,
+    "runs": 421,
     "accepted": 0,
     "success_rate": 0.0,
     "success_ci95": [
      0.0,
-     0.0091
+     0.009
     ],
-    "total_cost_usd": 2.3624,
-    "cost_per_run_usd": 0.00564,
+    "total_cost_usd": 2.705,
+    "cost_per_run_usd": 0.00643,
     "cost_per_accepted_usd": null,
-    "input_tokens_mean": 45938.967742,
-    "cache_read_mean": 38112.870968,
-    "cache_write_mean": 7820.16129,
-    "output_tokens_mean": 1472.935484,
-    "turns_mean": 3.483871,
-    "seconds_median": 104.37,
-    "seconds_p90": 275.23,
+    "input_tokens_mean": 53654.15625,
+    "cache_read_mean": 45738.78125,
+    "cache_write_mean": 7909.1875,
+    "output_tokens_mean": 1790.59375,
+    "turns_mean": 3.53125,
+    "seconds_median": 104.76,
+    "seconds_p90": 548.28,
     "incomplete_usage": 7
    },
    "by_set": {
@@ -15595,14 +15649,14 @@
       0.0,
       0.0101
      ],
-     "total_cost_usd": 1.0661,
-     "cost_per_run_usd": 0.00284,
+     "total_cost_usd": 0.5379,
+     "cost_per_run_usd": 0.00143,
      "cost_per_accepted_usd": null,
-     "input_tokens_mean": 24688.695652,
-     "cache_read_mean": 18688.73913,
-     "cache_write_mean": 5995.782609,
-     "output_tokens_mean": 631.043478,
-     "turns_mean": 2.695652,
+     "input_tokens_mean": 14179.043478,
+     "cache_read_mean": 11348.869565,
+     "cache_write_mean": 2826.956522,
+     "output_tokens_mean": 348.391304,
+     "turns_mean": 2.217391,
      "seconds_median": 96.43,
      "seconds_p90": 258.86,
      "incomplete_usage": 4
@@ -15648,23 +15702,23 @@
      "incomplete_usage": 1
     },
     "swe-verified-hard": {
-     "runs": 21,
+     "runs": 23,
      "accepted": 0,
      "success_rate": 0.0,
      "success_ci95": [
       0.0,
-      0.1546
+      0.1431
      ],
-     "total_cost_usd": 0.8748,
-     "cost_per_run_usd": 0.04166,
+     "total_cost_usd": 1.7457,
+     "cost_per_run_usd": 0.0759,
      "cost_per_accepted_usd": null,
-     "input_tokens_mean": 102500.5,
-     "cache_read_mean": 89483.666667,
-     "cache_write_mean": 13008.5,
-     "output_tokens_mean": 3141.333333,
-     "turns_mean": 4.5,
-     "seconds_median": 51.74,
-     "seconds_p90": 258.77,
+     "input_tokens_mean": 164221.428571,
+     "cache_read_mean": 141123.0,
+     "cache_write_mean": 23086.142857,
+     "output_tokens_mean": 5283.857143,
+     "turns_mean": 6.142857,
+     "seconds_median": 124.43,
+     "seconds_p90": 1380.95,
      "incomplete_usage": 1
     }
    },
@@ -15678,10 +15732,10 @@
     },
     "astropy__astropy-13398": {
      "accepted": 0,
-     "runs": 2,
-     "cost_usd": 0.806528,
-     "input_tokens": 595290.0,
-     "seconds": 1380.951782
+     "runs": 4,
+     "cost_usd": 0.838702,
+     "input_tokens": 564918.5,
+     "seconds": 1896.884101
     },
     "astropy__astropy-13579": {
      "accepted": 0,
@@ -15874,10 +15928,10 @@
     },
     "django__django-11910": {
      "accepted": 0,
-     "runs": 2,
-     "cost_usd": 0.0,
-     "input_tokens": 0.0,
-     "seconds": 67.019113
+     "runs": 3,
+     "cost_usd": 0.081107,
+     "input_tokens": 36158.0,
+     "seconds": 372.644865
     },
     "django__django-11999": {
      "accepted": 0,
@@ -16812,10 +16866,10 @@
     },
     "pylint-dev__pylint-7114": {
      "accepted": 0,
-     "runs": 2,
-     "cost_usd": 0.6905,
-     "input_tokens": 314038.0,
-     "seconds": 3672.335611
+     "runs": 1,
+     "cost_usd": null,
+     "input_tokens": null,
+     "seconds": null
     },
     "pylint-dev__pylint-7228": {
      "accepted": 0,
@@ -17714,7 +17768,7 @@
    "agent": "forge",
    "kind": "official",
    "date": "2026-10-13",
-   "notes": "Forge through the published rift-bench build on all 300 SWE-bench Lite instances and the 10 hard Verified ones, one finished run each, graded by the official harness. Nine of them are the first finished attempt of an instance that was run again only because the cost could not be fully measured (see the re-runs run): their cost is a lower bound (usage_complete false) and their traces were overwritten by the re-runs.",
+   "notes": "Forge through the published rift-bench build on all 300 SWE-bench Lite instances and the 10 hard Verified ones, one finished run each, graded by the official harness. Eight of them are the first finished attempt of an instance that was run again only because the cost could not be fully measured (see the re-runs run): their cost is a lower bound (usage_complete false) and their traces were overwritten by the re-runs. astropy__astropy-13398 is its run made again after the Mac slept through the first one (see METHODOLOGY.md).",
    "meta": {
     "arch": "aarch64",
     "budget_usd": 32.0,
@@ -17749,28 +17803,28 @@
    },
    "files": {
     "meta.json": "c4e10930bf106e7dc6ffb34cfa908f8a30745ee97f9706f1969b34d27d55203c",
-    "results.jsonl": "08e31369b1aeaf2c60edb3ef4f0bdfdb9acde4efa833d324b3eef036f9d2bfe2",
-    "run.json": "c87c815b96808e8e42b0ce5df0ba8e1833441db54c9991378bf9b17458b762f8"
+    "results.jsonl": "7616c9fb6d17f41382ab177cbcaa173556ad0fd7926870f4eac33549e0e10c46",
+    "run.json": "67470e09397063bcf61c404b6030adff93b61e844c8551bebc3b3137b7ddaf28"
    },
    "overall": {
-    "runs": 306,
-    "accepted": 270,
-    "success_rate": 0.8824,
+    "runs": 309,
+    "accepted": 273,
+    "success_rate": 0.8835,
     "success_ci95": [
-     0.8414,
-     0.9138
+     0.8429,
+     0.9146
     ],
-    "total_cost_usd": 53.1083,
-    "cost_per_run_usd": 0.17356,
-    "cost_per_accepted_usd": 0.1967,
-    "input_tokens_mean": 151351.215686,
-    "cache_read_mean": 136717.702614,
-    "cache_write_mean": 14610.591503,
-    "output_tokens_mean": 3629.493464,
-    "turns_mean": 9.856209,
-    "seconds_median": 348.09,
-    "seconds_p90": 964.86,
-    "incomplete_usage": 9
+    "total_cost_usd": 54.5027,
+    "cost_per_run_usd": 0.17638,
+    "cost_per_accepted_usd": 0.19964,
+    "input_tokens_mean": 156373.084142,
+    "cache_read_mean": 141554.721683,
+    "cache_write_mean": 14795.145631,
+    "output_tokens_mean": 3674.294498,
+    "turns_mean": 9.996764,
+    "seconds_median": 349.16,
+    "seconds_p90": 973.49,
+    "incomplete_usage": 8
    },
    "by_set": {
     "swe-lite": {
@@ -17794,24 +17848,24 @@
      "incomplete_usage": 0
     },
     "swe-lite-rest": {
-     "runs": 256,
-     "accepted": 227,
-     "success_rate": 0.8867,
+     "runs": 259,
+     "accepted": 230,
+     "success_rate": 0.888,
      "success_ci95": [
-      0.842,
-      0.92
+      0.8438,
+      0.9209
      ],
-     "total_cost_usd": 43.4318,
-     "cost_per_run_usd": 0.16966,
-     "cost_per_accepted_usd": 0.19133,
-     "input_tokens_mean": 147417.910156,
-     "cache_read_mean": 132959.1875,
-     "cache_write_mean": 14436.105469,
-     "output_tokens_mean": 3514.738281,
-     "turns_mean": 9.730469,
+     "total_cost_usd": 44.4193,
+     "cost_per_run_usd": 0.1715,
+     "cost_per_accepted_usd": 0.19313,
+     "input_tokens_mean": 149839.833977,
+     "cache_read_mean": 135244.220077,
+     "cache_write_mean": 14572.779923,
+     "output_tokens_mean": 3550.332046,
+     "turns_mean": 9.830116,
      "seconds_median": 413.5,
      "seconds_p90": 985.0,
-     "incomplete_usage": 8
+     "incomplete_usage": 7
     },
     "swe-lite-test": {
      "runs": 20,
@@ -17861,14 +17915,14 @@
       0.3968,
       0.8922
      ],
-     "total_cost_usd": 3.2687,
-     "cost_per_run_usd": 0.32687,
-     "cost_per_accepted_usd": 0.46696,
-     "input_tokens_mean": 295799.5,
-     "cache_read_mean": 270154.8,
-     "cache_write_mean": 25612.7,
-     "output_tokens_mean": 7137.9,
-     "turns_mean": 14.0,
+     "total_cost_usd": 3.6757,
+     "cost_per_run_usd": 0.36757,
+     "cost_per_accepted_usd": 0.5251,
+     "input_tokens_mean": 389427.4,
+     "cache_read_mean": 361563.9,
+     "cache_write_mean": 27827.9,
+     "output_tokens_mean": 7634.8,
+     "turns_mean": 15.8,
      "seconds_median": 229.76,
      "seconds_p90": 1413.39,
      "incomplete_usage": 1
@@ -17885,9 +17939,9 @@
     "astropy__astropy-13398": {
      "accepted": 0,
      "runs": 1,
-     "cost_usd": 0.870876,
-     "input_tokens": 534547.0,
-     "seconds": 2412.816421
+     "cost_usd": 1.277856,
+     "input_tokens": 1470826.0,
+     "seconds": 3615.841137
     },
     "astropy__astropy-13579": {
      "accepted": 1,
@@ -18079,11 +18133,11 @@
      "seconds": 544.873904
     },
     "django__django-11910": {
-     "accepted": 0,
+     "accepted": 1,
      "runs": 1,
-     "cost_usd": 0.162213,
-     "input_tokens": 72316.0,
-     "seconds": 678.270616
+     "cost_usd": 0.283376,
+     "input_tokens": 319600.0,
+     "seconds": 707.033582
     },
     "django__django-11964": {
      "accepted": 1,
@@ -18960,12 +19014,26 @@
      "input_tokens": 257320.0,
      "seconds": 150.978736
     },
+    "psf__requests-1963": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.24166,
+     "input_tokens": 201113.0,
+     "seconds": 796.139545
+    },
     "psf__requests-2148": {
      "accepted": 1,
      "runs": 1,
      "cost_usd": 0.251566,
      "input_tokens": 253933.0,
      "seconds": 644.519783
+    },
+    "psf__requests-2317": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.157908,
+     "input_tokens": 171820.0,
+     "seconds": 352.784045
     },
     "psf__requests-2674": {
      "accepted": 1,
@@ -19554,6 +19622,13 @@
      "cost_usd": 0.185575,
      "input_tokens": 162679.0,
      "seconds": 364.914549
+    },
+    "sympy__sympy-13146": {
+     "accepted": 0,
+     "runs": 1,
+     "cost_usd": 0.466701,
+     "input_tokens": 449315.0,
+     "seconds": 2077.111532
     },
     "sympy__sympy-13177": {
      "accepted": 1,
@@ -20174,48 +20249,48 @@
    },
    "files": {
     "meta.json": "d891600393c26a7cbbc973ef496fef4ee2075c3ea345919e39ac499a0f3f0045",
-    "results.jsonl": "2a26a83d744c4ac996a310bcea067230bdb88c678086ff2cd1ba23c24a81d342",
+    "results.jsonl": "833c2cbf9ff9dc36462b9dc46e276a1f5e9ab683b48ad838c2c9522d02761ae0",
     "run.json": "7a6e498411b591b4ae617f9cf51f3eb22f0a8760d1a63d886c0c488597c598ad"
    },
    "overall": {
-    "runs": 257,
-    "accepted": 234,
-    "success_rate": 0.9105,
+    "runs": 260,
+    "accepted": 237,
+    "success_rate": 0.9115,
     "success_ci95": [
-     0.8693,
-     0.9396
+     0.8708,
+     0.9403
     ],
-    "total_cost_usd": 51.6881,
-    "cost_per_run_usd": 0.20112,
-    "cost_per_accepted_usd": 0.22089,
-    "input_tokens_mean": 228347.750973,
-    "cache_read_mean": 215568.050584,
-    "cache_write_mean": 12763.124514,
-    "output_tokens_mean": 2791.81323,
-    "turns_mean": 8.280156,
+    "total_cost_usd": 52.5111,
+    "cost_per_run_usd": 0.20197,
+    "cost_per_accepted_usd": 0.22157,
+    "input_tokens_mean": 229690.753846,
+    "cache_read_mean": 216877.480769,
+    "cache_write_mean": 12796.611538,
+    "output_tokens_mean": 2807.546154,
+    "turns_mean": 8.323077,
     "seconds_median": 35.26,
-    "seconds_p90": 97.92,
+    "seconds_p90": 99.43,
     "incomplete_usage": 0
    },
    "by_set": {
     "swe-lite-rest": {
-     "runs": 257,
-     "accepted": 234,
-     "success_rate": 0.9105,
+     "runs": 260,
+     "accepted": 237,
+     "success_rate": 0.9115,
      "success_ci95": [
-      0.8693,
-      0.9396
+      0.8708,
+      0.9403
      ],
-     "total_cost_usd": 51.6881,
-     "cost_per_run_usd": 0.20112,
-     "cost_per_accepted_usd": 0.22089,
-     "input_tokens_mean": 228347.750973,
-     "cache_read_mean": 215568.050584,
-     "cache_write_mean": 12763.124514,
-     "output_tokens_mean": 2791.81323,
-     "turns_mean": 8.280156,
+     "total_cost_usd": 52.5111,
+     "cost_per_run_usd": 0.20197,
+     "cost_per_accepted_usd": 0.22157,
+     "input_tokens_mean": 229690.753846,
+     "cache_read_mean": 216877.480769,
+     "cache_write_mean": 12796.611538,
+     "output_tokens_mean": 2807.546154,
+     "turns_mean": 8.323077,
      "seconds_median": 35.26,
-     "seconds_p90": 97.92,
+     "seconds_p90": 99.43,
      "incomplete_usage": 0
     }
    },
@@ -21151,12 +21226,26 @@
      "input_tokens": 212913.0,
      "seconds": 34.261715
     },
+    "psf__requests-1963": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.181519,
+     "input_tokens": 207429.0,
+     "seconds": 31.159627
+    },
     "psf__requests-2148": {
      "accepted": 1,
      "runs": 1,
      "cost_usd": 0.133262,
      "input_tokens": 127642.0,
      "seconds": 20.270367
+    },
+    "psf__requests-2317": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.147882,
+     "input_tokens": 151047.0,
+     "seconds": 25.179933
     },
     "psf__requests-2674": {
      "accepted": 1,
@@ -21654,6 +21743,13 @@
      "cost_usd": 0.167919,
      "input_tokens": 176482.0,
      "seconds": 29.004972
+    },
+    "sympy__sympy-13146": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.493607,
+     "input_tokens": 675748.0,
+     "seconds": 179.899661
     },
     "sympy__sympy-13437": {
      "accepted": 0,
@@ -24718,7 +24814,7 @@
    "agent": "forge",
    "kind": "exploratory",
    "date": "2026-10-14",
-   "notes": "Nine finished Forge runs were first set aside because their cost could not be fully measured (a web search's helper model or a provider receipt without a price) and their instance was run again. One finished run per instance is the rule, so the first finished attempt is the counted one (in the official run); these are the later attempts, graded where the full run graded them. Their traces are here: each instance's trace file was overwritten by its last attempt.",
+   "notes": "Eight finished Forge runs were first set aside because their cost could not be fully measured (a web search's helper model or a provider receipt without a price) and their instance was run again. One finished run per instance is the rule, so the first finished attempt is the counted one (in the official run); these are the later attempts, graded where the full run graded them. Their traces are here: each instance's trace file was overwritten by its last attempt.",
    "meta": {
     "arch": "aarch64",
     "budget_usd": 32.0,
@@ -24753,49 +24849,49 @@
    },
    "files": {
     "meta.json": "28d42a9c04c6cfd43e80dea3ce3c7641624e114a9811dad9726202fe57e44f39",
-    "results.jsonl": "5a2a8354ef045f1365a91105f04168175bfd43f2f5c5b2945061386558840410",
-    "run.json": "c4fc8210cc3c10673d8e26f69be04cde3ac8b0038ae4992ecab03a0e121020a4"
+    "results.jsonl": "7b9f8c3c0848b579acd406413fbcd7ff5f00899f429470ec2a1fa6c365949c65",
+    "run.json": "8b9e4456cff158f83aa95f7a2730e096169f6e692aa9537b2f270e483397c876"
    },
    "overall": {
     "runs": 13,
-    "accepted": 6,
-    "success_rate": 0.4615,
+    "accepted": 5,
+    "success_rate": 0.3846,
     "success_ci95": [
-     0.2321,
-     0.7086
+     0.1771,
+     0.6448
     ],
-    "total_cost_usd": 8.127,
-    "cost_per_run_usd": 0.62515,
-    "cost_per_accepted_usd": 1.3545,
-    "input_tokens_mean": 602275.307692,
-    "cache_read_mean": 543861.846154,
-    "cache_write_mean": 40176.769231,
-    "output_tokens_mean": 11947.923077,
-    "turns_mean": 23.692308,
-    "seconds_median": 707.03,
-    "seconds_p90": 1117.06,
-    "incomplete_usage": 5
+    "total_cost_usd": 8.5341,
+    "cost_per_run_usd": 0.65647,
+    "cost_per_accepted_usd": 1.70682,
+    "input_tokens_mean": 601847.461538,
+    "cache_read_mean": 537684.153846,
+    "cache_write_mean": 45927.076923,
+    "output_tokens_mean": 12138.076923,
+    "turns_mean": 23.538462,
+    "seconds_median": 803.43,
+    "seconds_p90": 1122.64,
+    "incomplete_usage": 6
    },
    "by_set": {
     "swe-lite-rest": {
      "runs": 12,
-     "accepted": 6,
-     "success_rate": 0.5,
+     "accepted": 5,
+     "success_rate": 0.4167,
      "success_ci95": [
-      0.2538,
-      0.7462
+      0.1933,
+      0.6805
      ],
-     "total_cost_usd": 7.5419,
-     "cost_per_run_usd": 0.62849,
-     "cost_per_accepted_usd": 1.25698,
-     "input_tokens_mean": 603686.333333,
-     "cache_read_mean": 543334.0,
-     "cache_write_mean": 40600.25,
-     "output_tokens_mean": 11754.0,
-     "turns_mean": 23.666667,
-     "seconds_median": 803.43,
-     "seconds_p90": 1117.06,
-     "incomplete_usage": 5
+     "total_cost_usd": 7.949,
+     "cost_per_run_usd": 0.66242,
+     "cost_per_accepted_usd": 1.5898,
+     "input_tokens_mean": 603222.833333,
+     "cache_read_mean": 536641.5,
+     "cache_write_mean": 46829.75,
+     "output_tokens_mean": 11960.0,
+     "turns_mean": 23.5,
+     "seconds_median": 836.38,
+     "seconds_p90": 1122.64,
+     "incomplete_usage": 6
     },
     "swe-verified-hard": {
      "runs": 1,
@@ -24826,13 +24922,6 @@
      "input_tokens": 585343.0,
      "seconds": 690.709716
     },
-    "django__django-11910": {
-     "accepted": 1,
-     "runs": 1,
-     "cost_usd": 0.283376,
-     "input_tokens": 319600.0,
-     "seconds": 707.033582
-    },
     "django__django-12113": {
      "accepted": 1,
      "runs": 1,
@@ -24842,10 +24931,10 @@
     },
     "pylint-dev__pylint-7114": {
      "accepted": 1,
-     "runs": 1,
-     "cost_usd": 0.502699,
-     "input_tokens": 387485.0,
-     "seconds": 651.007079
+     "runs": 2,
+     "cost_usd": 0.596599,
+     "input_tokens": 350761.5,
+     "seconds": 2161.671345
     },
     "sphinx-doc__sphinx-8435": {
      "accepted": 1,
@@ -24965,6 +25054,191 @@
      "cost_usd": 0.183636,
      "input_tokens": 163266.0,
      "seconds": 372.541993
+    }
+   }
+  },
+  {
+   "id": "2026-10-15_swe-pytest_forge_diagnostic-no-version",
+   "label": "Forge diagnostic: the eight pytest patches without the generated _version.py (not counted)",
+   "agent": "forge",
+   "kind": "exploratory",
+   "date": "2026-10-15",
+   "notes": "Not counted. The eight counted Forge runs whose patch the harness could not apply carried src/_pytest/_version.py, which pip install -e . generated (fixed after the run in 33d204b). Here the same patches, with only that file left out, graded by the official harness: what Forge's own code changes do.",
+   "meta": {
+    "arch": "aarch64",
+    "budget_usd": 32.0,
+    "context_mode": "sce",
+    "docker": "29.8.0",
+    "effort": "medium",
+    "model": "anthropic/claude-opus-5.5",
+    "os": "macos",
+    "prompt_cache": true,
+    "reps": 1,
+    "tasks": [
+     {
+      "path": "tasks/swe-lite-test.json",
+      "sha256": "73106ece55654c2de08d2fe7c8c64dd4aac7424128bddda2bcaa756d011df930"
+     },
+     {
+      "path": "tasks/swe-lite.json",
+      "sha256": "e51627ee9b9773076c02c8fc2c08f78070d4bdc924693f131bda15ddb3a5b9ff"
+     },
+     {
+      "path": "tasks/swe-verified-hard.json",
+      "sha256": "41412d8806e3db7407e6c18412fc693838c641b44a0229d3de5ea339f2f56dc5"
+     },
+     {
+      "path": "tasks/swe-lite-rest.json",
+      "sha256": "88701e72534165cfac3dc2d1e12876275c211c400dd7c163882b95685000c2a5"
+     }
+    ],
+    "tool": "rift-bench",
+    "version": "0.1.0 (585ff1b)",
+    "note": "Records of the counted run with one generated file removed from their changes."
+   },
+   "files": {
+    "meta.json": "4ccf72b7b68c1fe87a1c89a830b1c1971839eec3212eb3f2118e01b0e4dd0a4c",
+    "results.jsonl": "f60a3a2420421685a797991b87970621ca23abb5451b59b6d159a08e68fac881",
+    "run.json": "9cf25f75f6f134a229c2a8645aa098e93998c7c7778fb606009bea854c510e67"
+   },
+   "overall": {
+    "runs": 8,
+    "accepted": 7,
+    "success_rate": 0.875,
+    "success_ci95": [
+     0.5291,
+     0.9776
+    ],
+    "total_cost_usd": 1.8714,
+    "cost_per_run_usd": 0.23392,
+    "cost_per_accepted_usd": 0.26734,
+    "input_tokens_mean": 234166.75,
+    "cache_read_mean": 216030.875,
+    "cache_write_mean": 18102.875,
+    "output_tokens_mean": 4916.75,
+    "turns_mean": 14.375,
+    "seconds_median": 514.19,
+    "seconds_p90": 809.82,
+    "incomplete_usage": 0
+   },
+   "by_set": {
+    "swe-lite": {
+     "runs": 1,
+     "accepted": 1,
+     "success_rate": 1.0,
+     "success_ci95": [
+      0.2065,
+      1.0
+     ],
+     "total_cost_usd": 0.1367,
+     "cost_per_run_usd": 0.13674,
+     "cost_per_accepted_usd": 0.13674,
+     "input_tokens_mean": 177224.0,
+     "cache_read_mean": 165336.0,
+     "cache_write_mean": 11862.0,
+     "output_tokens_mean": 2213.0,
+     "turns_mean": 11.0,
+     "seconds_median": 273.54,
+     "seconds_p90": 273.54,
+     "incomplete_usage": 0
+    },
+    "swe-lite-rest": {
+     "runs": 6,
+     "accepted": 6,
+     "success_rate": 1.0,
+     "success_ci95": [
+      0.6097,
+      1.0
+     ],
+     "total_cost_usd": 1.2707,
+     "cost_per_run_usd": 0.21178,
+     "cost_per_accepted_usd": 0.21178,
+     "input_tokens_mean": 196010.0,
+     "cache_read_mean": 178829.5,
+     "cache_write_mean": 17149.5,
+     "output_tokens_mean": 4391.666667,
+     "turns_mean": 13.5,
+     "seconds_median": 514.19,
+     "seconds_p90": 809.82,
+     "incomplete_usage": 0
+    },
+    "swe-verified-hard": {
+     "runs": 1,
+     "accepted": 0,
+     "success_rate": 0.0,
+     "success_ci95": [
+      0.0,
+      0.7935
+     ],
+     "total_cost_usd": 0.4639,
+     "cost_per_run_usd": 0.46393,
+     "cost_per_accepted_usd": null,
+     "input_tokens_mean": 520050.0,
+     "cache_read_mean": 489934.0,
+     "cache_write_mean": 30064.0,
+     "output_tokens_mean": 10771.0,
+     "turns_mean": 23.0,
+     "seconds_median": 309.47,
+     "seconds_p90": 309.47,
+     "incomplete_usage": 0
+    }
+   },
+   "per_task": {
+    "pytest-dev__pytest-11143": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.136741,
+     "input_tokens": 177224.0,
+     "seconds": 273.540504
+    },
+    "pytest-dev__pytest-11148": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.257985,
+     "input_tokens": 287932.0,
+     "seconds": 474.284635
+    },
+    "pytest-dev__pytest-5787": {
+     "accepted": 0,
+     "runs": 1,
+     "cost_usd": 0.463935,
+     "input_tokens": 520050.0,
+     "seconds": 309.466036
+    },
+    "pytest-dev__pytest-7373": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.284694,
+     "input_tokens": 184722.0,
+     "seconds": 985.232285
+    },
+    "pytest-dev__pytest-7432": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.157093,
+     "input_tokens": 141996.0,
+     "seconds": 764.991105
+    },
+    "pytest-dev__pytest-7490": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.283488,
+     "input_tokens": 262080.0,
+     "seconds": 809.818556
+    },
+    "pytest-dev__pytest-8906": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.139959,
+     "input_tokens": 155882.0,
+     "seconds": 478.920962
+    },
+    "pytest-dev__pytest-9359": {
+     "accepted": 1,
+     "runs": 1,
+     "cost_usd": 0.147484,
+     "input_tokens": 143448.0,
+     "seconds": 514.185646
     }
    }
   }

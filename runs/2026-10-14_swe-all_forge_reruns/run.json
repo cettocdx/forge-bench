@@ -3,5 +3,5 @@
   "agent": "forge",
   "kind": "exploratory",
   "date": "2026-10-14",
-  "notes": "Nine finished Forge runs were first set aside because their cost could not be fully measured (a web search's helper model or a provider receipt without a price) and their instance was run again. One finished run per instance is the rule, so the first finished attempt is the counted one (in the official run); these are the later attempts, graded where the full run graded them. Their traces are here: each instance's trace file was overwritten by its last attempt."
+  "notes": "Eight finished Forge runs were first set aside because their cost could not be fully measured (a web search's helper model or a provider receipt without a price) and their instance was run again. One finished run per instance is the rule, so the first finished attempt is the counted one (in the official run); these are the later attempts, graded where the full run graded them. Their traces are here: each instance's trace file was overwritten by its last attempt."
 }

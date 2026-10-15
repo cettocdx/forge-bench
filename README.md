@@ -15,22 +15,22 @@ file. You can run both agents yourself.
 ## Results
 
 <!-- results:start -->
-On large tasks (real GitHub issues in real repositories, none used to tune Forge): Forge solved 254/287 and Claude Code 259/287; Claude Code costs **1.17×** as much per solved task ($0.199 against $0.233).
+On large tasks (real GitHub issues in real repositories, none used to tune Forge): Forge solved 257/290 and Claude Code 262/290; Claude Code costs **1.16×** as much per solved task ($0.202 against $0.234).
 
-On all of SWE-bench Lite (Aider's benchmark): Forge solved 263/297 and Claude Code 270/297; Claude Code costs **1.17×** as much per solved task ($0.190 against $0.222).
+On all of SWE-bench Lite (Aider's benchmark): Forge solved 266/300 and Claude Code 273/300; Claude Code costs **1.16×** as much per solved task ($0.192 against $0.223).
 
 On small tasks: Forge solved 124/124 and Claude Code 122/124; Claude Code costs **2.59×** as much per solved task ($0.044 against $0.113).
 
 | Tasks | Agent | Accepted | Success (95% CI) | Cost / accepted | Cost / run | Input tok / run | Output tok / run | Turns | Median s |
 |---|---|---|---|---|---|---|---|---|---|
-| **Large tasks**: SWE-bench Lite without the development sample + hard Verified | Forge | 254/287 | 88.5% (84–92%) | $0.1987 | $0.1758 | 153,383 | 3,659 | 9.92 | 373 |
-|  | Claude Code | 259/287 | 90.2% (86–93%) | $0.2332 | $0.2104 | 239,694 | 2,978 | 8.46 | 36 |
-| **SWE-bench Lite, all 300** (Aider's benchmark) | Forge | 263/297 | 88.5% (84–92%) | $0.1902 | $0.1684 | 146,528 | 3,512 | 9.72 | 354 |
-|  | Claude Code | 270/297 | 90.9% (87–94%) | $0.2222 | $0.2020 | 229,498 | 2,814 | 8.18 | 35 |
-| SWE-bench Verified, hard (10) | Forge | 7/10 | 70.0% (40–89%) | $0.4670 | $0.3269 | 295,800 | 7,138 | 14.00 | 230 |
+| **Large tasks**: SWE-bench Lite without the development sample + hard Verified | Forge | 257/290 | 88.6% (84–92%) | $0.2018 | $0.1788 | 158,713 | 3,707 | 10.07 | 373 |
+|  | Claude Code | 262/290 | 90.3% (86–93%) | $0.2337 | $0.2111 | 240,781 | 2,990 | 8.50 | 36 |
+| **SWE-bench Lite, all 300** (Aider's benchmark) | Forge | 266/300 | 88.7% (85–92%) | $0.1918 | $0.1700 | 148,628 | 3,543 | 9.80 | 357 |
+|  | Claude Code | 273/300 | 91.0% (87–94%) | $0.2228 | $0.2027 | 230,651 | 2,827 | 8.22 | 35 |
+| SWE-bench Verified, hard (10) | Forge | 7/10 | 70.0% (40–89%) | $0.5251 | $0.3676 | 389,427 | 7,635 | 15.80 | 230 |
 |  | Claude Code | 7/10 | 70.0% (40–89%) | $0.5705 | $0.3993 | 466,944 | 6,601 | 12.50 | 81 |
-| SWE-bench Lite, the other 260 | Forge | 227/257 | 88.3% (84–92%) | $0.1921 | $0.1697 | 147,480 | 3,516 | 9.73 | 409 |
-|  | Claude Code | 234/257 | 91.0% (87–94%) | $0.2209 | $0.2011 | 228,348 | 2,792 | 8.28 | 35 |
+| SWE-bench Lite, the other 260 | Forge | 230/260 | 88.5% (84–92%) | $0.1939 | $0.1716 | 149,891 | 3,552 | 9.83 | 414 |
+|  | Claude Code | 237/260 | 91.1% (87–94%) | $0.2216 | $0.2020 | 229,691 | 2,808 | 8.32 | 35 |
 | SWE-bench Lite, fresh sample (20) | Forge | 20/20 | 100.0% (84–100%) | $0.1791 | $0.1791 | 158,035 | 3,756 | 10.35 | 215 |
 |  | Claude Code | 18/20 | 90.0% (70–97%) | $0.2619 | $0.2357 | 271,874 | 3,559 | 8.80 | 49 |
 | Fresh sample, never looked at (19) | Forge | 19/19 | 100.0% (83–100%) | $0.1828 | $0.1828 | 160,128 | 3,831 | 10.32 | 183 |
@@ -45,10 +45,10 @@ On small tasks: Forge solved 124/124 and Claude Code 122/124; Claude Code costs 
 |  | Claude Code | 16/16 | 100.0% (81–100%) | $0.1205 | $0.1205 | 106,207 | 1,524 | 4.75 | 18 |
 | Polyglot · Python (34) | Forge | 68/68 | 100.0% (95–100%) | $0.0484 | $0.0484 | 21,357 | 1,496 | 2.65 | 24 |
 |  | Claude Code | 66/68 | 97.1% (90–99%) | $0.1216 | $0.1180 | 84,817 | 1,488 | 3.53 | 17 |
-| All tasks | Forge | 394/431 | 91.4% (88–94%) | $0.1490 | $0.1362 | 113,722 | 2,972 | 7.86 | 224 |
-|  | Claude Code | 399/431 | 92.6% (90–95%) | $0.1949 | $0.1804 | 194,357 | 2,483 | 7.06 | 27 |
+| All tasks | Forge | 397/434 | 91.5% (88–94%) | $0.1514 | $0.1385 | 117,558 | 3,008 | 7.97 | 228 |
+|  | Claude Code | 402/434 | 92.6% (90–95%) | $0.1955 | $0.1811 | 195,396 | 2,495 | 7.10 | 27 |
 
-Official runs only, pooled from `runs/` and computed by `harness/summarize.py` on 2026-10-14. Every other run (earlier builds, ablations) is in `runs/` too; see `results/summary.json`.
+Official runs only, pooled from `runs/` and computed by `harness/summarize.py` on 2026-10-15. Every other run (earlier builds, ablations) is in `runs/` too; see `results/summary.json`.
 <!-- results:end -->
 
 ## What's in here

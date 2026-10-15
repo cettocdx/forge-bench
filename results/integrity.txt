@@ -5,8 +5,8 @@
 2026-10-13_polyglot_ablation-forge-effort-low: 34 runs, 0 problems; agent end states {'UNVERIFIED': 34}
 2026-10-13_polyglot_ablation-forge-sonnet: 34 runs, 0 problems; agent end states {'UNVERIFIED': 34}
 2026-10-13_rift28_claude-code_r2: 56 runs, 0 problems; agent end states {'success': 56}
-2026-10-13_swe-all_forge_r1: 309 runs, 0 problems; agent end states {'FAILED': 18, 'INTERRUPTED': 1, 'UNVERIFIED': 290}; 9 with incomplete usage (cost a lower bound); left out for every agent (gold patch does not resolve here): psf__requests-1963, psf__requests-2317, sympy__sympy-13146
-2026-10-13_swe-lite-rest_claude-code_r1: 260 runs, 0 problems; agent end states {'success': 260}; left out for every agent (gold patch does not resolve here): psf__requests-1963, psf__requests-2317, sympy__sympy-13146
+2026-10-13_swe-all_forge_r1: 309 runs, 0 problems; agent end states {'FAILED': 17, 'RUNNING': 1, 'UNVERIFIED': 291}; 8 with incomplete usage (cost a lower bound)
+2026-10-13_swe-lite-rest_claude-code_r1: 260 runs, 0 problems; agent end states {'success': 260}
 2026-10-13_swe-lite-test_claude-code_r1: 20 runs, 0 problems; agent end states {'success': 20}
 2026-10-13_swe-lite_claude-code_r1: 20 runs, 0 problems; agent end states {'success': 20}
 2026-10-13_swe-verified-hard_claude-code_r1: 10 runs, 0 problems; agent end states {'success': 10}

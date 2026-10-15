@@ -51,8 +51,13 @@ def main():
             # (one finished run per instance); its cost is a lower bound, and the count is reported.
             # Reaching its own deadline is how a run ends, and counts against it; a run cut off by the
             # provider, or still running when stopped, did not finish.
-            if r.get('state') == 'RUNNING' or (r.get('state') == 'INTERRUPTED' and 'deadline' not in str(r.get('reason'))):
+            # Still running when the runner's hour ran out is a timeout (a result, as Claude Code's 'timeout').
+            if (r.get('state') == 'RUNNING' and (r.get('seconds') or 0) < 3590) or (r.get('state') == 'INTERRUPTED' and 'deadline' not in str(r.get('reason'))):
                 bad.append(f'{where}: stopped before it finished ({r.get("state")}: {r.get("reason")})')
+            # Forge's deadline is wall-clock (an hour) while the run's own clock stops when the Mac sleeps:
+            # reaching it in less than an hour of run time means the machine slept, not that the agent ran out.
+            if 'deadline' in str(r.get('reason')) and (r.get('seconds') or 0) < 3500:
+                bad.append(f'{where}: reached the wall-clock deadline after {r.get("seconds"):.0f} s of run time (the machine slept)')
             if 'gold_valid' in r or r.get('set', '').startswith('swe'):
                 if r.get('grade_detail') not in GRADED:
                     bad.append(f'{where}: no verdict from the SWE-bench harness ({r.get("grade_detail")!r})')

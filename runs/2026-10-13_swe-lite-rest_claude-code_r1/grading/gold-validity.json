@@ -16415,12 +16415,12 @@
   }
  },
  "psf__requests-1963": {
-  "resolved": false,
+  "resolved": true,
   "report": {
    "patch_is_None": false,
    "patch_exists": true,
    "patch_successfully_applied": true,
-   "resolved": false,
+   "resolved": true,
    "infra_failure": false,
    "tests_status": {
     "FAIL_TO_PASS": {
@@ -16484,6 +16484,7 @@
       "test_requests.py::RequestsTestCase::test_no_content_length",
       "test_requests.py::RequestsTestCase::test_oddball_schemes_dont_check_URLs",
       "test_requests.py::RequestsTestCase::test_params_are_added_before_fragment",
+      "test_requests.py::RequestsTestCase::test_params_are_merged_case_sensitive",
       "test_requests.py::RequestsTestCase::test_path_is_not_double_encoded",
       "test_requests.py::RequestsTestCase::test_prepared_from_session",
       "test_requests.py::RequestsTestCase::test_prepared_request_hook",
@@ -16508,6 +16509,7 @@
       "test_requests.py::RequestsTestCase::test_unicode_multipart_post_fieldnames",
       "test_requests.py::RequestsTestCase::test_uppercase_scheme_redirect",
       "test_requests.py::RequestsTestCase::test_urlencoded_get_query_multivalued_param",
+      "test_requests.py::RequestsTestCase::test_user_agent_transfers",
       "test_requests.py::TestContentEncodingDetection::test_html4_pragma",
       "test_requests.py::TestContentEncodingDetection::test_html_charset",
       "test_requests.py::TestContentEncodingDetection::test_none",
@@ -16548,10 +16550,7 @@
       "test_requests.py::TestMorselToCookieMaxAge::test_max_age_valid_int",
       "test_requests.py::TestTimeout::test_stream_timeout"
      ],
-     "failure": [
-      "test_requests.py::RequestsTestCase::test_params_are_merged_case_sensitive",
-      "test_requests.py::RequestsTestCase::test_user_agent_transfers"
-     ]
+     "failure": []
     },
     "FAIL_TO_FAIL": {
      "success": [],
@@ -16723,12 +16722,12 @@
   }
  },
  "psf__requests-2317": {
-  "resolved": false,
+  "resolved": true,
   "report": {
    "patch_is_None": false,
    "patch_exists": true,
    "patch_successfully_applied": true,
-   "resolved": false,
+   "resolved": true,
    "infra_failure": false,
    "tests_status": {
     "FAIL_TO_PASS": {
@@ -16807,6 +16806,7 @@
       "test_requests.py::RequestsTestCase::test_prepared_from_session",
       "test_requests.py::RequestsTestCase::test_prepared_request_hook",
       "test_requests.py::RequestsTestCase::test_pyopenssl_redirect",
+      "test_requests.py::RequestsTestCase::test_redirect_with_wrong_gzipped_header",
       "test_requests.py::RequestsTestCase::test_request_and_response_are_pickleable",
       "test_requests.py::RequestsTestCase::test_request_cookie_overrides_session_cookie",
       "test_requests.py::RequestsTestCase::test_request_cookies_not_persisted",
@@ -16879,9 +16879,7 @@
       "test_requests.py::test_prepared_request_complete_copy",
       "test_requests.py::test_prepare_unicode_url"
      ],
-     "failure": [
-      "test_requests.py::RequestsTestCase::test_redirect_with_wrong_gzipped_header"
-     ]
+     "failure": []
     },
     "FAIL_TO_FAIL": {
      "success": [],
@@ -25230,19 +25228,19 @@
   }
  },
  "sympy__sympy-13146": {
-  "resolved": false,
+  "resolved": true,
   "report": {
    "patch_is_None": false,
    "patch_exists": true,
    "patch_successfully_applied": true,
-   "resolved": false,
+   "resolved": true,
    "infra_failure": false,
    "tests_status": {
     "FAIL_TO_PASS": {
-     "success": [],
-     "failure": [
+     "success": [
       "test_evalf_bugs"
-     ]
+     ],
+     "failure": []
     },
     "PASS_TO_PASS": {
      "success": [

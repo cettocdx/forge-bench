@@ -3,5 +3,5 @@
   "agent": "forge",
   "kind": "official",
   "date": "2026-10-13",
-  "notes": "Forge through the published rift-bench build on all 300 SWE-bench Lite instances and the 10 hard Verified ones, one finished run each, graded by the official harness. Nine of them are the first finished attempt of an instance that was run again only because the cost could not be fully measured (see the re-runs run): their cost is a lower bound (usage_complete false) and their traces were overwritten by the re-runs."
+  "notes": "Forge through the published rift-bench build on all 300 SWE-bench Lite instances and the 10 hard Verified ones, one finished run each, graded by the official harness. Eight of them are the first finished attempt of an instance that was run again only because the cost could not be fully measured (see the re-runs run): their cost is a lower bound (usage_complete false) and their traces were overwritten by the re-runs. astropy__astropy-13398 is its run made again after the Mac slept through the first one (see METHODOLOGY.md)."
 }
