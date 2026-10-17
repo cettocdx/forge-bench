@@ -1,0 +1,7 @@
+{
+  "label": "Forge SWE-bench on GPT-6 Astra: infrastructure errors",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-17",
+  "notes": "Five runs our OpenRouter credit cut off (402) partway, after 1 to 12 model calls; each was run again."
+}

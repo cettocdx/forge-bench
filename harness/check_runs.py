@@ -8,7 +8,7 @@ For every official and ablation run in runs/:
     patch or a patch the harness could not apply), its instance's gold patch was graded with a harness
     report (an instance whose gold patch fails is left out for every agent, and listed), and the
     harness's own report (or, for a patch it could not apply, its log) is in grading/;
-And for the official comparison:
+And for each official comparison (with Claude Code, and with Codex on GPT-6 Astra, run.json "comparison"):
   - both agents ran exactly the same tasks, the same number of times, in every task set.
 
 An agent's own end state (Forge's SUCCEEDED / UNVERIFIED / FAILED, Claude Code's success) is its claim
@@ -34,7 +34,8 @@ def records(d):
 
 
 def main():
-    problems, lines, plan = [], [], collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
+    problems, lines = [], []
+    plan = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(collections.Counter)))
     for d in sorted(p for p in (ROOT / 'runs').iterdir() if p.is_dir()):
         info = json.loads((d / 'run.json').read_text())
         if info['kind'] not in ('official', 'ablation'):
@@ -59,6 +60,10 @@ def main():
             if 'deadline' in str(r.get('reason')) and (r.get('seconds') or 0) < 3500:
                 bad.append(f'{where}: reached the wall-clock deadline after {r.get("seconds"):.0f} s of run time (the machine slept)')
             if 'gold_valid' in r or r.get('set', '').startswith('swe'):
+                # A SWE-bench instance is solved from its repository alone: on the web its fix is a search away.
+                web = {k: v for k, v in (r.get('tools') or {}).items() if k in ('web_search', 'web_read', 'github_repo') and v}
+                if web or r.get('web') is True:
+                    bad.append(f'{where}: used the web on a SWE-bench task ({web or "web on"})')
                 if r.get('grade_detail') not in GRADED:
                     bad.append(f'{where}: no verdict from the SWE-bench harness ({r.get("grade_detail")!r})')
                 if not r.get('gold_valid'):
@@ -72,20 +77,21 @@ def main():
                 if r.get('grade_detail') == 'patch does not apply' and not (d / 'grading' / 'reports' / f"{r['task']}.patch-apply-failed.log").exists():
                     bad.append(f'{where}: the harness log of the patch it could not apply is missing from grading/')
             if info['kind'] == 'official':
-                plan[r.get('set')][info['agent']][r['task']] += 1
+                plan[info.get('comparison', 'claude')][r.get('set')][info['agent']][r['task']] += 1
         problems += bad
         states = collections.Counter(str(r.get('state')) for r in rs)
         partial = sum(r.get('usage_complete') is False for r in rs)
         lines.append(f"{d.name}: {len(rs)} runs, {len(bad)} problems; agent end states {dict(sorted(states.items()))}"
                      + (f'; {partial} with incomplete usage (cost a lower bound)' if partial else '')
                      + (f"; left out for every agent (gold patch does not resolve here): {', '.join(sorted(left_out))}" if left_out else ''))
-    for s, agents in sorted(plan.items(), key=lambda kv: str(kv[0])):
-        runs = {a: dict(c) for a, c in agents.items()}
-        if len(runs) != 2 or len({json.dumps(c, sort_keys=True) for c in runs.values()}) != 1:
-            problems.append(f'set {s}: the agents did not run the same tasks the same number of times')
-        else:
-            c = next(iter(runs.values()))
-            lines.append(f"set {s}: both agents ran the same {len(c)} tasks, {sum(c.values())} runs each")
+    for comparison, sets in sorted(plan.items()):
+        for s, agents in sorted(sets.items(), key=lambda kv: str(kv[0])):
+            runs = {a: dict(c) for a, c in agents.items()}
+            if len(runs) != 2 or len({json.dumps(c, sort_keys=True) for c in runs.values()}) != 1:
+                problems.append(f'{comparison} set {s}: the agents did not run the same tasks the same number of times')
+            else:
+                c = next(iter(runs.values()))
+                lines.append(f"{comparison} set {s}: both agents ran the same {len(c)} tasks, {sum(c.values())} runs each")
     report = '\n'.join(lines + [''] + (['PROBLEMS:'] + problems if problems else ['No infrastructure error in any counted run of either agent.'])) + '\n'
     (ROOT / 'results' / 'integrity.txt').write_text(report)
     print(report, end='')

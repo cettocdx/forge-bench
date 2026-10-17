@@ -1,0 +1,20 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 5.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "medium",
+  "model": "openai/gpt-6-astra",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (4b21037)",
+  "note": "Filter py_bowling,py_connect,py_forth."
+}

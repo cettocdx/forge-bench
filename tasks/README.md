@@ -6,6 +6,7 @@
 | `swe-lite-test.json` | 20 | The fresh sample of [SWE-bench Lite](https://www.swebench.com) (seed 20261014, none from the development sample): real GitHub issues in Django, SymPy, pytest, scikit-learn, Matplotlib and Flask. |
 | `swe-lite-rest.json` | 260 | The rest of SWE-bench Lite: the 260 instances in neither 20-instance sample, so the three Lite files together are all 300. |
 | `swe-verified-hard.json` | 10 | Hard instances of SWE-bench Verified (seed 20261015): of the 45 its annotators estimate take an engineer one to four hours or more, none from the Lite samples. Astropy, Django, pylint, pytest, Sphinx, SymPy. |
+| `swe-lite-rest-20.json` | 20 | A sample of `swe-lite-rest.json` (seed 20261017, `sympy__sympy-17630` left out as it is also a hard instance), drawn before any run on it: with the fresh and hard samples it is the 50-instance set of the comparison with Codex on GPT-6 Astra. |
 | `swe-lite.json` | 20 | The development sample of SWE-bench Lite (seed 20261013): Django, SymPy, Matplotlib, pytest and Sphinx. Forge's problems on large repositories were found and fixed on it (see METHODOLOGY.md). |
 | `polyglot-py.json` | 34 | The Python half of [Aider's polyglot benchmark](https://github.com/Aider-AI/polyglot-benchmark) (Exercism exercises). Not stored here: build it, then check its hash. |
 

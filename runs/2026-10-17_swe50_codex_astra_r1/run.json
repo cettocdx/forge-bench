@@ -1,0 +1,8 @@
+{
+  "label": "Codex",
+  "agent": "codex",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Codex through harness/run_codex.py on the same 50 SWE-bench instances with openai/gpt-6-astra at medium effort, one finished run each, web_search disabled, graded by the official harness together with Forge and the gold patch.",
+  "comparison": "astra"
+}

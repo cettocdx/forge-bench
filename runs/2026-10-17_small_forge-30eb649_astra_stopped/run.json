@@ -1,0 +1,7 @@
+{
+  "label": "Forge 30eb649 on GPT-6 Astra, stopped",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-17",
+  "notes": "Forge's first 40 small-task runs on GPT-6 Astra with 30eb649, stopped when they showed the bug 4b21037 fixes: the delivery contract read \"html\" in links to Python's docs and \"Score a bowling game\" as a browser game, and Astra (unlike Claude) used the browser tools it was then offered, so py_bowling took 1,035 s and $1.27. Not counted; the comparison ran Forge again from the start on 4b21037."
+}

@@ -1,0 +1,252 @@
+{
+ "Forge|1|astropy__astropy-13398": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-13579": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14365": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|astropy__astropy-14369": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-11422": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-12284": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13158": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13449": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-13837": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14155": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14667": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-14997": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15400": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15738": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15851": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-15996": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16046": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|django__django-16139": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|matplotlib__matplotlib-24265": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|mwaskom__seaborn-3190": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pallets__flask-5063": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pydata__xarray-5131": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-4551": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pylint-dev__pylint-8898": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5221": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5413": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-5787": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-6116": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-8365": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|pytest-dev__pytest-9359": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-12471": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13142": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13496": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|scikit-learn__scikit-learn-13584": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sphinx-doc__sphinx-11510": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-12419": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13471": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13647": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-13915": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-14317": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-16503": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17630": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-17655": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-18087": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20212": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-20590": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21612": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-21627": {
+  "resolved": true,
+  "why": "resolved",
+  "applied": true
+ },
+ "Forge|1|sympy__sympy-24909": {
+  "resolved": false,
+  "why": "not resolved",
+  "applied": true
+ }
+}

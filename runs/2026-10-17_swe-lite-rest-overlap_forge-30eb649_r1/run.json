@@ -1,0 +1,7 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Forge (30eb649) on sympy__sympy-17630 as a SWE-bench Lite instance: it is also one of the 10 hard Verified instances, and the main run kept one run per instance id. Same build and settings, graded against SWE-bench Lite."
+}

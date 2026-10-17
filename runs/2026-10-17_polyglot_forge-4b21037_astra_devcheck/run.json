@@ -1,0 +1,7 @@
+{
+  "label": "Forge 4b21037 on GPT-6 Astra: check of the fix",
+  "agent": "forge",
+  "kind": "exploratory",
+  "date": "2026-10-17",
+  "notes": "The three exercises the fix was made for (py_bowling, py_connect, py_forth), run once with 4b21037 before the comparison restarted. Not counted."
+}

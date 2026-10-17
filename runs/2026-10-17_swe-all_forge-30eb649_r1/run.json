@@ -1,0 +1,7 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Forge through rift-bench 30eb649 on every SWE-bench instance of the comparison (the fresh, hard and development samples and the 260 other Lite instances), one finished run each, graded by the official harness, with no web on any of them. Runs our OpenRouter credit cut off (402) were set aside and run again (see the infrastructure-error run). A first full run of 30eb649 on 16 October was lost before it was published: a restart of the Mac cleared the temporary folder that held its records. It was run again in full with the same binary (sha256 2a49612a...) and the same settings; only the run again counts, and the lost one is described in METHODOLOGY.md."
+}

@@ -1,0 +1,57 @@
+{
+  "tool": "run_codex.py",
+  "agent": "codex",
+  "agent_version": "codex-cli 0.159.2",
+  "os": "darwin",
+  "arch": "arm64",
+  "docker": "29.8.0",
+  "model": "openai/gpt-6-astra",
+  "effort": "medium",
+  "provider": "openrouter",
+  "prices_usd_per_token": {
+    "prompt": 1e-05,
+    "completion": 5e-05,
+    "input_cache_read": 1e-06,
+    "input_cache_write": 1.25e-05,
+    "overrides": [
+      {
+        "min_prompt_tokens": 272000,
+        "prompt": "0.00002",
+        "completion": "0.000075",
+        "input_cache_read": "0.000002",
+        "input_cache_write": "0.000025"
+      }
+    ]
+  },
+  "flags": [
+    "--json",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "--ignore-rules",
+    "-s",
+    "workspace-write",
+    "--disable apps",
+    "--disable plugins",
+    "--disable browser_use",
+    "--disable browser_use_external",
+    "--disable computer_use",
+    "--disable in_app_browser"
+  ],
+  "codex_home": "fresh and empty per run",
+  "swe_tasks_without": [
+    "web_search (web_search = \"disabled\")"
+  ],
+  "reps": 2,
+  "tasks": [
+    {
+      "path": "tasks/rift-28.json",
+      "sha256": "55ae5eedb909ae5e7b7c07ea7df194c47737c2b6cce9a233699a9b0e09686b5f"
+    },
+    {
+      "path": "tasks/polyglot-py.json",
+      "sha256": "d35e792aa027941fdf4693d1c87966de852b57a50f3aac086726912eba37e641"
+    }
+  ],
+  "budget_usd": 50.0,
+  "note": "astra-30eb649/orchestrate.py, stage small."
+}

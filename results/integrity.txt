@@ -1,22 +1,32 @@
 2026-10-12_polyglot_claude-code_r2: 68 runs, 0 problems; agent end states {'success': 68}
-2026-10-13_all_forge_rift-bench_r2: 124 runs, 0 problems; agent end states {'SUCCEEDED': 55, 'UNVERIFIED': 69}
 2026-10-13_polyglot_ablation-claude-effort-low: 34 runs, 0 problems; agent end states {'success': 34}
 2026-10-13_polyglot_ablation-claude-sonnet: 34 runs, 0 problems; agent end states {'success': 34}
 2026-10-13_polyglot_ablation-forge-effort-low: 34 runs, 0 problems; agent end states {'UNVERIFIED': 34}
 2026-10-13_polyglot_ablation-forge-sonnet: 34 runs, 0 problems; agent end states {'UNVERIFIED': 34}
 2026-10-13_rift28_claude-code_r2: 56 runs, 0 problems; agent end states {'success': 56}
-2026-10-13_swe-all_forge_r1: 309 runs, 0 problems; agent end states {'FAILED': 17, 'RUNNING': 1, 'UNVERIFIED': 291}; 8 with incomplete usage (cost a lower bound)
 2026-10-13_swe-lite-rest_claude-code_r1: 260 runs, 0 problems; agent end states {'success': 260}
 2026-10-13_swe-lite-test_claude-code_r1: 20 runs, 0 problems; agent end states {'success': 20}
 2026-10-13_swe-lite_claude-code_r1: 20 runs, 0 problems; agent end states {'success': 20}
 2026-10-13_swe-verified-hard_claude-code_r1: 10 runs, 0 problems; agent end states {'success': 10}
-2026-10-14_swe-lite-rest-overlap_forge_r1: 1 runs, 0 problems; agent end states {'UNVERIFIED': 1}
-set hard: both agents ran the same 8 tasks, 16 runs each
-set polyglot-py: both agents ran the same 34 tasks, 68 runs each
-set standard: both agents ran the same 20 tasks, 40 runs each
-set swe-lite: both agents ran the same 20 tasks, 20 runs each
-set swe-lite-rest: both agents ran the same 260 tasks, 260 runs each
-set swe-lite-test: both agents ran the same 20 tasks, 20 runs each
-set swe-verified-hard: both agents ran the same 10 tasks, 10 runs each
+2026-10-17_all_forge_rift-bench-30eb649_r2: 124 runs, 0 problems; agent end states {'SUCCEEDED': 54, 'UNVERIFIED': 70}
+2026-10-17_small_codex_astra_r2: 124 runs, 0 problems; agent end states {'success': 124}
+2026-10-17_small_forge-4b21037_astra_r2: 124 runs, 0 problems; agent end states {'SUCCEEDED': 122, 'UNVERIFIED': 2}
+2026-10-17_swe-all_forge-30eb649_r1: 309 runs, 0 problems; agent end states {'FAILED': 16, 'UNVERIFIED': 293}
+2026-10-17_swe-lite-rest-overlap_forge-30eb649_r1: 1 runs, 0 problems; agent end states {'UNVERIFIED': 1}
+2026-10-17_swe50_codex_astra_r1: 50 runs, 0 problems; agent end states {'success': 50}
+2026-10-17_swe50_forge-4b21037_astra_r1: 50 runs, 0 problems; agent end states {'FAILED': 7, 'UNVERIFIED': 43}
+astra set hard: both agents ran the same 8 tasks, 16 runs each
+astra set polyglot-py: both agents ran the same 34 tasks, 68 runs each
+astra set standard: both agents ran the same 20 tasks, 40 runs each
+astra set swe-lite-rest: both agents ran the same 20 tasks, 20 runs each
+astra set swe-lite-test: both agents ran the same 20 tasks, 20 runs each
+astra set swe-verified-hard: both agents ran the same 10 tasks, 10 runs each
+claude set hard: both agents ran the same 8 tasks, 16 runs each
+claude set polyglot-py: both agents ran the same 34 tasks, 68 runs each
+claude set standard: both agents ran the same 20 tasks, 40 runs each
+claude set swe-lite: both agents ran the same 20 tasks, 20 runs each
+claude set swe-lite-rest: both agents ran the same 260 tasks, 260 runs each
+claude set swe-lite-test: both agents ran the same 20 tasks, 20 runs each
+claude set swe-verified-hard: both agents ran the same 10 tasks, 10 runs each
 
 No infrastructure error in any counted run of either agent.

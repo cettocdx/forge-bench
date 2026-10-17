@@ -1,0 +1,8 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Forge through rift-bench 4b21037 on 50 SWE-bench instances (the fresh and hard samples and tasks/swe-lite-rest-20.json) with openai/gpt-6-astra at medium effort, one finished run each, no web, graded by the official harness together with Codex and the gold patch.",
+  "comparison": "astra"
+}

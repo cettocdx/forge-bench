@@ -37,10 +37,12 @@ def prices_of(model):
     sys.exit(f'{model} is not in the OpenRouter model list')
 
 
-def codex_home(model, effort):
+def codex_home(model, effort, web):
     home = Path(tempfile.mkdtemp(prefix='cxhome-'))
+    # No web on SWE-bench tasks (the issue's upstream fix is a search away), as for Forge and Claude Code.
     (home / 'config.toml').write_text(
-        f'model = "{model}"\nmodel_provider = "openrouter"\nmodel_reasoning_effort = "{effort}"\n\n'
+        f'model = "{model}"\nmodel_provider = "openrouter"\nmodel_reasoning_effort = "{effort}"\n'
+        + ('' if web else 'web_search = "disabled"\n') + '\n'
         '[model_providers.openrouter]\nname = "OpenRouter"\nbase_url = "https://openrouter.ai/api/v1"\n'
         'env_key = "OPENROUTER_API_KEY"\nwire_api = "responses"\n')
     return home
@@ -81,7 +83,7 @@ def codex_version():
 
 def run_one(task, rep, args, prices):
     project = Path(tempfile.mkdtemp(prefix='cxbench-'))
-    home = codex_home(args.model, args.effort)
+    home = codex_home(args.model, args.effort, web=not task.get('swe'))
     try:
         if task.get('swe'):
             shutil.rmtree(project)
@@ -132,7 +134,7 @@ def run_one(task, rep, args, prices):
                 accepted, detail = False, 'user edit kept: False'
         line = dict(task=task['id'], set=task['set'], held_out=task['held_out'], arm='CX', rep=rep, state=state,
                     is_error=bool(failed) or (not finished and not timed_out), accepted=accepted,
-                    turns=tool_calls(events), seconds=seconds, **usage_of(events, prices))
+                    turns=tool_calls(events), seconds=seconds, web=not task.get('swe'), **usage_of(events, prices))
         if not task['allow_exec']:
             line['shell_kept'] = True
         if failed:
@@ -173,6 +175,7 @@ def main():
         'os': platform.system().lower(), 'arch': platform.machine(), 'docker': docker_version(),
         'model': args.model, 'effort': args.effort, 'provider': 'openrouter', 'prices_usd_per_token': prices,
         'flags': FLAGS + [f'--disable {f}' for f in HOST_FEATURES], 'codex_home': 'fresh and empty per run',
+        'swe_tasks_without': ['web_search (web_search = "disabled")'],
         'reps': args.reps, 'tasks': [{'path': str(args.tasks), 'sha256': hashlib.sha256(raw).hexdigest()}],
         'task_count': len(tasks), 'budget_usd': args.budget_usd, 'started_at_ms': int(time.time() * 1000),
     }, indent=2) + '\n')

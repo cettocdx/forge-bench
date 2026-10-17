@@ -1,0 +1,8 @@
+{
+  "label": "Codex",
+  "agent": "codex",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Codex through harness/run_codex.py on the Forge set and polyglot with openai/gpt-6-astra at medium effort, two repeats, the same 1,200 s deadline as Forge.",
+  "comparison": "astra"
+}

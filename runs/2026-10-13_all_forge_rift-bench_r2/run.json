@@ -1,7 +1,7 @@
 {
   "label": "Forge",
   "agent": "forge",
-  "kind": "official",
+  "kind": "exploratory",
   "date": "2026-10-13",
-  "notes": "Forge through the published rift-bench build on the Forge set and polyglot, two repeats. py_zipper repeat 2 was run again after a network outage (see the infrastructure-error run)."
+  "notes": "Forge through the published rift-bench build on the Forge set and polyglot, two repeats. py_zipper repeat 2 was run again after a network outage (see the infrastructure-error run). Superseded by 30eb649 (2026-10-17_all_forge_rift-bench-30eb649_r2)."
 }

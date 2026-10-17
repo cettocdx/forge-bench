@@ -1,0 +1,7 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Forge through rift-bench 30eb649 on the Forge set and polyglot, two repeats. A first full run of 30eb649 on 16 October was lost before it was published: a restart of the Mac cleared the temporary folder that held its records. It was run again in full with the same binary (sha256 2a49612a...) and the same settings; only the run again counts, and the lost one is described in METHODOLOGY.md."
+}

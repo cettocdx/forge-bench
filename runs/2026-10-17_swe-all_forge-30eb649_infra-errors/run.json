@@ -1,0 +1,7 @@
+{
+  "label": "Forge SWE-bench (30eb649): infrastructure errors",
+  "agent": "forge",
+  "kind": "aborted",
+  "date": "2026-10-17",
+  "notes": "Records that are not results, kept and never counted: runs our OpenRouter credit cut off (402) or the provider could not serve. Each instance was run again and its next finished run counts."
+}

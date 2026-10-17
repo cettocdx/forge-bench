@@ -1,0 +1,8 @@
+{
+  "label": "Forge",
+  "agent": "forge",
+  "kind": "official",
+  "date": "2026-10-17",
+  "notes": "Forge through rift-bench 4b21037 (30eb649 plus the fix this comparison found, see the stopped run) on the Forge set and polyglot with openai/gpt-6-astra at medium effort, two repeats.",
+  "comparison": "astra"
+}

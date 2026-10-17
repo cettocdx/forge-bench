@@ -1,0 +1,28 @@
+{
+  "arch": "aarch64",
+  "budget_usd": 60.0,
+  "context_mode": "sce",
+  "docker": "29.8.0",
+  "effort": "medium",
+  "model": "openai/gpt-6-astra",
+  "os": "macos",
+  "prompt_cache": true,
+  "reps": 1,
+  "tasks": [
+    {
+      "path": "tasks/swe-lite-test.json",
+      "sha256": "73106ece55654c2de08d2fe7c8c64dd4aac7424128bddda2bcaa756d011df930"
+    },
+    {
+      "path": "tasks/swe-verified-hard.json",
+      "sha256": "41412d8806e3db7407e6c18412fc693838c641b44a0229d3de5ea339f2f56dc5"
+    },
+    {
+      "path": "tasks/swe-lite-rest-20.json",
+      "sha256": "97e98a45bc7b8c3b1b328d87beca1e080e078f0c646ccb757e5da069f9867ba2"
+    }
+  ],
+  "tool": "rift-bench",
+  "version": "0.1.0 (4b21037)",
+  "note": "The set-aside records."
+}

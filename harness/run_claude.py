@@ -88,8 +88,10 @@ def run_one(task, rep, args):
                '--output-format', 'json', '--permission-mode', 'bypassPermissions',
                '--setting-sources', 'project', '--strict-mcp-config', '--disable-slash-commands',
                '--no-session-persistence', '--settings', json.dumps(SETTINGS)]
-        if not task['allow_exec']:
-            cmd += ['--disallowedTools', 'Bash']
+        # SWE-bench is solved from the repository alone, as rift-bench runs Forge on it (no web tools).
+        disallowed = ([] if task['allow_exec'] else ['Bash']) + (['WebSearch', 'WebFetch'] if task.get('swe') else [])
+        if disallowed:
+            cmd += ['--disallowedTools', *disallowed]
         started = time.monotonic()
         proc = subprocess.Popen(cmd, cwd=project, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE, text=True, env=child_env())
@@ -160,6 +162,7 @@ def main():
         'model': args.model, 'effort': args.effort, 'settings': SETTINGS,
         'flags': ['--permission-mode', 'bypassPermissions', '--setting-sources', 'project', '--strict-mcp-config',
                   '--disable-slash-commands', '--no-session-persistence'],
+        'swe_tasks_without': ['WebSearch', 'WebFetch'],
         'reps': args.reps, 'tasks': [{'path': str(args.tasks), 'sha256': hashlib.sha256(raw).hexdigest()}],
         'task_count': len(tasks), 'budget_usd': args.budget_usd, 'started_at_ms': int(time.time() * 1000),
     }, indent=2) + '\n')
